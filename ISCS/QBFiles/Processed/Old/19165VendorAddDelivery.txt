@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T19:51:27</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <VendorAddRq requestID="1">
+                 <VendorAdd><Name>C.H. Powell - BOS</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>440 McClellan Highway</Addr1> <Addr2 /> <City>East Boston</City> <State>MA</State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone>617 569-4400 x 7007</Phone> <Mobile /> <AltPhone /> <Fax>617-561-0382</Fax> <Email></Email> <Contact>Bob Gelinas</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>C.H. Powell - BOS</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+
+                  </QBXMLMsgsRq> 
+                  </QBXML>

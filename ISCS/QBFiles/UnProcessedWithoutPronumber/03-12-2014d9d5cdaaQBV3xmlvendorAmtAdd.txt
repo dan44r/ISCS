@@ -1,0 +1,1 @@
+<Bill xmlns="http://schema.intuit.com/finance/v3" ><Line><Id>1</Id><Amount>438.17</Amount><Description></Description><DetailType>AccountBasedExpenseLineDetail</DetailType><AccountBasedExpenseLineDetail><AccountRef>31</AccountRef></AccountBasedExpenseLineDetail></Line><TxnDate>2014-12-03</TxnDate><VendorRef>QWE Logistics, Inc.</VendorRef><DocNumber></DocNumber></Bill>

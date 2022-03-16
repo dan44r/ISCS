@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T17:05:28</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Alpha-Fry Electronics/Cookson Electro</Name><CompanyName>Alpha-Fry Electronics/Cookson Electro</CompanyName><FirstName>Tom</FirstName><LastName>Tom</LastName><BillAddress><Addr1>4100 6th Avenue</Addr1><Addr2></Addr2><Addr3></Addr3><City>Altoona</City><State>Pennsylvania</State><PostalCode>16602</PostalCode><Country>United States</Country></BillAddress><Phone>814 941-1689</Phone><AltPhone></AltPhone><Fax>814 946-0753</Fax><Email>test@iscs.com</Email><Contact>Tom</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+
+                                  </QBXMLMsgsRq> 
+                                  </QBXML>

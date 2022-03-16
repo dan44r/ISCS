@@ -1,0 +1,1 @@
+<Bill xmlns="http://schema.intuit.com/finance/v3" ><Line><Id>1</Id><Amount>494.07</Amount><Description></Description><DetailType>AccountBasedExpenseLineDetail</DetailType><AccountBasedExpenseLineDetail><AccountRef>31</AccountRef></AccountBasedExpenseLineDetail></Line><TxnDate>2014-12-12</TxnDate><VendorRef>Roadtex</VendorRef><DocNumber></DocNumber></Bill>

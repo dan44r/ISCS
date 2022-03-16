@@ -1,0 +1,60 @@
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>test</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>test</Addr1> <Addr2 /> <City>test</City> <State>MS</State> <PostalCode>333</PostalCode> <Country /> </VendorAddress><Phone>333</Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email>test@test.com</Email> <Contact>ffff</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>test</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>test</FullName> </VendorRef><TxnDate>2011-06-09</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Union Abrasives</Name><CompanyName>Union Abrasives</CompanyName><FirstName>Sylvester</FirstName><LastName>Staniszewski</LastName><BillAddress><Addr1>50 D"Angelo Drive</Addr1><Addr2></Addr2><Addr3></Addr3><City>Marlboro</City><State>Massachusetts</State><PostalCode>01752</PostalCode><Country>United States</Country></BillAddress><Phone>508 460-0012</Phone><AltPhone></AltPhone><Fax>508 460-0208</Fax><Email>test@iscs.com</Email><Contact>Sylvester Staniszewski</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Union Abrasives</FullName></CustomerRef><TxnDate>2011-06-09</TxnDate><RefNumber>YYY11060901</RefNumber><BillAddress><Addr1>50 D"Angelo Drive</Addr1><City>Marlboro</City><State>Massachusetts</State><PostalCode>01752</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 2 lbs shipped from Union Abrasives in Marlboro, Massachusetts to Warwick Mills in New Ipswitch using International Air, Economy, DTD (Door to Door)</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>

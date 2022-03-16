@@ -1,0 +1,3 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>125.00</Amount><Description>1 @ 550 lbs shipped from Fortune Metal Finishing in Needham Heights, Massachusetts to Checon in N. Attleboro, Massachusetts using Domestic Ground, LTL (Less Than Load)</Description><DetailType>SalesItemLineDetail</DetailType><SalesItemLineDetail><ItemRef>1</ItemRef><Qty>1</Qty><UnitPrice>125.00</UnitPrice></SalesItemLineDetail></Line><CustomerRef>Checon Corporation</CustomerRef><DocNumber>CHE14120501</DocNumber></Invoice>

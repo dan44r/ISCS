@@ -1,0 +1,3 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>451.36</Amount><Description>138 @ 2448 lbs shipped from AMERICAN GOURMET GROUP in WORCESTER, Massachusetts to UNIVERSAL SALES ASSOCIATES in BETHPAGE, New York using Domestic Ground, LTL (Less Than Load)</Description><DetailType>SalesItemLineDetail</DetailType><SalesItemLineDetail><ItemRef>1</ItemRef><Qty>1</Qty><UnitPrice>451.36</UnitPrice></SalesItemLineDetail></Line><CustomerRef>Hebert</CustomerRef><DocNumber>AMG14121101</DocNumber></Invoice>

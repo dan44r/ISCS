@@ -1,0 +1,1 @@
+<Bill xmlns="http://schema.intuit.com/finance/v3" ><TxnDate>2014-11-24</TxnDate><VendorRef>QWE Logistics, Inc.</VendorRef><DocNumber>123456</DocNumber></Bill>

@@ -1,0 +1,3 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>757.47</Amount><Description>5 @ 1350 lbs shipped from Boston Scientific in Marlborough, Massachusetts to Marriott Marquis in New York, New York using Domestic Ground, LTL (Less Than Load)</Description><DetailType>SalesItemLineDetail</DetailType><SalesItemLineDetail><ItemRef>1</ItemRef><Qty>1</Qty><UnitPrice>757.47</UnitPrice></SalesItemLineDetail></Line><CustomerRef>Boston Scientific</CustomerRef><DocNumber>BSC14121001</DocNumber></Invoice>

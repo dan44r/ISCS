@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T20:02:56</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Vinyl Molding</Name><CompanyName>Vinyl Molding</CompanyName><FirstName>Receiving</FirstName><LastName>Receiving</LastName><BillAddress><Addr1>6302 West Farm Road 84</Addr1><Addr2></Addr2><Addr3></Addr3><City>Sprinfield</City><State>Missouri</State><PostalCode>65803</PostalCode><Country>United States</Country></BillAddress><Phone>xxx.xxx.xxxx</Phone><AltPhone></AltPhone><Fax></Fax><Email>test@iscs.com</Email><Contact>Receiving</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+
+                                  </QBXMLMsgsRq> 
+                                  </QBXML>

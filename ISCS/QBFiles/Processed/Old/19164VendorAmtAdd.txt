@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T19:46:28</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Bailey's</FullName> </VendorRef><TxnDate>2011-04-26</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+                  </QBXMLMsgsRq> 
+                  </QBXML>

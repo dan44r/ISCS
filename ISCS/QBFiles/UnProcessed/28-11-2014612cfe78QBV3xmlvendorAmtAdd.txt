@@ -1,0 +1,1 @@
+<Bill xmlns="http://schema.intuit.com/finance/v3" ><TxnDate>2014-11-28</TxnDate><VendorRef>Roadtex</VendorRef><DocNumber>3452055</DocNumber></Bill>

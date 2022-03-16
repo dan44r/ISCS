@@ -1,0 +1,168 @@
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>3PL Integration</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>3PL Integration</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>3PL Integration</FullName> </VendorRef><TxnDate>2014-11-26</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Synergy Sportz d/b/a Yukon Charlies</Name><CompanyName>Synergy Sportz d/b/a Yukon Charlies</CompanyName><BillAddress></BillAddress><Email>OPS@3PLINTEGRATION</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Synergy Sportz d/b/a Yukon Charlies</FullName></CustomerRef><TxnDate>2014-11-26</TxnDate><RefNumber>YCC14112601</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>102 @ 4794 lbs shipped from 3PL Integration in S. DENNIS, Massachusetts to United Warehouses in Kent, Washington using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>102</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Fleet</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Fleet</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Fleet</FullName> </VendorRef><TxnDate>2014-11-26</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Synergy Sportz d/b/a Yukon Charlies</Name><CompanyName>Synergy Sportz d/b/a Yukon Charlies</CompanyName><BillAddress></BillAddress><Email>lisa_scheild@unitedwarehouses.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Synergy Sportz d/b/a Yukon Charlies</FullName></CustomerRef><TxnDate>2014-11-26</TxnDate><RefNumber>YCC14112602</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>240 @ 14280 lbs shipped from United Warehouses in Kent, Washington to Costco Sumner Depot in Sumner, Washington using Domestic Ground, FTL (Full Truck Load)</Desc><Quantity>240</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>CN Rail</FullName> </VendorRef><TxnDate>2014-11-26</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Synergy Sportz d/b/a Yukon Charlies</Name><CompanyName>Synergy Sportz d/b/a Yukon Charlies</CompanyName><BillAddress></BillAddress><Email>lisa_scheild@unitedwarehouses.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Synergy Sportz d/b/a Yukon Charlies</FullName></CustomerRef><TxnDate>2014-11-26</TxnDate><RefNumber>YCC14112603</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>240 @ 14280 lbs shipped from United Warehouses in Kent, Washington to Costco Brampton Depot in Brampton, Ontario using Domestic Ground, FTL (Full Truck Load)</Desc><Quantity>240</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>

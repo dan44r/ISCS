@@ -1,0 +1,202 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMaster.master.cs"
+    Inherits="ISCS.UserMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>3PL INTEGRATION, LLC</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../Include/ddlevelsfiles/ddlevelsmenu-base.css" />
+    <link rel="stylesheet" type="text/css" href="../Include/ddlevelsfiles/ddlevelsmenu-topbar.css" />
+    <link rel="stylesheet" type="text/css" href="../Include/ddlevelsfiles/ddlevelsmenu-sidebar.css" />
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all" />
+
+    <script type="text/javascript" language="Javascript">
+        function toggleDiv(id, flagit) {
+            if (flagit == "1") {
+                if (document.layers) document.layers['' + id + ''].visibility = "show"
+                else if (document.all) document.all['' + id + ''].style.visibility = "visible"
+                else if (document.getElementById) document.getElementById('' + id + '').style.visibility = "visible"
+            }
+            else
+                if (flagit == "0") {
+                if (document.layers) document.layers['' + id + ''].visibility = "hide"
+                else if (document.all) document.all['' + id + ''].style.visibility = "hidden"
+                else if (document.getElementById) document.getElementById('' + id + '').style.visibility = "hidden"
+            }
+        }
+    </script>
+
+    <script type="text/javascript" src="../Include/ddlevelsfiles/ddlevelsmenu.js">
+        /***********************************************
+        * All Levels Navigational Menu- (c) Dynamic Drive DHTML code library (http://www.dynamicdrive.com)
+        * This notice MUST stay intact for legal use
+        * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+        ***********************************************/
+    </script>
+
+    <script type="text/javascript" src="../Include/JS/jquery.js"></script>
+
+    <script type="text/javascript" src="../Include/JS/jquery.innerfade.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(
+     function() {
+         $('#news').innerfade({
+             animationtype: 'slide',
+             speed: 750,
+             timeout: 2000,
+             type: 'random',
+             containerheight: '1em'
+         });
+         $('ul#portfolio').innerfade({
+             speed: 1000,
+             timeout: 5000,
+             type: 'sequence',
+             containerheight: '233px'
+         });
+         $('.fade').innerfade({
+             speed: 1000,
+             timeout: 6000,
+             type: 'random_start',
+             containerheight: '1.5em'
+         });
+         $('.adi').innerfade({
+             speed: 'slow',
+             timeout: 5000,
+             type: 'random',
+             containerheight: '150px'
+         });
+     });
+    </script>
+
+    <style type="text/css">
+        img, div, a, input, .active, #home, .pri-nav, h2
+        {
+            behavior: url("iepngfix.htc");
+        }
+    </style>
+
+    <script type="text/javascript" src="iepngfix_tilebg.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper">
+        <!-- header -->
+        <div id="header">
+            <div class="header">
+                <!-- secure login area -->
+               <div class="secure-login">
+                    <div class="login-bg">
+                        <img src="images/login-icon.png" alt="" />
+                        <h1>
+                            <span>SECURE</span><br />
+                            LOGIN</h1>
+                        <p>
+                            Your login is secure. Also you can register here for our solutions
+                        </p>
+                    </div>
+                    <ul>
+                        <li><a href="SecureLogin.aspx">Secure Login</a></li>
+                        <li><a href="Register.aspx">Register for an Account</a></li>
+                        <li><a href="ForgotPassword.aspx">Forgot Password</a></li>
+                    </ul>
+                </div>
+               
+                <!-- /secure login area -->
+                <div class="logo-navarea">
+                    <h1 class="logo">
+                        <a href="https://3plintegration.net">
+                            <img src="images/logo.jpg" alt="Logo" title="Logo" /></a></h1>
+                    <div class="nav-area mattblackmenu" id="ddtopmenubar">
+                        <ul>
+                            <li><a href="https://3plintegration.net" id="lnkHome" runat="server">Home</a></li>
+                         <%-- %>   <li><a href="Company.aspx" id="lnkCompany" runat="server" rel="ddSubmenuCompany">Company</a></li> --%>
+                            <%--<li><a href="WorldEvents.aspx" id="lnkWorldEvent" runat="server">World Events</a></li>--%>
+                            <li><a href="TrackShipment.aspx">Track Shipment</a></li>
+                            <li><a href="https://3plintegration.net/contact-info/">Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <script type="text/javascript">
+                        ddlevelsmenu.setup("ddtopmenubar", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+                    </script>
+
+                    <ul id="ddSubmenuCompany" class="ddsubmenustyle">
+                        <li><a href="Company.aspx">Company Profile</a></li>
+                        <li><a href="KeyManagement.aspx">Key Management</a></li>
+                        <li><a href="Mission.aspx">Mission</a></li>
+                        <li><a href="ISCSPresentations.aspx">3PLI Presentations<br>
+                            & PDFs</a></li>
+                    </ul>
+                    <ul id="ddworldEvents" class="ddsubmenustyle">
+                        <li><a href="#">Sub Menu 01</a></li>
+                        <li><a href="#">Sub Menu 02</a></li>
+                        <li><a href="#">Sub Menu 03</a></li>
+                    </ul>
+                    <ul id="ddContactus" class="ddsubmenustyle">
+                        <li><a href="ContactInfo.aspx">Contact Info</a></li>
+                        <li><a href="Feedback.aspx">Feedback</a></li>
+                        <li><a href="InformationRequest.aspx">Information Request</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /header -->
+        <!-- banner area -->
+            <div id="banner-area">
+            <div class="banner-area">
+             
+                <div class="lft-ban" style="width:60%">
+      
+                    <ul id="portfolio">
+                        <li>
+                            <img src="images/banner1.jpg" alt="" /></li>
+                        <li>
+                            <img src="images/banner2.jpg" alt="" /></li>
+                        <li>
+                            <img src="images/banner3.jpg" alt="" /></li>
+                        <li>
+                            <img src="images/banner4.jpg" alt="" /></li>
+                    </ul>
+                     <p class="banner_txt">
+                        "3PL Integration is a third party logistics provider specializing in integrated  operation,
+                        warehousing and transportation services that can be scaled and customized to any
+                        customer’s needs based on market conditions, demands, and delivery service requirements
+                        for their products and materials."</p>
+                </div>        
+                <div class="rht-ban" border-width="slim" border-style="solid" style="width:30%">
+                       <img src="Images/custom_logo_banner.jpg" height="233"   width="275" padding="5px" alt="" /> 
+                </div>
+                
+        
+            </div>
+        </div>
+     
+        <!-- /banner area -->
+         
+        <!-- /banner area -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- footer -->
+        <div id="footer">
+            <h1>
+              
+            <div class="right">
+                <p>
+                    <%--900 Route 134,Suite 2-17a, South Dennis, MA 02660<br />
+                    T: 508.360.4419, F: 508.385.6836<br />--%>
+                    900 Route 134, Ste. 2-17, South Dennis, MA  02660 <br />
+                    Tel: 508.210.2164, Fax: 508.210.2158, General Email:  info@3plintegration.com <br />
+                </p>
+                <p></p>
+            </div>
+        </div>
+        <!-- /footer -->
+    </div>
+    </form>
+</body>
+</html>

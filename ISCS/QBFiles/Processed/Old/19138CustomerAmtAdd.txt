@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T20:18:23</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Susan Hashiaka</FullName></CustomerRef><TxnDate>2011-04-26</TxnDate><RefNumber>ABB11042610</RefNumber><BillAddress><Addr1>135 BUFFINGTON ST</Addr1><City>NOVI</City><State>Michigan</State><PostalCode>48377</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 248 lbs shipped from Susan Hashiaka in NOVI, Michigan to Bridgeslope in Novi, Michigan using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+	                        </QBXMLMsgsRq>
+                            </QBXML>

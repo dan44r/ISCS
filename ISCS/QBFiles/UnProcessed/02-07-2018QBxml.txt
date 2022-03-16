@@ -1,0 +1,9 @@
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Associated Environmental Systems</Name><CompanyName>Associated Environmental Systems</CompanyName><BillAddress></BillAddress><Email>pradip@gmail.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Anaconda Universal</Name><CompanyName>Anaconda Universal</CompanyName><BillAddress></BillAddress><Email>pradip@gmail.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Hebert</Name><CompanyName>Hebert</CompanyName><BillAddress></BillAddress><Email>pradip@gmail.com</Email></CustomerAdd>
+		                        </CustomerAddRq>

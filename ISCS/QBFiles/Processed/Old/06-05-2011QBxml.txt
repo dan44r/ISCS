@@ -1,0 +1,306 @@
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Bailey's</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>61 Industrial Park Road</Addr1> <Addr2 /> <City>Middletown</City> <State>CT</State> <PostalCode>06457</PostalCode> <Country /> </VendorAddress><Phone>800 982-3320</Phone> <Mobile /> <AltPhone /> <Fax>860-632-9089</Fax> <Email></Email> <Contact>Customer Service</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Bailey's</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Bailey's</FullName> </VendorRef><TxnDate>2011-05-06</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>testin1</Name><CompanyName>testin1</CompanyName><FirstName>testin1</FirstName><LastName>testin1</LastName><BillAddress><Addr1>testin1</Addr1><Addr2></Addr2><Addr3></Addr3><City>testin1</City><State>Colorado</State><PostalCode>testin1</PostalCode><Country>United States</Country></BillAddress><Phone>3333333</Phone><AltPhone></AltPhone><Fax></Fax><Email>hashisaka@cs.com</Email><Contact>testin1</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>testin1</FullName></CustomerRef><TxnDate>2011-05-06</TxnDate><RefNumber>ABB11050602</RefNumber><BillAddress><Addr1>testin1</Addr1><City>testin1</City><State>Colorado</State><PostalCode>testin1</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 1 lbs shipped from testin1 in testin1, Colorado to Reliable Routers in Dennis, Massachusetts using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Bailey's</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>61 Industrial Park Road</Addr1> <Addr2 /> <City>Middletown</City> <State>CT</State> <PostalCode>06457</PostalCode> <Country /> </VendorAddress><Phone>800 982-3320</Phone> <Mobile /> <AltPhone /> <Fax>860-632-9089</Fax> <Email></Email> <Contact>Customer Service</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Bailey's</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Bailey's</FullName> </VendorRef><TxnDate>2011-05-06</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>dfgfd</Name><CompanyName>dfgfd</CompanyName><FirstName>Susan</FirstName><LastName>Hashisaka</LastName><BillAddress><Addr1>135 BUFFINGTON ST</Addr1><Addr2></Addr2><Addr3></Addr3><City>NOVI</City><State>Michigan</State><PostalCode>48377</PostalCode><Country>United States</Country></BillAddress><Phone>248 767 3311</Phone><AltPhone></AltPhone><Fax></Fax><Email>hashisaka@cs.com</Email><Contact>Susan Hashisaka</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>dfgfd</FullName></CustomerRef><TxnDate>2011-05-06</TxnDate><RefNumber>ABB11050604</RefNumber><BillAddress><Addr1>135 BUFFINGTON ST</Addr1><City>NOVI</City><State>Michigan</State><PostalCode>48377</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 23 lbs shipped from dfgfd in NOVI, Michigan to Bridgeslope in Novi, Michigan using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Bailey's</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>61 Industrial Park Road</Addr1> <Addr2 /> <City>Middletown</City> <State>CT</State> <PostalCode>06457</PostalCode> <Country /> </VendorAddress><Phone>800 982-3320</Phone> <Mobile /> <AltPhone /> <Fax>860-632-9089</Fax> <Email></Email> <Contact>Customer Service</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Bailey's</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Bailey's</FullName> </VendorRef><TxnDate>2011-05-06</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>test warehouse</Name><CompanyName>test warehouse</CompanyName><FirstName>Anna</FirstName><LastName>Hashisaka</LastName><BillAddress><Addr1>135 Buffington St.</Addr1><Addr2></Addr2><Addr3></Addr3><City>Novi</City><State>Michigan</State><PostalCode>48377</PostalCode><Country>United States</Country></BillAddress><Phone>2489125027</Phone><AltPhone></AltPhone><Fax></Fax><Email>hashisaka@cs.com</Email><Contact>Anna Hashisaka</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>test warehouse</FullName></CustomerRef><TxnDate>2011-05-06</TxnDate><RefNumber>ABB11050605</RefNumber><BillAddress><Addr1>135 Buffington St.</Addr1><City>Novi</City><State>Michigan</State><PostalCode>48377</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 23 lbs shipped from test warehouse in Novi, Michigan to Kenneth Hashisaka in NOVI, Illinois using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Forward Air</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>Street</Addr1> <Addr2 /> <City>Greenville</City> <State>TN</State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone>800 726-6654</Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact>Customer Service</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Forward Air</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Forward Air</FullName> </VendorRef><TxnDate>2011-05-06</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>2.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>2.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>2.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>2.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>2.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Forward Air</FullName> </VendorRef><TxnDate>2011-05-06</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>2.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>2.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>2.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>River Front Abrasives Co. Inc.</Name><CompanyName>River Front Abrasives Co. Inc.</CompanyName><FirstName>Consignee</FirstName><LastName>Consignee</LastName><BillAddress><Addr1>2490 River Rd.</Addr1><Addr2></Addr2><Addr3></Addr3><City>Cincinnati</City><State>Ohio</State><PostalCode>45204</PostalCode><Country>United States</Country></BillAddress><Phone>000 000-0000</Phone><AltPhone></AltPhone><Fax></Fax><Email>hashisaka@cs.com</Email><Contact>Consignee</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>River Front Abrasives Co. Inc.</FullName></CustomerRef><TxnDate>2011-05-06</TxnDate><RefNumber>AMM11050601</RefNumber><BillAddress><Addr1>2490 River Rd.</Addr1><City>Cincinnati</City><State>Ohio</State><PostalCode>45204</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>45 @ 23 lbs shipped from River Front Abrasives Co. Inc. in Cincinnati, Ohio to Shanghai UChem Co. Ltd in Shanghai, Other using Domestic Ground, Same Day Expedited</Desc><Quantity>45</Quantity><Rate>12.30</Rate><Amount>12.30</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>

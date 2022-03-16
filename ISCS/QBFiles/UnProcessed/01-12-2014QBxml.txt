@@ -1,0 +1,600 @@
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>231.13</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>TJ Maxx</Name><CompanyName>TJ Maxx</CompanyName><BillAddress></BillAddress><Email>Warehouse@hebertcandies.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>TJ Maxx</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>TJX14120101</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>52 @ 539 lbs shipped from Heberts in Shrewsbury, Massachusetts to TJMaxx CHARLOTTE D.C. # 894 in CHARLOTTE, North Carolina using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>52</Quantity><Rate>585.00</Rate><Amount>585.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>312.24</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>TJ Maxx</Name><CompanyName>TJ Maxx</CompanyName><BillAddress></BillAddress><Email>Warehouse@hebertcandies.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>TJ Maxx</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>TJX14120102</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>95 @ 934 lbs shipped from Heberts in Shrewsbury, Massachusetts to TJMAXX EVANSVILLE D.C.# 897 in EVANSVILLE, Indiana using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>95</Quantity><Rate>585.00</Rate><Amount>585.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>265.20</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>TJ Maxx</Name><CompanyName>TJ Maxx</CompanyName><BillAddress></BillAddress><Email>Warehouse@hebertcandies.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>TJ Maxx</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>TJX14120103</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>72 @ 768 lbs shipped from Heberts in Shrewsbury, Massachusetts to MARSHALLS BRIDGEWATER - D. C. # 886 in BRIDGEWATER, Virginia using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>72</Quantity><Rate>585.00</Rate><Amount>585.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>334.97</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>TJ Maxx</Name><CompanyName>TJ Maxx</CompanyName><BillAddress></BillAddress><Email>Warehouse@hebertcandies.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>TJ Maxx</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>TJX14120104</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>70 @ 750 lbs shipped from Heberts in Shrewsbury, Massachusetts to MARSHALLS ATLANTA D. C. # 887 in Decatur, Georgia using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>70</Quantity><Rate>585.00</Rate><Amount>585.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>150.90</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Hebert</Name><CompanyName>Hebert</CompanyName><BillAddress></BillAddress><Email>Warehouse@hebertcandies.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Hebert</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>AMG14120101</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>19 @ 307 lbs shipped from Heberts in Shrewsbury, Massachusetts to Columbia Bank- Voorhees in VOORHEES TWP, New Jersey using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>19</Quantity><Rate>210.90</Rate><Amount>210.90</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>150.90</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Hebert</Name><CompanyName>Hebert</CompanyName><BillAddress></BillAddress><Email>Warehouse@hebertcandies.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Hebert</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>AMG14120102</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>47 @ 671 lbs shipped from Heberts in Shrewsbury, Massachusetts to COLUMBIA BANK- EDISON in EDISON, New Jersey using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>47</Quantity><Rate>210.90</Rate><Amount>210.90</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>215.68</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Hebert</Name><CompanyName>Hebert</CompanyName><BillAddress></BillAddress><Email>Warehouse@hebertcandies.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Hebert</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>AMG14120103</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>76 @ 1048 lbs shipped from Heberts in Shrewsbury, Massachusetts to COLUMBIA BANK- FAIRLAWN in FAIR LAWN, New Jersey using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>76</Quantity><Rate>291.17</Rate><Amount>291.17</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Roadtex</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Roadtex</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Roadtex</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>738.03</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Hebert</Name><CompanyName>Hebert</CompanyName><BillAddress></BillAddress><Email>Warehouse@hebertcandies.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Hebert</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>AMG14120104</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>50 @ 770 lbs shipped from AMERICAN GOURMET GROUP in WORCESTER, Massachusetts to SPOTLIGHT 29 CASINO ATTN MATTHEW BRUCE in COACHELLA, California using Domestic Ground, Refrigerated (Less Than Load)</Desc><Quantity>50</Quantity><Rate>996.34</Rate><Amount>996.34</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>3PL Integration</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>3PL Integration</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>3PL Integration</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Synergy Sportz d/b/a Yukon Charlies</Name><CompanyName>Synergy Sportz d/b/a Yukon Charlies</CompanyName><BillAddress></BillAddress><Email>lisa_scheild@unitedwarehouses.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Synergy Sportz d/b/a Yukon Charlies</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>YCC14120101</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>240 @ 14280 lbs shipped from United Warehouses in Kent, Washington to Costco Brampton Depot in Brampton, Ontario using Domestic Ground, FTL (Full Truck Load)</Desc><Quantity>240</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-12-01</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>751.68</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Synergy Sportz d/b/a Yukon Charlies</Name><CompanyName>Synergy Sportz d/b/a Yukon Charlies</CompanyName><BillAddress></BillAddress><Email>lisa_scheild@unitedwarehouses.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Synergy Sportz d/b/a Yukon Charlies</FullName></CustomerRef><TxnDate>2014-12-01</TxnDate><RefNumber>YCC14120102</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>42 @ 2500 lbs shipped from United Warehouses in Kent, Washington to MENARDS in EAU CLAIRE, Wisconsin using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>42</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>

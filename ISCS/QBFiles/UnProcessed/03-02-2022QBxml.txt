@@ -1,0 +1,3 @@
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>21st Century Transport</Name><CompanyName>21st Century Transport</CompanyName><BillAddress></BillAddress><Email>victoria.tago@towneair.com</Email></CustomerAdd>
+		                        </CustomerAddRq>

@@ -1,0 +1,3 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>179.60</Amount><Description>1 @ 300 lbs shipped from Health Care Tech in Ashland, Massachusetts to Medimark in Waukegan, Illinois using Domestic Ground, LTL (Less Than Load)</Description><DetailType>SalesItemLineDetail</DetailType><SalesItemLineDetail><ItemRef>1</ItemRef><Qty>1</Qty><UnitPrice>179.60</UnitPrice></SalesItemLineDetail></Line><CustomerRef>Share Transport</CustomerRef><DocNumber>SHA14121101</DocNumber></Invoice>

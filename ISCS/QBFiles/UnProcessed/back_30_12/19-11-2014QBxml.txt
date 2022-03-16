@@ -1,0 +1,641 @@
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>ATLANTIC RELOCATION</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>ATLANTIC RELOCATION</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Atlantic Relocation</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>438.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>SMS, Inc.</Name><CompanyName>SMS, Inc.</CompanyName><BillAddress></BillAddress><Email>ops@3plintegration.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>SMS, Inc.</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>SMS14111902</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>4 @ 400 lbs shipped from IBM BCR Services in Boulder, Colorado to SMS, Inc. in Phoenix, Arizona using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>4</Quantity><Rate>650.00</Rate><Amount>650.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Test Supplier</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Test Supplier</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Test Supplier</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>1.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Test Supplier</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>1.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Test1</Name><CompanyName>Test1</CompanyName><BillAddress></BillAddress><Email>avijitsurai@indusnet.co.in</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Test1</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>TES14111901</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 1 lbs shipped from IPSTS Test Company1 in troy, Michigan to IPSTS Test Company2 in troy2, Michigan using 3PL, 3PL Preferred</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>BNSF Logistics</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>BNSF Logistics</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>BNSF Logistics</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>437.89</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Share Transport</Name><CompanyName>Share Transport</CompanyName><BillAddress></BillAddress><Email>ops@3plintegration.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Share Transport</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>SHA14111901</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>4 @ 4408 lbs shipped from Courier Kendallville, Inc. in Kendallville, Indiana to Echo Data Services in New Holland, Pennsylvania using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>4</Quantity><Rate>557.89</Rate><Amount>557.89</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Freight Force</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Freight Force</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Freight Force</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>951.59</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>SMS, Inc.</Name><CompanyName>SMS, Inc.</CompanyName><BillAddress></BillAddress><Email>ops@3plintegration.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>SMS, Inc.</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>SMS14111903</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>16 @ 1200 lbs shipped from UBM Medica in Manhasset, New York to UBM Medica in New York, New York using Domestic Ground, Same Day Expedited</Desc><Quantity>16</Quantity><Rate>1250.00</Rate><Amount>1250.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>166.32</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Yohay Baking</Name><CompanyName>Yohay Baking</CompanyName><BillAddress></BillAddress><Email>ops@3plintegration.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Yohay Baking</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>YOH14111901</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 550 lbs shipped from Yohay Baking in Lindenhurst, New York to Cold Spring Bakery in Cold Spring, Minnesota using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>1</Quantity><Rate>215.36</Rate><Amount>215.36</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>564.14</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>SMS, Inc.</Name><CompanyName>SMS, Inc.</CompanyName><BillAddress></BillAddress><Email>swheaton@sysmaint.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>SMS, Inc.</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>SMS14111904</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>5 @ 1825 lbs shipped from SMS in PHOENIX, Arizona to Sacramento  RORC c/o Randy Blevins , IT in Rancho Cordova, California using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>5</Quantity><Rate>733.38</Rate><Amount>733.38</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>267.81</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>SMS, Inc.</Name><CompanyName>SMS, Inc.</CompanyName><BillAddress></BillAddress><Email>swheaton@sysmaint.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>SMS, Inc.</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>SMS14111905</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>3 @ 1095 lbs shipped from SMS in PHOENIX, Arizona to Bakersfield Memorial c/o Lorenz Arias in Bakersfield, California using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>3</Quantity><Rate>348.16</Rate><Amount>348.16</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>156.01</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>SMS, Inc.</Name><CompanyName>SMS, Inc.</CompanyName><BillAddress></BillAddress><Email>jthomas@sysmaint.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>SMS, Inc.</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>SMS14111906</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 365 lbs shipped from SMS in PHOENIX, Arizona to Saint Francis Memorial Hospital c/o Alan Lee - IT Department in San Francisco, California using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>1</Quantity><Rate>216.01</Rate><Amount>216.01</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>QWE Logistics, Inc.</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>1000 Remington Blvd., Ste 300</Addr1> <Addr2 /> <City>Bolingbrook</City> <State>Illinois</State> <PostalCode>60440</PostalCode> <Country /> </VendorAddress><Phone /> <Mobile /> <AltPhone /> <Fax /><Email /><Contact /><NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>QWE Logistics, Inc.</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>QWE Logistics, Inc.</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>474.28</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>SMS, Inc.</Name><CompanyName>SMS, Inc.</CompanyName><BillAddress></BillAddress><Email>swheaton@sysmaint.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>SMS, Inc.</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>SMS14111907</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>4 @ 1460 lbs shipped from SMS in PHOENIX, Arizona to Sequoia Hospital C/O Alan Lee - IT Department in Redwood City, California using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>4</Quantity><Rate>616.57</Rate><Amount>616.57</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Fowler's Express</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1></Addr1> <Addr2 /> <City></City> <State></State> <PostalCode></PostalCode> <Country /> </VendorAddress><Phone></Phone> <Mobile /> <AltPhone /> <Fax></Fax> <Email></Email> <Contact></Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Fowler's Express</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Fowler's Express</FullName> </VendorRef><TxnDate>2014-11-19</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>69.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Checon Corporation</Name><CompanyName>Checon Corporation</CompanyName><BillAddress></BillAddress><Email>amybaystatecrucible@outlook.com</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Checon Corporation</FullName></CustomerRef><TxnDate>2014-11-19</TxnDate><RefNumber>CHE14111901</RefNumber><BillAddress></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 250 lbs shipped from Bay State Crucible in Taunton, Massachusetts to Checon in N. Attleboro, Massachusetts using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>1</Quantity><Rate>125.00</Rate><Amount>125.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>

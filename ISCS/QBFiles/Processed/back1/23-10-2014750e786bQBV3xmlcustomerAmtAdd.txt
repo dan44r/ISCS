@@ -1,0 +1,12 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>2.00</Amount><Description>1 @ 1000 lbs shipped from JV TRANSPORTATION in NEW JERSEY, New Jersey to Towne Air Freight in South San Francisco, California using Domestic Ground, LTL (Less Than Load)</Description>
+
+<DetailType>SalesItemLineDetail</DetailType>
+    <SalesItemLineDetail>
+      <ItemRef>1</ItemRef>
+<Qty>2</Qty>
+
+    </SalesItemLineDetail>
+  </Line>
+  <CustomerRef>3PL Integration, LLC</CustomerRef></Invoice>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T17:04:55</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Bailey's</FullName> </VendorRef><TxnDate>2011-04-26</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>1.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                 </BillAddRq>
+		 <BillAddRq requestID ="1">
+		  <BillAdd>
+                 <VendorRef><FullName>AN Deringer</FullName> </VendorRef><TxnDate>2011-04-26</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>1.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+		<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Alpha-Fry Electronics/Cookson Electro</Name><CompanyName>Alpha-Fry Electronics/Cookson Electro</CompanyName><FirstName>Tom</FirstName><LastName>Tom</LastName><BillAddress><Addr1>4100 6th Avenue</Addr1><Addr2></Addr2><Addr3></Addr3><City>Altoona</City><State>Pennsylvania</State><PostalCode>16602</PostalCode><Country>United States</Country></BillAddress><Phone>814 941-1689</Phone><AltPhone></AltPhone><Fax>814 946-0753</Fax><Email>test@iscs.com</Email><Contact>Tom</Contact></CustomerAdd>
+		</CustomerAddRq>
+		<InvoiceAddRq requestID="2">
+		<InvoiceAdd><CustomerRef><FullName>Alpha-Fry Electronics/Cookson Electro</FullName></CustomerRef><TxnDate>2011-04-26</TxnDate><RefNumber>ABB11042604</RefNumber><BillAddress><Addr1>4100 6th Avenue</Addr1><City>Altoona</City><State>Pennsylvania</State><PostalCode>16602</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 11 lbs shipped from Alpha-Fry Electronics/Cookson Electro in Altoona, Pennsylvania to Flexible Circuits in Providence, Rhode Island using Domestic Ground, FTL (Full Truck Load)</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		  </InvoiceAddRq>
+                  </QBXMLMsgsRq> 
+                  </QBXML>

@@ -1,0 +1,1 @@
+<Bill xmlns="http://schema.intuit.com/finance/v3" ><TxnDate>2014-12-10</TxnDate><VendorRef>XTL Logistics</VendorRef><DocNumber></DocNumber></Bill>

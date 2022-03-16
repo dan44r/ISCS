@@ -1,0 +1,3 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>51.00</Amount><Description>1 @ 25 lbs shipped from INT Ship From Company in CA, California to INT Ship To Company in CO, Colorado using 3PL, 3PL Preferred</Description><DetailType>SalesItemLineDetail</DetailType><SalesItemLineDetail><ItemRef>1</ItemRef><Qty>1</Qty><UnitPrice>51.00</UnitPrice></SalesItemLineDetail></Line><CustomerRef>3PL Integration, LLC</CustomerRef><DocNumber>00014111001</DocNumber></Invoice>

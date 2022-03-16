@@ -1,0 +1,1 @@
+<Customer xmlns="http://schema.intuit.com/finance/v3" domain="QBO" sparse="false"><DisplayName>International Smoking Systems</DisplayName><CompanyName>International Smoking Systems</CompanyName><PrimaryEmailAddr><Address>mcarlisle@intlsmokingsystems.com</Address></PrimaryEmailAddr></Customer>

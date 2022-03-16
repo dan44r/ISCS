@@ -1,0 +1,67 @@
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Reliable Routers</Name><CompanyName>Reliable Routers</CompanyName><FirstName>James</FirstName><LastName>Larkin</LastName><BillAddress><Addr1>53 Bytes Blvd.</Addr1><Addr2></Addr2><Addr3></Addr3><City>Dennis</City><State>Massachusetts</State><PostalCode>02638</PostalCode><Country>United States</Country></BillAddress><Phone>508 385-7624</Phone><AltPhone></AltPhone><Fax>508 385-6836</Fax><Email>test@iscs.com</Email><Contact>James Larkin</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Reliable Routers</FullName></CustomerRef><TxnDate>2011-05-26</TxnDate><RefNumber>ZZZ11052601</RefNumber><BillAddress><Addr1>53 Bytes Blvd.</Addr1><City>Dennis</City><State>Massachusetts</State><PostalCode>02638</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 1 lbs shipped from Reliable Routers in Dennis, Massachusetts to Broadband Communications in Searsboro, Iowa using Domestic Ground, Same Day Expedited</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Bailey's</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>61 Industrial Park Road</Addr1> <Addr2 /> <City>Middletown</City> <State>CT</State> <PostalCode>06457</PostalCode> <Country /> </VendorAddress><Phone>800 982-3320</Phone> <Mobile /> <AltPhone /> <Fax>860-632-9089</Fax> <Email></Email> <Contact>Customer Service</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Bailey's</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Bailey's</FullName> </VendorRef><TxnDate>2011-05-26</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Zullo Services</Name><CompanyName>Zullo Services</CompanyName><FirstName>Paul</FirstName><LastName>Zullo</LastName><BillAddress><Addr1>23 Michigan Avenue</Addr1><Addr2></Addr2><Addr3></Addr3><City>Boston</City><State>Massachusetts</State><PostalCode>02120</PostalCode><Country>United States</Country></BillAddress><Phone>123 123-4567</Phone><AltPhone></AltPhone><Fax></Fax><Email>warehouse1@warehouse1.com</Email><Contact>Paul Zullo</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Zullo Services</FullName></CustomerRef><TxnDate>2011-05-26</TxnDate><RefNumber>ASS11052601</RefNumber><BillAddress><Addr1>23 Michigan Avenue</Addr1><City>Boston</City><State>Massachusetts</State><PostalCode>02120</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 1 lbs shipped from Zullo Services in Boston, Massachusetts to aassdd in aassdd, Colorado using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>

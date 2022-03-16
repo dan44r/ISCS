@@ -1,0 +1,1 @@
+<Customer xmlns="http://schema.intuit.com/finance/v3" domain="QBO" sparse="false"><DisplayName>Hebert</DisplayName><CompanyName>Hebert</CompanyName><PrimaryEmailAddr><Address>ops@3plintegration.com</Address></PrimaryEmailAddr></Customer>

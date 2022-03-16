@@ -1,0 +1,404 @@
+/* CSS Document */
+body{background:#FFFFFF; padding:0; margin:0; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px; color:#595858;}
+*{padding:0; margin:0; border:0;}
+a{text-decoration:none; outline:0;}
+h1, h2, h3, h4, h5, h6{font-family:"Trebuchet MS";}
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+.spacer {
+	font-size:0;
+	line-height:0;
+	clear:both;
+}
+#wrapper{width:100%; margin:0; padding:0;}
+
+/*---------------------------header-----------------------*/
+#header{width:100%; margin:0; padding:0;}
+.header{width:1003px; margin:0 auto; padding:9px 0 9px 0; height:80px; position:relative;}
+.logo-navarea{width:1003px; position:relative; z-index:1;}
+.logo{width:252px; height:76px; padding:0 18px 0 15px; /*border-right:#949494 1px dotted;*/ overflow:hidden; float:left;}
+.nav-area{width:691px; float:left; padding-top:48px; padding-left:25px;}
+.nav-area ul{list-style-type:none; padding:0; margin:0;}
+.nav-area li{list-style-type:none; padding:0; margin:0; margin-right:25px; font:bold 12px Verdana, Arial, Helvetica, sans-serif; color:#3D3D3D; float:left;}
+.nav-area li a{color:#3D3D3D; padding:10px 0 0 0; float:left;}
+.nav-area li a:hover{background:url(../images/nav-rol.jpg) left top repeat-x; color:#d19b12;}   /*--Modified on 12.04.12--*/
+.nav-area li a.active{background:url(../images/nav-rol.jpg) left top repeat-x; color:#d19b12;}   /*--Modified on 12.04.12--*/
+
+/*overflow:hidden;*/
+/*#banner-area{background:#535353; width:100%; padding:0; margin:0;}*/
+#banner-area{width:100%; padding:0; margin:0;}
+.banner-area{width:1002px; padding:0; margin:0 auto; background:#FFFFFF;  min-height:233px; height:233px; }
+.lft-ban{width:285px; float:left;}
+.rht-ban{width:587px; float:left; position: relative; height:233px; overflow:hidden;}
+.lft-ban ul{list-style-type:none; padding:0; margin:0;}
+/*.lft-ban li{list-style-type:none; background:url(../images/gray-line.gif) left top repeat-y; width:280px; padding:0 0 0 5px; margin:0; color:#474747; cursor:pointer; display:block; float:left; position: relative;*z-index: 500;}*/
+.lft-ban li{list-style-type:none; width:280px; padding:0 0 0 5px; margin:0; color:#474747; cursor:pointer; display:block; float:left; position: relative;*z-index: 500;}
+.lft-ban li .list-cont{border-bottom:#949494 1px dotted; overflow:hidden; padding:10px 20px 10px 10px;}
+.lft-ban li h2{font:bold 16px "Trebuchet MS"; text-transform:uppercase; padding-bottom:5px;}
+.lft-ban li .list-cont P{color:#474747; font-size:11px; line-height:15px;}
+.lft-ban li.list-hover{background:url(../images/grn-line.gif) left top repeat-y; padding:0 0 0 5px; margin:0; color:#0e2489;}
+.lft-ban li .list-cont.last2{border-bottom:none;}
+
+.rht-ban ul{list-style-type:none; padding:0; margin:0;}
+.rht-ban li{list-style-type:none; width:587px; height:234px; float:left; margin-right:1px;}
+.rht-ban li.last{margin-right:0;}
+/*---------------------secure login-----------------------*/
+.secure-login{width:101px; height:331px; background:#0A196A; z-index:100; color:#CCCCCC; padding:0 15px; position:absolute; right:0; top:0;}  /*--Modified on 12.04.12--*/
+.login-bg{background:url(../images/top-grn-bg.jpg) left top repeat-x #d7a520; padding:12px 6px ; text-align:center; margin-bottom:12px;}  /*--Modified on 12.04.12--*/
+.login-bg h1{font:bold 26px "Trebuchet MS"; color:#FFF; line-height:20px; padding-bottom:5px;}
+.login-bg h1 span{font-size:16px;}
+.login-bg p{line-height:13px; font-size:11px; color:#FFFFFF;}
+.secure-login ul{list-style-type:none; padding:0; margin:0;}
+.secure-login li{list-style-type:none; background:url(../images/bullet1.gif) left 4px no-repeat; padding:0; padding-left:10px; margin:0; margin-bottom:5px; color:#FFF; font:normal 11px Arial, Helvetica, sans-serif; border-bottom:#8F8F8F 1px dotted; overflow:hidden; padding-bottom:5px;}
+.secure-login li a{color:#FFFFFF;}
+.secure-login li a:hover{color:#E0E0E0;}
+.feedback input.submitBtnLogin
+{
+	height:24px;
+	width:60px;
+	font-size:0;
+	/*text-indent:-999999px;*/
+	padding:0;
+	border:0;
+	background:url(../Images/login.jpg) no-repeat;
+	margin-left: 180px; 
+}
+
+/*-----------------------------------content area-------------------------------*/
+#content{width:1003px ; margin:0 auto; padding-bottom:7px; overflow:hidden;}
+h2.grn-bar{background:#daa929; margin:1px 0; width:965px; font-weight:normal; padding:5px 19px; color:#FFF; font-family:"Trebuchet MS"; font-size:17px;} /*--Modified on 12.04.12--*/
+
+.iscs-product{width:333px; float:left; background:#0A196A;} /*--Modified on 12.04.12--*/
+.iscs-product.last{width:334px;}
+.iscs-product.gap{margin-right:2px;}
+.iscs-lftpart{width:165px; float:left; background:#0A196A; padding:11px 6px 0 11px; text-align:right; overflow:hidden; height:100%!important; min-height:206px; height:140px;} /*--Modified on 12.04.12--*/
+.iscs-lftpart h2{color:#FFF; font:bold 18px/16px "Trebuchet MS"; text-transform:uppercase; padding-bottom:7px;}
+.iscs-lftpart h2 span{color:#d1a626; font-size:14px;} /*--Modified on 12.04.12--*/
+.iscs-lftpart h2 span.blue{color:#07A5C7; font-size:14px;}
+.iscs-lftpart p{color:#FFFFFF; line-height:15px; font-size:11px;}
+.isca-picarea{width:150px; float:right; text-align:right; background:#0A196A;}
+
+.who-we-are{width:334px; float:left;}
+.who-we-are h1{color:#343434; font-size:19px; padding:12px 0 10px 0;}
+.who-we-are p{color:#595858; line-height:16px; font-size:11px;}
+.bot-impactarea{width:669px; float:left; padding-top:1px;}
+.bot-impact-thum{width:222px; float:left; border-left:#343434 1px dotted; overflow:hidden; background:url(../images/impact_grn_top.jpg) left top no-repeat; height:100%!important; min-height:155px; height:155px;}
+.bot-impact-thum h1{color:#313131; font-size:19px; padding:12px 12px 5px 12px; border-bottom:#5F5F5F 1px dotted; overflow:hidden; line-height:16px;}
+.bot-impact-thum h1 span{color:#efab00; font-size:14px;} /*--Modified on 12.04.12--*/
+.bot-impact-thum p{color:#595858; font-size:11px; padding:12px;}
+
+.bot-impact-thum2{width:222px; float:left; border-left:#343434 1px dotted; overflow:hidden; background:url(../images/impact_blue_top.jpg) left top no-repeat; height:100%!important; min-height:155px; height:155px;}
+.bot-impact-thum2 h1{color:#313131; font-size:19px; padding:12px 12px 5px 12px; border-bottom:#5F5F5F 1px dotted; overflow:hidden; line-height:16px;}
+.bot-impact-thum2 h1 span{color:#2d4de4; font-size:14px;} /*--Modified on 12.04.12--*/
+.bot-impact-thum2 p{color:#595858; font-size:11px; padding:12px;}
+
+
+
+/*-----------------------------------footer-------------------------------*/
+#footer{border-top:#031059 3px solid; overflow:hidden; margin:0 auto; width:997px; padding:15px 3px; } /*--Modified on 12.04.12--*/
+#footer h1{width:253px; height:56px; float:left;}
+#footer p{text-align:right; color:#555555 ; font-size:11px; line-height:16px;}
+#footer a{color:#bf8700; } /*--Modified on 12.04.12--*/
+#footer a:hover{text-decoration:underline;}
+
+
+
+/*------------------------------------inner page--------------------------------------------*/
+.inr-cont{padding:1px 0px; overflow:hidden;} /************** modified on 30th Nov********************/
+.inr-cont h2{color:#474747; padding-bottom:7px; font-size:16px; text-transform:uppercase;}
+.inr-cont p{line-height:16px;}
+
+#div1 {position:absolute; width:215px; left: 284px; visibility:hidden; top: 0px; z-index: 3000; overflow:hidden;}
+#div2 {position:absolute; width:215px; left: 284px; visibility:hidden; top: 0px; z-index: 3000; overflow:hidden;}
+#div3 {position:absolute; width:215px; left: 284px; visibility:hidden; top: 0px; z-index: 3000; overflow:hidden;}
+#div1 ul, #div2 ul, #div3 ul { list-style-type: none; margin: 0px; padding: 0px;}
+#div1 ul li, #div2 ul li, #div3 ul li { font: normal 11px Verdana, Geneva, sans-serif;}
+#div1 ul li a, #div2 ul li a, #div3 ul li a { background-color: #0e2489; line-height: 23px;padding: 0px 10px; color: #FFF; text-decoration: none; display: block;
+	border-bottom:1px solid #040b2c; }  /*--Modified on 12.04.12--*/
+#div1 ul li a:hover, #div2 ul li a:hover, #div3 ul li a:hover { background-color: #e99f00; line-height: 23px;padding: 0px 10px; color: #FFF; text-decoration: none; display: block; } /*--Modified on 12.04.12--*/
+
+#banner_txt	{ background: url(../images/bannertxtbg.png) repeat left top; width: 574px; display: block; position: absolute; bottom: 10px;  font: bold 12px Verdana, Geneva, sans-serif; color: #FFFFFF; visibility: visible; z-index: 2000; padding: 9px 5px 5px 8px; text-align:justify;}
+ul#portfolio {z-index: 1000; position: absolute; overflow:hidden; }
+/*------------------------------------ Feedback --------------------------------------------*/
+.feedback p {
+	padding:0 0 10px;
+}
+.feedback h6 {
+	font-size:14px;
+	font-weight:bold;
+	padding:10px 0 10px;
+}
+.feedback input.redio {
+	width:12px;
+	height:12px;
+	margin:4px 5px 0 0;
+	float:left;
+	border:0;
+}
+/* added by avijit*/
+.feedback .radioList input{
+	width:12px;
+	height:12px;
+	margin:4px 5px 0 0;
+	float:left;
+	border:0;
+}
+.feedback .radioList label {
+	padding:0 5px 0 0;
+	display:block;
+	float:left;
+	width:auto;
+}
+/* added by avijit end*/
+.feedback label.redio {
+	padding:0 5px 0 0;
+	display:block;
+	float:left;
+	width:auto;
+}
+.feedback select {
+	width:248px !important;
+	height:21px;
+	padding:0 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:2px 5px 5px 0;
+	font-size:11px;
+	color:#000;
+	float:left;
+}
+.feedback input {
+	width:240px;
+	height:18px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+	float:left;
+}
+
+
+.feedback input.registercaptcha {
+	width:152px;
+	height:18px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+	float:left;
+}
+
+.feedback textarea {
+	width:550px;
+	height:68px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+.feedback label {
+	display:block;
+	float:left;
+	height:21px;
+	line-height:21px;
+	margin:0 0 5px;
+	font-weight:normal;
+	font-size:11px;
+}
+.feedback input.checkbox {
+	width:12px;
+	height:12px;
+	padding:0;
+	border:0;
+	margin:4px 5px 5px 0;
+	color:#000;
+	float:left;
+}
+/* added by avijit*/
+.feedback .checkbox input{
+	width:12px;
+	height:12px;
+	padding:0;
+	border:0;
+	margin:4px 5px 5px 0;
+	color:#000;
+	float:left;
+}
+.feedback .checkbox label {
+	padding:0 5px 0 0;
+	display:block;
+	float:left;
+	width:auto;
+}
+
+/* added by avijit end*/
+.feedback input.adminButton {
+	background-color:#daa929;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-family:tahoma,Helvetica,sans-serif;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	height:25px;
+	vertical-align:middle;
+	width:135px;
+	padding:0;
+}
+.feedback input.submitBtn {
+	height:24px;
+	width:139px;
+	font-size:0;
+	text-indent:-999999px;
+	padding:0;
+	border:0;
+	padding-right:5px;
+}
+.feedback input.registerBtn {
+	height:34px;
+	width:154px;
+	font-size:0;
+	text-indent:-999999px;
+	padding:0;
+	border:0;
+	background:url(../Images/register.png) no-repeat;
+}
+
+.feedback input.fpassBtn {
+	height:34px;
+	width:154px;
+	font-size:0;
+	text-indent:-999999px;
+	padding:0;
+	border:0;
+	background:url(../Images/fpass.png) no-repeat;
+}
+
+/*----------------New add-------------------*/
+.feedback input.CancelBtn {
+	height:24px;
+	width:71px;
+	font-size:0;
+	text-indent:-999999px;
+	padding:0;
+	border:0;
+}
+
+
+
+/*-------- New added on 23-11-10 ------------*/
+
+.rht-ban li img{ width:587px; height:233px;}
+input.green-btn, .feedback input.green-btn{ border:0;
+	background:#daa929;
+	color:#fff;
+	text-transform:uppercase;
+	font:normal 14px "Trebuchet MS",Verdana, Arial, Helvetica, sans-serif;
+	width:auto;
+	height:auto;
+	overflow: visible;
+	padding:2px 6px;
+	@padding:1px 6px;
+	_padding:1px 6px;
+	cursor:pointer;
+	-moz-border-radius:5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px; 
+	behavior: url(border-radius.htc);
+
+}
+
+/*======= For CMS CONTENT ========*/
+.cms-content h2, .feedback h2{ color:#fff!important;
+text-transform:uppercase!important;
+line-height:18px!important;
+text-align:left!important;
+font-family:"Trebuchet MS";
+background:#daa929!important; /********************* modified on 30th Nov *************************/
+margin:0 0 1px;
+padding:5px 4px 5px 16px!important;}
+
+.MsoNormal span{ text-decoration:none!important; font-size:16px!important; font-weight:bold;}
+
+/*.cms-content ul li{ margin:0 0 0 20px; list-style-type:disc;}*/
+
+.cms-img{ padding:4px; background:#fff; float:left; border:1px solid #8A8A8A; margin:0 10px 5px 0;}
+
+.cms-content p{ padding:0 0 10px;}
+
+.cms-content b.heading{ color:#01B401}
+
+.feedback h2{background:#949494; color:#fff; padding:5px 8px}
+.feedback fieldset { width:740px; padding-bottom: 12px; }
+.inner_form_cont TABLE { background: #e8e7e7; padding:6px 10px; margin-bottom: 6px;}
+.inner_form_cont TABLE TD {padding:6px 10px;}
+.inner_form_cont TABLE TD INPUT.txtbx {width: 300px; height: 15px;}
+.feedback legend{ color:#daa929; font-weight: bold; padding: 0px 0px 6px 0px; }
+
+
+/*-----------Added-----------------*/
+.feedback input.userBtn
+{
+	background-color:#daa929;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-family:tahoma,Helvetica,sans-serif;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	height:25px;
+	vertical-align:middle;
+	
+	padding:0;	
+	
+}
+.feedback input.userBtn2
+{
+	background-color:#daa929;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-family:tahoma,Helvetica,sans-serif;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	height:25px;
+	vertical-align:middle;
+	
+	padding:0;	
+	margin-left:5px;
+	
+}
+
+.inner_cms_cont { width: 1003px; background: #ececec; /*border-left: #c6c6c6 1px solid; border-right: #c6c6c6 1px solid;*/ float: left;  }
+.cont_img { text-align:left; float: left; padding-right: 12px; width: 266px;padding: 10px; }
+.cont_img img{ padding: 6px; border: #d3d3d3 1px solid; background: #FFF; margin-bottom: 10px; }
+.cont_txt { text-align:left; float: left; width: 693px; background: #fafafa;padding: 10px 14px 10px 10px;}
+.cont_txt p { padding: 0px 0px 10px 0px; }
+.cont_txt strong { font-weight: bold; }
+.cont_txt h3 { font-size: 14px; font-family: Verdana; font-weight: bold; color: #daa929;padding: 6px 0px 7px 0px; }
+.cont_txt h4 { font-size: 11px; font-family: Verdana; font-weight: normal; color: #000; padding-bottom: 10px; line-height: 16px; }
+.cont_txt ul { list-style-type: none; margin: 0px; padding: 0px 0px 10px 0px;}
+.cont_txt ul li { background: URL(../images/cont_bullet.gif) no-repeat 0 .42em; padding-bottom: 5px; padding-left: 17px;}
+.inner_form_cont {width: 969px; background: #fafafa;  float: left; padding: 17px;}
+.inner_form_cont h3 { padding: 0px 0px 14px 0px; font: bold 11px Verdana;} 
+
+
+
+
+

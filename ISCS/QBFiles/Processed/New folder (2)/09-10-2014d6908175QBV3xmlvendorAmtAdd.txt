@@ -1,0 +1,12 @@
+<Bill xmlns="http://schema.intuit.com/finance/v3" >
+    <Line>
+        <Id>1</Id>
+        <Amount>8.00</Amount>
+        <DetailType>AccountBasedExpenseLineDetail</DetailType>
+        <AccountBasedExpenseLineDetail>
+            <AccountRef>37</AccountRef>
+        </AccountBasedExpenseLineDetail>  
+    
+    </Line>
+    <VendorRef>John Vendor-UudRGTA2p7</VendorRef>   
+</Bill>

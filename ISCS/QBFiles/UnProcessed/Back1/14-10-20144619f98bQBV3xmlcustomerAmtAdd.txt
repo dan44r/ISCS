@@ -1,0 +1,8 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>0.00</Amount><DetailType>SalesItemLineDetail</DetailType>
+    <SalesItemLineDetail>
+      <ItemRef>1</ItemRef>
+    </SalesItemLineDetail>
+  </Line>
+  <CustomerRef>Hebert</CustomerRef></Invoice>

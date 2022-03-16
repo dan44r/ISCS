@@ -1,0 +1,65 @@
+<VendorAddRq requestID="1">
+                 <VendorAdd><Name>Bailey's</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>61 Industrial Park Road</Addr1> <Addr2 /> <City>Middletown</City> <State>CT</State> <PostalCode>06457</PostalCode> <Country /> </VendorAddress><Phone>800 982-3320</Phone> <Mobile /> <AltPhone /> <Fax>860-632-9089</Fax> <Email></Email> <Contact>Customer Service</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>Bailey's</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+<BillAddRq requestID ="1">
+                <BillAdd>
+                 <VendorRef><FullName>Bailey's</FullName> </VendorRef><TxnDate>2011-05-20</TxnDate> <DueDate /> <RefNumber /> <TermsRef>
+                  <FullName>Net 30</FullName> 
+                  </TermsRef>
+                  <Memo /> <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Travel</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd>
+                 <ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Miscellaneous</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Fuel Expense</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Insurance</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ExpenseLineAdd>
+                 <AccountRef>
+                  <FullName>Cost of Goods Sold</FullName> 
+                  </AccountRef><Amount>0.00</Amount> <Memo>Test Comments</Memo> 
+                  </ExpenseLineAdd><ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Digital Camera</FullName> 
+                  </ItemRef>
+                  <Desc>Digital Camera</Desc> 
+                  <Quantity>2</Quantity> 
+                  <Cost>2.00</Cost> 
+                  <Amount>2.00</Amount> 
+                  </ItemLineAdd>
+                 <ItemLineAdd>
+                 <ItemRef>
+                  <FullName>Laser Printer</FullName> 
+                  </ItemRef>
+                  <Desc>Laser Printer</Desc> 
+                  <Quantity>1</Quantity> 
+                  <Cost>3.00</Cost> 
+                  <Amount>3.00</Amount> 
+                  </ItemLineAdd>
+                  </BillAdd>
+                </BillAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>test11may</Name><CompanyName>test11may</CompanyName><FirstName>Peter</FirstName><LastName>Blacksmith</LastName><BillAddress><Addr1>test11may</Addr1><Addr2></Addr2><Addr3></Addr3><City>test11may</City><State>Michigan</State><PostalCode>54912</PostalCode><Country>Bosnia and Herzegovina</Country></BillAddress><Phone>09878123</Phone><AltPhone></AltPhone><Fax></Fax><Email>shipper@shipper.com</Email><Contact>Peter Blacksmith</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+<InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>test11may</FullName></CustomerRef><TxnDate>2011-05-20</TxnDate><RefNumber>ACC11052001</RefNumber><BillAddress><Addr1>test11may</Addr1><City>test11may</City><State>Michigan</State><PostalCode>54912</PostalCode><Country>Bosnia and Herzegovina</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 23 lbs shipped from test11may in test11may, Michigan to testcon11may in testcon11may, Georgia using Domestic Air, Same day</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>

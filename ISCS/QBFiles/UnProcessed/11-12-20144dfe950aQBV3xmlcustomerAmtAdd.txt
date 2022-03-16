@@ -1,0 +1,3 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>5500.00</Amount><Description>1 @ 11078 lbs shipped from Yokotex Co., LTD in Taipei, Other to Synergy Sportz, d/b/a Yukon Charlies in Pocasset, Massachusetts using Domestic Ground, Inter-modal</Description><DetailType>SalesItemLineDetail</DetailType><SalesItemLineDetail><ItemRef>1</ItemRef><Qty>1</Qty><UnitPrice>5500.00</UnitPrice></SalesItemLineDetail></Line><CustomerRef>Synergy Sportz d/b/a Yukon Charlies</CustomerRef><DocNumber>YCC14121101</DocNumber></Invoice>

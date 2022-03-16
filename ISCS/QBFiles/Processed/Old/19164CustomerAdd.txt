@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T19:46:48</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Great West Paper Box Co.</Name><CompanyName>Great West Paper Box Co.</CompanyName><FirstName>Mark</FirstName><LastName>Saimoto</LastName><BillAddress><Addr1>7280 McPherson Avenue</Addr1><Addr2></Addr2><Addr3></Addr3><City>South Burnaby</City><State>British Columbia</State><PostalCode>V5H 3X5</PostalCode><Country>Canada</Country></BillAddress><Phone>604 433-2408</Phone><AltPhone></AltPhone><Fax></Fax><Email>test@iscs.com</Email><Contact>Mark Saimoto</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+
+                                  </QBXMLMsgsRq> 
+                                  </QBXML>

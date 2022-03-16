@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T19:51:26</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <VendorAddRq requestID="1">
+                 <VendorAdd><Name>AN Deringer</Name><IsActive>1</IsActive><CompanyName /> 
+                  <Salutation /> 
+                  <FirstName /> 
+                  <LastName /> 
+                 <VendorAddress><Addr1>173 West Service Road</Addr1> <Addr2 /> <City>Champlain</City> <State>NY</State> <PostalCode>12919</PostalCode> <Country /> </VendorAddress><Phone>518 298-7414 X 414</Phone> <Mobile /> <AltPhone /> <Fax>518 298-7434</Fax> <Email>schagnon@anderinger.com</Email> <Contact>Shawn Chagnon</Contact> <NameOnCheck /> 
+                  <AccountNumber /> 
+                 <VendorTypeRef><FullName>AN Deringer</FullName> </VendorTypeRef>
+                 
+                  <CreditLimit /> 
+                  </VendorAdd>
+                  </VendorAddRq>
+
+                  </QBXMLMsgsRq> 
+                  </QBXML>

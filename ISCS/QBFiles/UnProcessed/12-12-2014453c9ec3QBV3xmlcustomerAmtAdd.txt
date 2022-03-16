@@ -1,0 +1,3 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>1108.00</Amount><Description>8 @ 800 lbs shipped from Pearson Canada in Nort York, Ontario to SMS, Inc. in Mississauga, Ontario using Domestic Ground, Same Day Expedited</Description><DetailType>SalesItemLineDetail</DetailType><SalesItemLineDetail><ItemRef>1</ItemRef><Qty>1</Qty><UnitPrice>1108.00</UnitPrice></SalesItemLineDetail></Line><CustomerRef>SMS, Inc.</CustomerRef><DocNumber>SMS14121202</DocNumber></Invoice>

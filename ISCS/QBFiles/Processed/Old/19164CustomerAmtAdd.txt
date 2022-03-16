@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T19:46:49</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Great West Paper Box Co.</FullName></CustomerRef><TxnDate>2011-04-26</TxnDate><RefNumber>ABB11042605</RefNumber><BillAddress><Addr1>7280 McPherson Avenue</Addr1><City>South Burnaby</City><State>British Columbia</State><PostalCode>V5H 3X5</PostalCode><Country>Canada</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>65 @ 14 lbs shipped from Great West Paper Box Co. in South Burnaby, British Columbia to Universal Protective Packaging in Mechanicsburg, Pennsylvania using Domestic Ground, LTL (Less Than Load)</Desc><Quantity>65</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+	                        </QBXMLMsgsRq>
+                            </QBXML>

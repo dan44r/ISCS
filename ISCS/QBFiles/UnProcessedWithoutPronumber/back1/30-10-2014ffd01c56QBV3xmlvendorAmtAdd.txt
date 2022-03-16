@@ -1,0 +1,26 @@
+<Bill xmlns="http://schema.intuit.com/finance/v3" >
+    <Line>
+        <Id>1</Id>
+        <Amount>0.00</Amount><Description></Description><DetailType>AccountBasedExpenseLineDetail</DetailType>
+        <AccountBasedExpenseLineDetail>
+           <AccountRef>14</AccountRef>
+        </AccountBasedExpenseLineDetail>
+    </Line>
+<Line>
+        <Id>2</Id><Amount>10.00</Amount><Description></Description><DetailType>AccountBasedExpenseLineDetail</DetailType>
+        <AccountBasedExpenseLineDetail>
+           <AccountRef>41</AccountRef>
+        </AccountBasedExpenseLineDetail>
+    </Line>
+<Line>
+        <Id>3</Id><Amount>0.00</Amount><Description></Description><DetailType>AccountBasedExpenseLineDetail</DetailType>
+        <AccountBasedExpenseLineDetail>
+           <AccountRef>11</AccountRef>
+        </AccountBasedExpenseLineDetail>
+    </Line>
+<Line>
+        <Id>4</Id><Amount>20.00</Amount><DetailType>AccountBasedExpenseLineDetail</DetailType>
+        <AccountBasedExpenseLineDetail>
+           <AccountRef>41</AccountRef>
+        </AccountBasedExpenseLineDetail>
+    </Line><TxnDate>2014-10-30</TxnDate><VendorRef>John Vendor-UudRGTA2p7</VendorRef></Bill>

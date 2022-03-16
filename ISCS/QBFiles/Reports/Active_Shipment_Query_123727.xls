@@ -1,0 +1,7 @@
+<table cellspacing="0" rules="all" border="1" style="border-collapse:collapse;">
+	<tr style="background-color:#C0C0C0;">
+		<td>ShipFromRefNumber</td><td>ShipToConsigneeRefNumber</td><td>ShipFromDate</td><td>ShipToDate</td><td>ShipFromCity</td><td>ShipFromState</td><td>ShipToCity</td><td>ShipToState</td><td>TrackingNumber</td><td>Description</td><td>SpecialInstructions</td><td>Description1</td><td>Notes</td><td>CarrierName</td><td>DateLastUpdated</td>
+	</tr><tr>
+		<td>&nbsp;</td><td>&nbsp;</td><td>6/1/2012 12:00:00 AM</td><td>6/1/2012 12:00:00 AM</td><td>testing1</td><td>Michigan</td><td>testing2</td><td>Arizona</td><td>ACC12060101</td><td>1 @ 1 lbs shipped from testing1 in testing1, Michigan to testing2 in testing2, Arizona using 3PL, 3PL Preferred</td><td>&nbsp;</td><td>Warehouse Pending Delivery</td><td>&nbsp;</td><td>R & L Carriers</td><td>6/1/2012 11:47:00 AM</td>
+	</tr>
+</table>

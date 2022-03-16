@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs"
+    Inherits="ISCS.Admin.AdminMaster" %>
+
+<%@ Register Src="UserControls/AdminHeader.ascx" TagName="AdminHeader" TagPrefix="uc1" %>
+<%@ Register Src="UserControls/AdminLeftMenu.ascx" TagName="AdminLeftMenu" TagPrefix="uc2" %>
+<%@ Register Src="UserControls/AdminFooter.ascx" TagName="AdminFooter" TagPrefix="uc3" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>3PL INTEGRATION Admin</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        /* for gray box */
+        var GB_ROOT_DIR = "../include/greybox/";
+    </script>
+
+    <script type="text/javascript" src="../Include/ddlevelsfiles/ddlevelsmenu.js">
+    </script>
+
+    <!-- script block for gray box -->
+
+    <script type="text/javascript" src="../Include/greybox/AJS.js"></script>
+
+    <script type="text/javascript" src="../Include/greybox/AJS_fx.js"></script>
+
+    <script type="text/javascript" src="../Include/greybox/gb_scripts.js"></script>
+
+    <script type="text/javascript" src="../Include/JS/calendar.js"></script>
+
+    <script type="text/javascript" src="../Include/JS/common.js"></script>
+
+    <link href="../Include/greybox/gb_styles.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script type="text/javascript" src="../Include/greybox/AJS.js">
+        insertCode(
+    'GB_showFullScreen(caption, url, callback_fn)'
+    );
+</script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="wrapper">
+        <!--HEADER-->
+        <uc1:AdminHeader ID="AdminHeader1" runat="server" />
+        <!--END HEADER-->
+        <!-- content area -->
+        <div id="container">
+            <div class="welcome-bar">
+                Welcome to 3PL Integration Secure Customer Area
+                <div style="float: right; font-size: 14px;" id="welcomeAdmin" runat="server">
+                </div>
+            </div>
+            <div id="content">
+                <div class="content">
+                    <!--MENU LEFT-->
+                    <asp:PlaceHolder ID="plhLeftMenu" runat="server">
+                        <uc2:AdminLeftMenu ID="AdminLeftMenu1" runat="server" />
+                    </asp:PlaceHolder>
+                    <!--END MENU LEFT-->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <!-- /content area -->
+        <!--FOOTER-->
+       <!-- <uc3:AdminFooter ID="AdminFooter1" runat="server" /> -->
+        <!--END FOOTER-->
+    </div>
+    </form>
+</body>
+</html>

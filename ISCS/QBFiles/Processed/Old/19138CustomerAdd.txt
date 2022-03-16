@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T20:18:23</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>Susan Hashiaka</Name><CompanyName>Susan Hashiaka</CompanyName><FirstName>Susan</FirstName><LastName>Hashisaka</LastName><BillAddress><Addr1>135 BUFFINGTON ST</Addr1><Addr2></Addr2><Addr3></Addr3><City>NOVI</City><State>Michigan</State><PostalCode>48377</PostalCode><Country>United States</Country></BillAddress><Phone>248 767 3311</Phone><AltPhone></AltPhone><Fax></Fax><Email>hashisaka@cs.com</Email><Contact>Susan Hashisaka</Contact></CustomerAdd>
+		                        </CustomerAddRq>
+
+                                  </QBXMLMsgsRq> 
+                                  </QBXML>

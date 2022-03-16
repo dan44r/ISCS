@@ -1,0 +1,3 @@
+<Invoice xmlns="http://schema.intuit.com/finance/v3">
+  <Line>
+    <Amount>202.82</Amount><Description>2 @ 350 lbs shipped from SMS, Inc.(NJ-MST) in Moorestown, New Jersey to SMS, Inc. in Charlotte, North Carolina using Domestic Ground, LTL (Less Than Load)</Description><DetailType>SalesItemLineDetail</DetailType><SalesItemLineDetail><ItemRef>1</ItemRef><Qty>1</Qty><UnitPrice>202.82</UnitPrice></SalesItemLineDetail></Line><CustomerRef>SMS, Inc.</CustomerRef><DocNumber>SMS14121101</DocNumber></Invoice>

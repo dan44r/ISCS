@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+                  <?qbxml version="6.0"?>  
+                <QBXML> 
+                 <SignonMsgsRq> 
+                 <SignonDesktopRq> 
+                 <ClientDateTime>2011-04-26T19:51:28</ClientDateTime>
+                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+                <Language>English</Language>
+                <AppID>203083553</AppID>
+                <AppVer>1</AppVer>
+                  </SignonDesktopRq> 
+                  </SignonMsgsRq> 
+                 <QBXMLMsgsRq onError="stopOnError"> 
+                 <InvoiceAddRq requestID="2">
+			     <InvoiceAdd><CustomerRef><FullName>Giftco</FullName></CustomerRef><TxnDate>2011-04-26</TxnDate><RefNumber>ABB11042606</RefNumber><BillAddress><Addr1>700 Woodlawn Parkway</Addr1><City>Vernon Hills</City><State>Illinois</State><PostalCode>60061</PostalCode><Country>United States</Country></BillAddress><PONumber></PONumber>
+				<Memo></Memo><InvoiceLineAdd><ItemRef><FullName>Transportation</FullName></ItemRef><Desc>1 @ 14 lbs shipped from Giftco in Vernon Hills, Illinois to Shanghai UChem Co. Ltd in Shanghai, Other using Domestic Ground, Same Day Expedited</Desc><Quantity>1</Quantity><Rate>0.00</Rate><Amount>0.00</Amount></InvoiceLineAdd></InvoiceAdd>
+		                    </InvoiceAddRq>
+	                        </QBXMLMsgsRq>
+                            </QBXML>

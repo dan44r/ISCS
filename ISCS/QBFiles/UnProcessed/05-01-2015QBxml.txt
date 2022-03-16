@@ -1,0 +1,6 @@
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>3PL Integration, LLC</Name><CompanyName>3PL Integration, LLC</CompanyName><BillAddress></BillAddress><Email>jitendra@indusnet.co.in</Email></CustomerAdd>
+		                        </CustomerAddRq>
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>3PL Integration, LLC</Name><CompanyName>3PL Integration, LLC</CompanyName><BillAddress></BillAddress><Email>jitendra@indusnet.co.in</Email></CustomerAdd>
+		                        </CustomerAddRq>

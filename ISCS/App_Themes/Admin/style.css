@@ -1,0 +1,523 @@
+body{background:#FFFFFF; padding:0; margin:0; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px; color:#595858;}
+*{padding:0; margin:0; border:0;}
+a{text-decoration:none; outline:0;}
+h1, h2, h3, h4, h5, h6{font-family:"Trebuchet MS";}
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+
+#wrapper{width:100%; margin:0; padding:0;}
+
+/*---------------------------header-----------------------*/
+#header{width:100%; margin:0; padding:0;}
+.header{width:1003px; margin:0 auto; padding:9px 0 9px 0; height:80px; position:relative;}
+.logoarea{padding-bottom:10px; overflow:hidden;}
+
+.logo{width:252px; height:76px; padding:0 18px 0 15px; border-right:#949494 1px dotted; overflow:hidden; float:left;}
+
+h2.admin-panel{float:right; color:#daa929; padding-right:4px; padding-top:55px; text-align:right; font-size:18px; font-weight:normal; font-family:Arial, Helvetica, sans-serif;}
+
+/*-----------------------------------content area-------------------------------*/
+#container{width:100%; overflow:hidden;}
+.welcome-bar{background:#daa929; padding:6px 16px; width:971px; color:#FFF; font:normal 17px "Trebuchet MS"; margin:0 auto 2px auto;}
+
+#content{background:#535353; width:100%; overflow:hidden; margin-bottom:2px;}
+.content{width:1003px; margin:0 auto;}
+.lft-cont{width:250px; float:left; border-left:#949494 5px solid; background:#FFF; overflow:hidden;}
+.lft-decription{background:url(images/under_line.gif) left bottom repeat-x; overflow:hidden; padding:11px 12px 7px 12px;}
+.lft-decription.last{background:none;}
+.lft-decription h2{color:#daa929; font-size:16px ; font-weight:normal; padding-bottom:8px;}
+.lft-decription ul{list-style-type:none; padding:0; margin:0;}
+.lft-decription li{list-style-type:none; padding:0; margin:0; background:url(images/arrow.gif) left 5px no-repeat; padding-left:12px; color:#474747; font:normal 11px/15px Arial, Helvetica, sans-serif; margin-bottom:2px;}
+ .lft-decription li a{color:#474747; }
+.lft-decription li a:hover{color:#000000;} 
+
+
+/* added by avijit */
+.rht-contHome{width:688px; float:left; padding:21px 0 0 30px;}
+ul.rht-contHome-thum{list-style-type:none; padding:0; margin:0;}
+ul.rht-contHome-thum li{background:#2E2E2E; width:145px; height:100%!important; min-height:181px; height:181px; padding:4px 4px 0 4px; float:left; margin-right:15px; margin-bottom:16px; /*cursor:pointer;*/}
+ul.rht-contHome-thum li img{background:#FFF;}
+ul.rht-contHome-thum li p{padding-top:5px; text-align:center; color:#FFF; font:bold 14px/15px "Trebuchet MS"; padding-bottom:2px;}
+ul.rht-contHome-thum li.rol-hover{background:#101010;}
+
+
+
+.rht-cont{width:740px; float:left; padding:5px 0 0 5px;}
+ul.rht-cont-thum{list-style-type:none; padding:0; margin:0;}
+ul.rht-cont-thum li{background:#2E2E2E; width:145px; height:100%!important; min-height:181px; height:181px; padding:4px 4px 0 4px; float:left; margin-right:15px; margin-bottom:16px; cursor:pointer;}
+ul.rht-cont-thum li img{background:#FFF;}
+ul.rht-cont-thum li p{padding-top:5px; text-align:center; color:#FFF; font:bold 14px/15px "Trebuchet MS"; padding-bottom:2px;}
+ul.rht-cont-thum li.rol-hover{background:#101010;}
+/* added by avijit end*/
+
+.login-cont { padding: 140px 0px; width: 100%; }
+.loginbox   { width: 365px; margin: 0px auto; background: #2e2e2e; padding: 5px; height: 100%;overflow: auto;}
+.loginbox h2  { margin: 0px; padding: 0px 0px 6px 7px; font: bold 16px "Trebuchet MS", Arial, Helvetica, sans-serif; color: #FFFFFF;}
+.loginformarea { padding: 15px 20px; background-color: #FFFFFF; width: 325px; float: left;}
+.loginformarea label { color: #4b4b4b; width: 65px; float: left; padding-right: 7px; padding-top: 4px;}
+.loginformarea INPUT.txtbx { background-color: #FFF; border: #c8c8c8 1px solid; height: 23px; margin-bottom: 6px; width:245px; float: left;}
+/*.loginformarea INPUT.login { background: URL(../images/login.jpg) no-repeat left top; border: none; height: 24px; width: 60px; margin-right: 5px; float: left; text-indent: 2000px; overflow: hidden; font-size: 0px; line-height:0px;}
+.loginformarea INPUT.login { background: URL(../images/login.jpg) no-repeat left top; border: none; height: 24px; width: 60px; margin-right: 5px; float: left; text-indent: 2000px; overflow: hidden; font-size: 0px; line-height:0px;}
+*/
+.loginformarea INPUT.login { margin-left: 70px; margin-right: 2px;}
+
+/*-----------------------------------footer-------------------------------*/
+#footer{border-top:#595858 3px solid; overflow:hidden; margin:0 auto; width:997px; padding:15px 3px; }
+#footer h1{width:253px; height:56px; float:left;}
+#footer p{text-align:right; color:#555555 ; font-size:11px; line-height:16px;}
+#footer a{color:#daa929; }
+#footer a:hover{text-decoration:underline;}
+
+
+
+/*------------------------------------inner page--------------------------------------------*/
+.inr-cont{padding:12px; overflow:hidden;}
+.inr-cont h2{color:#474747; padding-bottom:7px; font-size:16px; text-transform:uppercase;}
+.inr-cont p{line-height:16px;}
+
+/* ----------------------- 18-11-2010 --------------------------- */
+.serviceBox {
+	width:735px;
+	clear:both;
+	padding:4px;
+	background-color:#0A196A;
+	color:#585858;
+	margin:0 0 5px;
+}
+.serviceBox h2 {
+	font-size:16px;
+	color:#fff;
+	height:36px;
+	line-height:36px;
+	padding:0 0 0 10px;
+}
+
+
+
+.whiteBox {
+	background-color:#fff;
+	clear:both;
+	padding:4px;
+}
+.whiteBox {
+	background-color:#fff;
+}
+.whiteBox h3 {
+	color:#fff;
+	height:28px;
+	line-height:28px;
+	background-color:#daa929;
+	padding:0 0 0 10px;
+	margin:0 0 10px;
+}
+.whiteBox input {
+	width:240px;
+	height:18px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	letter-spacing:0.9px;
+	color:#000;
+}
+/*--14th dec 2010--*/
+.whiteBox input.track 
+{
+	width:auto;
+	height:18px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	letter-spacing:0.9px;
+	color:#000;
+}
+/*--End--*/
+.whiteBox textarea {
+	width:240px;
+	height:68px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+.whiteBox input.checkbox {
+	width:12px;
+	height:12px;
+	padding:0;
+	border:0;
+	margin:0 5px 5px 0;
+	color:#000;
+	float:left;
+}
+.whiteBox input.crossIcon {
+	width:14px;
+	height:14px;
+	padding:0;
+	border:0;
+	margin:0 5px 5px 0;
+	color:#000;
+	margin:0 0 0 8px;
+}
+.whiteBox select {
+	width:248px !important;
+	height:21px;
+	padding:0 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+}
+/*--14th dec 2010--*/
+.whiteBox select.track 
+{
+	width:auto !important;
+	height:21px;
+	padding:0 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+}
+/*--End--*/
+/* added by avijit */
+.whiteBox .dataList select
+{
+	width:75px !important;
+}
+/*added by avijit end */
+.whiteBox label {
+	/*display:block;*/
+	height:21px;
+	line-height:21px;
+	margin:0 0 5px;
+}
+.whiteBox label.lblcustom {
+	display:block;
+	height:21px;
+	line-height:21px;
+	margin:0 0 5px;
+}
+.whiteBox span {
+	display:block;
+	float:left;
+	margin:0 5px 5px 0;
+}
+/* added by avijit*/
+.whiteBox .mGrid_Form span {
+	display:block;
+	margin:0 5px 5px 0;
+	float:left;
+}
+.whiteBox .mGrid_Form input {
+	width:240px;
+	height:18px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	letter-spacing:0.9px;
+	color:#000;
+	float:left;
+}
+.whiteBox .mGrid_Form textarea {
+	width:240px;
+	height:68px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	float:left;
+}
+/* added by avijit end */
+
+.whiteBox input.adminButton {
+	background-color:#daa929;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-family:tahoma,Helvetica,sans-serif;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	height:25px;
+	vertical-align:middle;
+	width:75px;
+	padding:0;
+}
+.logoutButton
+{
+	background-color:#daa929;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-family:tahoma,Helvetica,sans-serif;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	height:25px;
+	vertical-align:middle;
+	width:75px;
+	padding:0;
+}
+.whiteBox a {
+	color:#474747;
+}
+.whiteBox a:hover {
+	color:#000;
+}
+.dataList th {
+	height:26px;
+	line-height:26px;
+	background-color:#daa929;
+	color:#fff !important;
+	padding: 2px 0 0 5px;
+/*	padding: 2px 8px;*/
+}
+.dataList th a {
+	color:#fff !important;
+}
+
+/* added by avijit */
+.whiteBox .dataList span {
+	display:block;
+	float:none;
+	margin:0 5px 5px 0;
+}
+/* added by avijit end*/
+
+.dataList td {
+	padding:5px 0 0 10px;
+}
+.whiteBox select.userSelect {
+	margin:0 7px 5px 0 !important;
+}
+.editIcon {
+	margin:3px 0 0;
+}
+.whiteBox input.searchBtn {
+	height:24px;
+	width:71px;
+	font-size:0;
+	text-indent:-999999px;
+	padding:0;
+	border:0;
+}
+.whiteBox input.save {
+	height:34px;
+	width:154px;
+	font-size:0;
+	text-indent:-999999px;
+	padding:0;
+	border:0;
+	background:url(../../Admin/images/save.png) no-repeat;
+}
+
+.whiteBox input.gridbutton {
+	background-color:#daa929;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-family:tahoma,Helvetica,sans-serif;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	height:25px;
+	vertical-align:middle;
+	width:55px;
+	padding:0;
+}
+.whiteBox select.griddrp
+{
+	width:60px;
+	height:21px;
+	padding:0 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+	
+	
+	
+}
+
+
+/*-------added by biplab(6.12.10) --------------*/
+
+
+mGrid .pgr table { margin: 5px 0; }
+.mGrid .pgr td table tr td{ border-width: 0; border: solid 1px #666; padding: 0 6px; font-weight: bold; color: #daa929; line-height: 12px; }
+.mGrid .pgr a { color: #666; text-decoration: none; font-weight: normal;}
+.mGrid .pgr a:hover { color: #daa929; text-decoration: none; }
+
+
+.whiteBox input.redio {
+    border: 0 none;
+    float: left;
+    height: 12px;
+    margin: 4px 5px 0 0;
+    width: 12px;
+}
+
+.whiteBox label.redio {
+    display: block;
+    float: left;
+    padding: 0 5px 0 0;
+    width: auto;
+}
+
+.whiteBox .checkListShip input {
+    border: 0 none;
+    float: left;
+    height: 12px;
+    margin: 4px 5px 0 0;
+    width: 12px;
+}
+
+.whiteBox .checkListShip label {
+    display: block;
+    float: left;
+    height: auto;
+    padding: 0;
+    width: 100px;
+}
+
+.whiteBox input.tboxpickreq {
+	width:100px;
+	height:18px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	letter-spacing:0.9px;
+	color:#000;
+}
+
+.whiteBox .radioship input {
+	width:12px;
+	height:12px;
+	margin:4px 5px 0 0;
+	float:left;
+	border:0;
+}
+.whiteBox .radioship label {
+	padding:0 5px 0 0;
+	display:block;
+	float:left;
+	width:auto;
+}
+
+.whiteBox input.tboxpickcommon {
+	 width:30px;
+	height:18px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	letter-spacing:0.9px;
+	color:#000;
+}
+
+.whiteBox input.BtnCommon
+{
+	background-color:#daa929;
+	border:medium none;
+	color:#FFFFFF;
+	cursor:pointer;
+	font-family:tahoma,Helvetica,sans-serif;
+	font-size:11px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:bold;
+	height:25px;
+	vertical-align:middle;
+	
+	padding:0;	
+	
+}
+.whiteBox textarea.textareawf {
+	width:450px;
+	height:68px;
+	padding:3px 0 0 6px;
+	border:1px solid #c8c8c8;
+	margin:0 0 5px;
+	font-size:11px;
+	color:#000;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+/*-------added by biplab(6.12.10) --------------*/
+/*---------added on 9.12.2010----------------*/
+.ship-track{color:#daa929; padding-left:18px; padding-top:20px; padding-bottom:20px; text-align:left; font-size:18px; font-weight:normal; font-family:Arial, Helvetica, sans-serif;}
+
+.whiteBox .checkListLong input {
+    border: 0 none;
+    float: left;
+    height: 12px;
+    margin: 4px 5px 0 0;
+    width: 12px;
+}
+
+.whiteBox .checkListLong label {
+    display: block;
+    float: left;
+    height: auto;
+    padding: 0;
+    width: 200px;
+}
+
+/* added by avijit */
+.submitMsg
+{
+background-image:url(images/msgArrow.jpg);
+background-position:center left;
+background-repeat:no-repeat;
+padding-left:20px;
+color: Black;
+font-weight: bold;
+}
+/* added by avijit end */
+
+.whiteBox .dataListI select
+{
+	width:75px !important;
+}
+.dataListI th {
+	height:26px;
+	line-height:26px;
+	background-color:#005F04;
+	color:#fff !important;
+	padding: 2px 0 0 5px;
+/*	padding: 2px 8px;*/
+}
+.dataListI th a {
+	color:#fff !important;
+}
+.whiteBox .dataListI span {
+	display:block;
+	float:none;
+	margin:0 5px 5px 0;
+}
+.dataListI td {
+	padding:5px 0 0 10px;
+}
+
+
+.request-msg{color:Red; padding-left:18px; padding-top:20px; padding-bottom:20px; text-align:left; font-size:15px; font-weight:normal; font-family:Arial, Helvetica, sans-serif;}
+
+
