@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Data;
-using DataAccessLayer;
 
 namespace BusinessLogicLayer
 {
@@ -18,7 +18,7 @@ namespace BusinessLogicLayer
             proc.AddNVarcharPara("@QBCustomerAmtAddXmlFile", 200, QBCustomerAmtAddXmlFile);
             proc.AddNVarcharPara("@QBVendorAddXmlFile", 200, QBVendorAddXmlFile);
             proc.AddNVarcharPara("@QBVendorAmtAddXmlFile", 200, QBVendorAmtAddXmlFile);
-            
+
             try
             {
                 i = proc.RunActionQuery();
@@ -32,13 +32,13 @@ namespace BusinessLogicLayer
             return stat;
         }
 
-        public static Boolean UpdateQBXMLFile(string TrackingNo,string QBVendorAmtAddXmlFile)
+        public static Boolean UpdateQBXMLFile(string TrackingNo, string QBVendorAmtAddXmlFile)
         {
             Boolean stat = false;
             int i = 0;
             ProcedureExecute proc = new ProcedureExecute("prcQBXMLFile");
             proc.AddVarcharPara("@Mode", 100, "UpdateQBXMLFile");
-            proc.AddNVarcharPara("@TrackingNo", 50, TrackingNo);            
+            proc.AddNVarcharPara("@TrackingNo", 50, TrackingNo);
             proc.AddNVarcharPara("@QBVendorAmtAddXmlFile", 200, QBVendorAmtAddXmlFile);
 
             try

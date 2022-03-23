@@ -1,10 +1,9 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Xml;
-using System.Configuration;
-using System.Threading;
 namespace ISCS.Admin
 {
     public partial class PostToQB : System.Web.UI.Page
@@ -258,10 +257,10 @@ namespace ISCS.Admin
 
             // At this point, the HTTP headers are set and the XML
             // content is set. It's time to call the service.
-         
-            
-                HttpWebResponse resp = (HttpWebResponse)req.GetResponse();              
-            
+
+
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+
 
             // We won't parse the response XML quite yet. Instead, just
             // log the raw XML received to show success.
@@ -272,7 +271,7 @@ namespace ISCS.Admin
             }
             Console.WriteLine(xmlResponse);
             string res = xmlResponse;
-          
+
         }
     }
 }

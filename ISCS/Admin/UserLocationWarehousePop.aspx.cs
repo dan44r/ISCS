@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -12,14 +12,14 @@ namespace ISCS.Admin
         {
             if (!IsPostBack)
             {
-                ViewState["search"]="d";
+                ViewState["search"] = "d";
                 BindData();
             }
         }
         protected void BindData()
         {
             DataSet ds = null;
-            ds = WarehouseLocationBL.FetchWarehouseLocationAllPop(ViewState["search"].ToString(), txtCompany.Text.Trim());          
+            ds = WarehouseLocationBL.FetchWarehouseLocationAllPop(ViewState["search"].ToString(), txtCompany.Text.Trim());
             gridUserLocations.DataSource = ds;
             gridUserLocations.DataBind();
             if (strCompanyArr != "")
@@ -52,7 +52,7 @@ namespace ISCS.Admin
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 ((Label)e.Row.FindControl("lblCompanyName")).Attributes.Add("onclick", "SelectLocation(this.id);");
-                strCompanyArr += "'" + ((Label)e.Row.FindControl("lblCompanyName")).Text.Replace("'", " ") + "',";                
+                strCompanyArr += "'" + ((Label)e.Row.FindControl("lblCompanyName")).Text.Replace("'", " ") + "',";
             }
         }
         protected void imgBtnDelLocation_Click(object sender, EventArgs e)

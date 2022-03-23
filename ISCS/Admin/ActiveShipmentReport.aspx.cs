@@ -1,11 +1,11 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -31,13 +31,13 @@ namespace ISCS.Admin
             if (!IsPostBack)
             {
                 BindGrid();
-               
+
             }
 
         }
         protected void BindGrid()
         {
-            
+
             DataSet ds;
             int userId = 0;
             int accountcodeId = 0;
@@ -65,12 +65,12 @@ namespace ISCS.Admin
 
             DataView dv = new DataView();
             dv.Table = ds.Tables[0];
-            
+
             ViewState["thisDT"] = ds.Tables[0];
             dt1 = ds.Tables[0];
             if (dt1.Rows.Count == 0)
-            { 
-               
+            {
+
             }
             else
             {
@@ -168,7 +168,7 @@ namespace ISCS.Admin
                 sbMailBody.Append("<table width=\"100%\"><tr><td style=\"width=30%\"><b>Order No:</b> " + strOrderNo);
                 sbMailBody.Append("</td><td style=\"width=40%\"></td>");
                 sbMailBody.Append("<td align=\"right\" style=\"text-align:right;width:30%\"><b>Total Cost: " + strTotalCost + "</b> ");
-               
+
                 sbMailBody.Append("</td>");
                 sbMailBody.Append("</tr>");
                 sbMailBody.Append("<tr>");
@@ -207,7 +207,7 @@ namespace ISCS.Admin
                             strDays = strDays + days + " Day";
                         }
                         sbMailBody.Append("<table><tr><td valign=\"top\" style=\"width=30%\">" + Convert.ToString(dsPR.Tables[0].Rows[i]["TrackingNumber"]));
-                        
+
                         sbMailBody.Append("&nbsp;&nbsp;&nbsp;&nbsp; <b>Order No:</b> " + Convert.ToString(dsPR.Tables[0].Rows[i]["ShipFromRefNumber"]));
                         sbMailBody.Append("<br /><b>CID:</b> " + Convert.ToString(dsPR.Tables[0].Rows[i]["ShipToConsigneeRefNumber"]));
                         sbMailBody.Append("</td>");
@@ -219,10 +219,10 @@ namespace ISCS.Admin
                         sbMailBody.Append("</tr>");
                         sbMailBody.Append("<tr>");
                         sbMailBody.Append("<td><b>Ship Date:</b> " + Convert.ToString(Convert.ToDateTime(dsPR.Tables[0].Rows[i]["ShipFromDate"]).ToShortDateString()));
-                        sbMailBody.Append("<br /><b>Transit Time To Date:</b> " + Convert.ToString(Convert.ToDateTime(dsPR.Tables[0].Rows[i]["ShipToDate"]).ToShortDateString()));                        
+                        sbMailBody.Append("<br /><b>Transit Time To Date:</b> " + Convert.ToString(Convert.ToDateTime(dsPR.Tables[0].Rows[i]["ShipToDate"]).ToShortDateString()));
                         sbMailBody.Append("<br /><b>Carrier:</b> " + Convert.ToString(dsPR.Tables[0].Rows[i]["CarrierName"]));
-                        sbMailBody.Append("<br /><b>Cost:</b> " + Convert.ToString(dsPR.Tables[0].Rows[i]["GLSTotalSellRate"]));                        
-                        sbMailBody.Append("</td>");                        
+                        sbMailBody.Append("<br /><b>Cost:</b> " + Convert.ToString(dsPR.Tables[0].Rows[i]["GLSTotalSellRate"]));
+                        sbMailBody.Append("</td>");
                         sbMailBody.Append("<td> ");
                         sbMailBody.Append("</td>");
                         sbMailBody.Append("<td>");
@@ -231,7 +231,7 @@ namespace ISCS.Admin
                         sbMailBody.Append("<tr>");
                         sbMailBody.Append("<td><b>Last Updated:</b> " + Convert.ToString(Convert.ToDateTime(dsPR.Tables[0].Rows[i]["DateLastUpdated"]).ToShortDateString()));
                         sbMailBody.Append("</td>");
-                        sbMailBody.Append("<td><b>Service:</b> " + Convert.ToString(dsPR.Tables[0].Rows[i]["Service1"]));                        
+                        sbMailBody.Append("<td><b>Service:</b> " + Convert.ToString(dsPR.Tables[0].Rows[i]["Service1"]));
                         sbMailBody.Append("</td>");
                         sbMailBody.Append("<td>");
                         sbMailBody.Append("</td>");
@@ -239,7 +239,7 @@ namespace ISCS.Admin
                         sbMailBody.Append("</table>");
                         sbMailBody.Append("<hr style=\"height: 10px; color: black!important;\" width=\"100%\"/>");
                     }
-                    
+
                 }
                 else
                 {
@@ -260,7 +260,7 @@ namespace ISCS.Admin
         {
             try
             {
-                
+
                 if (ViewState["thisDT"] != null)
                 { dt1 = (DataTable)ViewState["thisDT"]; }
                 Convert1(dt1, Response);
@@ -271,7 +271,7 @@ namespace ISCS.Admin
         {
             try
             {
-              
+
                 if (ViewState["thisDT"] != null)
                 { dt1 = (DataTable)ViewState["thisDT"]; }
                 GenerateSendMail(dt1, Response);
@@ -296,7 +296,7 @@ namespace ISCS.Admin
                 System.Web.UI.HtmlTextWriter htmlWrite = new System.Web.UI.HtmlTextWriter(stringWrite);
                 System.Web.UI.WebControls.DataGrid dg = new System.Web.UI.WebControls.DataGrid();
                 dg.DataSource = dt;
-                dg.DataBind();                
+                dg.DataBind();
                 dg.HeaderStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#c0c0c0");
                 dg.RenderControl(htmlWrite);
                 Response.Write(stringWrite.ToString());
@@ -313,13 +313,13 @@ namespace ISCS.Admin
                 string email = "";
                 string company = "";
                 if (ViewState["thisEmail"] != null) { email = Convert.ToString(ViewState["thisEmail"]); }
-                if (ViewState["thisCompany"] != null) { company = Convert.ToString(ViewState["thisCompany"]); }                
-                string fname = company.Replace(" ", "_") + "_Active_Shipment_Query_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".xls";                
+                if (ViewState["thisCompany"] != null) { company = Convert.ToString(ViewState["thisCompany"]); }
+                string fname = company.Replace(" ", "_") + "_Active_Shipment_Query_" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".xls";
                 System.IO.StringWriter stringWrite = new System.IO.StringWriter();
                 System.Web.UI.HtmlTextWriter htmlWrite = new System.Web.UI.HtmlTextWriter(stringWrite);
                 System.Web.UI.WebControls.DataGrid dg = new System.Web.UI.WebControls.DataGrid();
                 dg.DataSource = dt;
-                dg.DataBind();                
+                dg.DataBind();
                 dg.HeaderStyle.BackColor = System.Drawing.ColorTranslator.FromHtml("#c0c0c0");
                 dg.RenderControl(htmlWrite);
                 byte[] byteArray = System.Text.Encoding.Default.GetBytes(stringWrite.ToString());
@@ -336,15 +336,15 @@ namespace ISCS.Admin
                 int iStat = CommonBL.sendMailWithAttch("ops@3plintegration.com", email, company + " Active Shipment Query", sbMailBody.ToString(), Server.MapPath("../QBFiles/Reports/" + fname));
                 if (iStat > 0)
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "dfgdfg1", "alert('This report has been sent to Email address " + email.ToString() + "');", true);
                 }
                 else
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "hjhj1", "alert('Sorry, please try again.');", true);
                 }
-                
+
             }
             catch { }
         }
@@ -366,7 +366,7 @@ namespace ISCS.Admin
             Response.Write(strBody.ToString());
             Response.End();
             string sHTML = "<div style='width: 416px; font-family: @Arial Unicode MS; font-size: 10px;'>dfgfdg</div>";
-            
+
         }
 
         public void GenerateSendMail(string strBody)
@@ -377,8 +377,8 @@ namespace ISCS.Admin
             string email = "";
             string company = "";
             if (ViewState["thisEmail"] != null) { email = Convert.ToString(ViewState["thisEmail"]); }
-            if (ViewState["thisCompany"] != null) { company = Convert.ToString(ViewState["thisCompany"]); }            
-            string fname = company.Replace(" ", "_") + "_Cost_Summary_By_Order_Number_Report" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".xls";           
+            if (ViewState["thisCompany"] != null) { company = Convert.ToString(ViewState["thisCompany"]); }
+            string fname = company.Replace(" ", "_") + "_Cost_Summary_By_Order_Number_Report" + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".xls";
 
             byte[] byteArray = System.Text.Encoding.Default.GetBytes(strBody.ToString());
             using (System.IO.FileStream fileStream = new System.IO.FileStream(Server.MapPath("../QBFiles/Reports/" + fname), System.IO.FileMode.Create, System.IO.FileAccess.Write))
@@ -392,9 +392,9 @@ namespace ISCS.Admin
             sbMailBody1.Append("</table>");
             if (email.Trim() == "admin@admin.com") { email = ConfigurationManager.AppSettings["AdminEmail"].Trim(); }
             CommonBL.sendMailWithAttch("ops@3plintegration.com", email, company + " Cost Summary By Order Number Report", sbMailBody1.ToString(), Server.MapPath("../QBFiles/Reports/" + fname));
-            
+
             string sHTML = "<div style='width: 416px; font-family: @Arial Unicode MS; font-size: 10px;'>dfgfdg</div>";
-            
+
         }
 
         protected void gridActiveShipment_PageIndexChanging(object sender, GridViewPageEventArgs e)

@@ -1,6 +1,6 @@
-﻿using System;
-using BusinessLogicLayer;
+﻿using BusinessLogicLayer;
 using EntityLayer;
+using System;
 
 namespace ISCS
 {
@@ -22,7 +22,7 @@ namespace ISCS
                 objRegistrationRequest.Phone = txtPhone.Text.ToString().Trim();
                 objRegistrationRequest.EmailAddress = txtEmail.Text.ToString().Trim();
 
-                bool res = RegistrationRequestBL.InsertRegistrationRequest(objRegistrationRequest);                
+                bool res = RegistrationRequestBL.InsertRegistrationRequest(objRegistrationRequest);
 
                 string strBodyUser = null;
 
@@ -49,9 +49,9 @@ namespace ISCS
                 strBodyAdmin += "</table>";
 
                 CommonBL.sendMailInHtmlFormat(txtEmail.Text.ToString().Trim(), "amitm@indusnet.co.in", "New Registration Request !!!", strBodyAdmin);
-            
+
                 lblError.Text = "Your request has been taken, please wait for acceptance";
-                
+
             }
             else
             {

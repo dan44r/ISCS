@@ -1,7 +1,7 @@
-﻿using System;
-using System.Data;
-using DataAccessLayer;
+﻿using DataAccessLayer;
 using EntityLayer;
+using System;
+using System.Data;
 
 namespace BusinessLogicLayer
 {
@@ -9,7 +9,7 @@ namespace BusinessLogicLayer
     {
         public static Boolean AddHandlingUnit(HandlingUnitEL objEL)
         {
-            Boolean stat=false;
+            Boolean stat = false;
             ProcedureExecute proc = new ProcedureExecute("sp_AdminInsertUpdateSkidStandAlone");
             proc.AddVarcharPara("@Mode", 10, "add");
             proc.AddIntegerPara("@PickupRequestId", objEL.PickupRequestId);
@@ -35,7 +35,7 @@ namespace BusinessLogicLayer
             return stat;
         }
 
-        public static DataSet FetchHandlingUnit(int _pickuprequestid,int _pickuprequesttype)
+        public static DataSet FetchHandlingUnit(int _pickuprequestid, int _pickuprequesttype)
         {
             DataSet dsHandlingUnit = null;
             try
@@ -70,7 +70,7 @@ namespace BusinessLogicLayer
         {
             Boolean stat = false;
             ProcedureExecute proc = new ProcedureExecute("sp_AdminInsertUpdateSkidStandAlone");
-            proc.AddVarcharPara("@Mode", 10, "update");            
+            proc.AddVarcharPara("@Mode", 10, "update");
             proc.AddVarcharPara("@HandlingUnitType", 50, objEL.HandlingUnitType);
             proc.AddIntegerPara("@Length", objEL.Length);
             proc.AddIntegerPara("@Width", objEL.Width);
@@ -104,6 +104,6 @@ namespace BusinessLogicLayer
                 stat = true;
             }
             return stat;
-        }        
+        }
     }
 }

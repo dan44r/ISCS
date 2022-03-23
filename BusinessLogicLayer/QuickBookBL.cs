@@ -1,9 +1,9 @@
-﻿using System;
+﻿using EntityLayer;
+using System;
 using System.Data;
 using System.IO;
 using System.Net;
 using System.Xml;
-using EntityLayer;
 
 namespace BusinessLogicLayer
 {
@@ -52,29 +52,29 @@ namespace BusinessLogicLayer
 
                 vendoeAdd += "<Name>" + Convert.ToString(dt.Rows[0]["CarrierName"]).Trim().Replace("&", "&amp;") + "</Name>";
                 vendoeAdd += "<IsActive>1</IsActive>";
-                  vendoeAdd +=@"<CompanyName /> 
+                vendoeAdd += @"<CompanyName /> 
                   <Salutation /> 
                   <FirstName /> 
                   <LastName /> 
                  <VendorAddress>";
-                  vendoeAdd += "<Addr1>" + Convert.ToString(dt.Rows[0]["Address"]).Trim().Replace("&", "&amp;") + "</Addr1> ";
-                  vendoeAdd +="<Addr2 /> ";
-                  vendoeAdd += "<City>" + Convert.ToString(dt.Rows[0]["City"]).Trim().Replace("&", "&amp;") + "</City> ";
-                  vendoeAdd += "<State>" + Convert.ToString(dtState.Tables[0].Rows[0]["Abbreviation"]).Trim().Replace("&", "&amp;") + "</State> ";
-                  vendoeAdd += "<PostalCode>" + Convert.ToString(dt.Rows[0]["PostalCode"]).Trim().Replace("&", "&amp;") + "</PostalCode> ";
-                  vendoeAdd +="<Country /> ";
-                  vendoeAdd +="</VendorAddress>";
-                  vendoeAdd += "<Phone>" + Convert.ToString(dt.Rows[0]["ContactPhone"]).Trim().Replace("&", "&amp;") + "</Phone> ";
-                  vendoeAdd +="<Mobile /> ";
-                  vendoeAdd +="<AltPhone /> ";
-                  vendoeAdd += "<Fax>" + Convert.ToString(dt.Rows[0]["ContactFax"]).Trim().Replace("&", "&amp;") + "</Fax> ";
-                  vendoeAdd += "<Email>" + Convert.ToString(dt.Rows[0]["ContactEmail"]).Trim().Replace("&", "&amp;") + "</Email> ";
-                  vendoeAdd += "<Contact>" + Convert.ToString(dt.Rows[0]["ContactName"]).Trim().Replace("&", "&amp;") + "</Contact> ";
-                  vendoeAdd +=@"<NameOnCheck /> 
+                vendoeAdd += "<Addr1>" + Convert.ToString(dt.Rows[0]["Address"]).Trim().Replace("&", "&amp;") + "</Addr1> ";
+                vendoeAdd += "<Addr2 /> ";
+                vendoeAdd += "<City>" + Convert.ToString(dt.Rows[0]["City"]).Trim().Replace("&", "&amp;") + "</City> ";
+                vendoeAdd += "<State>" + Convert.ToString(dtState.Tables[0].Rows[0]["Abbreviation"]).Trim().Replace("&", "&amp;") + "</State> ";
+                vendoeAdd += "<PostalCode>" + Convert.ToString(dt.Rows[0]["PostalCode"]).Trim().Replace("&", "&amp;") + "</PostalCode> ";
+                vendoeAdd += "<Country /> ";
+                vendoeAdd += "</VendorAddress>";
+                vendoeAdd += "<Phone>" + Convert.ToString(dt.Rows[0]["ContactPhone"]).Trim().Replace("&", "&amp;") + "</Phone> ";
+                vendoeAdd += "<Mobile /> ";
+                vendoeAdd += "<AltPhone /> ";
+                vendoeAdd += "<Fax>" + Convert.ToString(dt.Rows[0]["ContactFax"]).Trim().Replace("&", "&amp;") + "</Fax> ";
+                vendoeAdd += "<Email>" + Convert.ToString(dt.Rows[0]["ContactEmail"]).Trim().Replace("&", "&amp;") + "</Email> ";
+                vendoeAdd += "<Contact>" + Convert.ToString(dt.Rows[0]["ContactName"]).Trim().Replace("&", "&amp;") + "</Contact> ";
+                vendoeAdd += @"<NameOnCheck /> 
                   <AccountNumber /> 
                  <VendorTypeRef>";
-                  vendoeAdd += "<FullName>" + Convert.ToString(dt.Rows[0]["CarrierName"]).Trim().Replace("&", "&amp;") + "</FullName> ";
-                  vendoeAdd +=@"</VendorTypeRef>
+                vendoeAdd += "<FullName>" + Convert.ToString(dt.Rows[0]["CarrierName"]).Trim().Replace("&", "&amp;") + "</FullName> ";
+                vendoeAdd += @"</VendorTypeRef>
                  
                   <CreditLimit /> 
                   </VendorAdd>
@@ -135,13 +135,13 @@ namespace BusinessLogicLayer
             StreamReader sr = null;
             HttpWebResponse WebResponseObject = null;
             StreamWriter swr = null;
-            
+
             try
             {
                 WebRequestObject = (HttpWebRequest)WebRequest.Create(requestUrl);
                 WebRequestObject.Method = "POST";
                 WebRequestObject.ContentType = "application/x-qbxml";
-                WebRequestObject.AllowAutoRedirect = false;                
+                WebRequestObject.AllowAutoRedirect = false;
                 vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
                   <?qbxml version=""6.0""?>  
                 <QBXML> 
@@ -160,10 +160,10 @@ namespace BusinessLogicLayer
                 <BillAdd>
                  <VendorRef>";
                 vendoeAdd += "<FullName>" + oQuickEL.VendorName.Trim().Replace("&", "&amp;") + "</FullName> ";
-                vendoeAdd +=  "</VendorRef>";
-                vendoeAdd +=  "<TxnDate>"+DateTime.Now.ToString("yyyy-MM-dd")+"</TxnDate> ";
-                vendoeAdd +=  "<DueDate /> ";
-                vendoeAdd +=  "<RefNumber /> ";
+                vendoeAdd += "</VendorRef>";
+                vendoeAdd += "<TxnDate>" + DateTime.Now.ToString("yyyy-MM-dd") + "</TxnDate> ";
+                vendoeAdd += "<DueDate /> ";
+                vendoeAdd += "<RefNumber /> ";
                 vendoeAdd += @"<TermsRef>
                   <FullName>Net 30</FullName> 
                   </TermsRef>
@@ -174,14 +174,14 @@ namespace BusinessLogicLayer
                   <FullName>Miscellaneous</FullName> 
                   </AccountRef>";
                 vendoeAdd += "<Amount>" + Convert.ToString((oQuickEL.VendorAccessorialAmt1 + oQuickEL.VendorBuyBrokerageAmt1 + oQuickEL.VendorBuyDutyAmt1).ToString("#0.00")).Trim().Replace("&", "&amp;") + "</Amount> ";
-                vendoeAdd +=  @"<Memo>Test Comments</Memo> 
+                vendoeAdd += @"<Memo>Test Comments</Memo> 
                   </ExpenseLineAdd>";
                 vendoeAdd += @"<ExpenseLineAdd>
                  <AccountRef>
                   <FullName>Fuel Expense</FullName> 
                   </AccountRef>";
                 vendoeAdd += "<Amount>" + Convert.ToString(oQuickEL.VendorFuelSurchargeAmt1.ToString("#0.00")).Trim().Replace("&", "&amp;") + "</Amount> ";
-                vendoeAdd +=  @"<Memo>Test Comments</Memo> 
+                vendoeAdd += @"<Memo>Test Comments</Memo> 
                   </ExpenseLineAdd>";
 
                 vendoeAdd += @"<ExpenseLineAdd>
@@ -200,7 +200,7 @@ namespace BusinessLogicLayer
                 vendoeAdd += @"<Memo>Test Comments</Memo> 
                   </ExpenseLineAdd>";
 
-                 vendoeAdd += @"<ItemLineAdd>
+                vendoeAdd += @"<ItemLineAdd>
                  <ItemRef>
                   <FullName>Digital Camera</FullName> 
                   </ItemRef>
@@ -238,7 +238,7 @@ namespace BusinessLogicLayer
                 WebResponseObject = (HttpWebResponse)WebRequestObject.GetResponse();
                 sr = new StreamReader(WebResponseObject.GetResponseStream());
                 Results = sr.ReadToEnd();
-                
+
             }
             finally
             {
@@ -275,7 +275,7 @@ namespace BusinessLogicLayer
             StreamReader sr = null;
             HttpWebResponse WebResponseObject = null;
             StreamWriter swr = null;
-            
+
             try
             {
                 WebRequestObject = (HttpWebRequest)WebRequest.Create(requestUrl);
@@ -376,7 +376,7 @@ namespace BusinessLogicLayer
             StreamReader sr = null;
             HttpWebResponse WebResponseObject = null;
             StreamWriter swr = null;
-            
+
             try
             {
                 WebRequestObject = (HttpWebRequest)WebRequest.Create(requestUrl);
@@ -421,13 +421,13 @@ namespace BusinessLogicLayer
                 vendoeAdd += "<FullName>Transportation</FullName>";
                 vendoeAdd += "</ItemRef>";
                 vendoeAdd += "<Desc>" + Convert.ToString(oQuickEL.CustomerInvoiceDesc).Trim().Replace("&", "&amp;") + "</Desc>";
-                
+
                 vendoeAdd += "<Quantity>" + Convert.ToString(oQuickEL.CustomerTotalQty).Trim().Replace("&", "&amp;") + "</Quantity>";
                 vendoeAdd += "<Rate>" + Convert.ToString(oQuickEL.CustomerTotalAmt.ToString("#0.00")).Trim().Replace("&", "&amp;") + "</Rate>";
                 vendoeAdd += "<Amount>" + Convert.ToString(oQuickEL.CustomerTotalAmt.ToString("#0.00")).Trim().Replace("&", "&amp;") + "</Amount>";
                 vendoeAdd += "</InvoiceLineAdd>";
 
-               
+
 
                 vendoeAdd += @"</InvoiceAdd>
 		                    </InvoiceAddRq>

@@ -13,7 +13,7 @@ namespace BusinessLogicLayer
             {
                 //MailMessage message = new MailMessage(sendMailForm, sendMailTo);
                 MailMessage message = new MailMessage();
-                if (ConfigurationSettings.AppSettings["MailDisplayNameFlag"].Trim() == "Yes")
+                if ( ConfigurationSettings.AppSettings["MailDisplayNameFlag"].Trim() == "Yes")
                 {
                     message.From = new MailAddress(ConfigurationSettings.AppSettings["AdminEmail"].Trim(), ConfigurationSettings.AppSettings["MailDisplayName"].Trim());
                 }
@@ -25,7 +25,7 @@ namespace BusinessLogicLayer
                 SmtpClient mailClient = new SmtpClient();
                 message.Body = mailBody;
                 message.Subject = mailSubject;
-                message.IsBodyHtml = true;                
+                message.IsBodyHtml = true;
                 string strCCEmail1 = ConfigurationSettings.AppSettings["CCEmail1"].Trim();
                 string strCCEmail2 = ConfigurationSettings.AppSettings["CCEmail2"].Trim();
                 string strCCEmail3 = ConfigurationSettings.AppSettings["CCEmail3"].Trim();
@@ -35,26 +35,30 @@ namespace BusinessLogicLayer
                 mailClient.Host = ConfigurationSettings.AppSettings["SMTPHost"].Trim(); //"smtpout.secureserver.net";
                 //mailClient.Host = "127.0.0.1";
                 mailClient.Port = Int32.Parse(ConfigurationSettings.AppSettings["SMTPPort"].Trim()); //25;                
-                //mailClient.UseDefaultCredentials = true;
-                //mailClient.Credentials = new NetworkCredential("ops@3plintegration.com", "kickass3");                
+                mailClient.UseDefaultCredentials = false;
+                //mailClient.Credentials = new NetworkCredential("ops@3plintegration.com", "password");                
                 mailClient.Credentials = new NetworkCredential(ConfigurationSettings.AppSettings["AdminEmail"].Trim(), ConfigurationSettings.AppSettings["AdminEmailPwd"].Trim());
                 //mailClient.Credentials = CredentialCache.DefaultNetworkCredentials;
                 //mailClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                mailClient.EnableSsl = bool.Parse(ConfigurationSettings.AppSettings["SMTPEnableSsl"].Trim());                
+                mailClient.EnableSsl = bool.Parse(ConfigurationSettings.AppSettings["SMTPEnableSsl"].Trim());
                 if (ConfigurationSettings.AppSettings["SendMailFlag"].Trim() == "Yes")
                 {
-                
-                        mailClient.Send(message);
-           
+
+                    mailClient.Send(message);
+
                 }
                 message.Dispose();
                 return 1;
             }
 
-            catch (Exception ex) { return 0; }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: {0}", ex.Message);
+                return 0;
+            }
         }
 
-        public static int sendMailInHtmlFormat(string sendMailForm, string sendMailTo,string strCCSemiColon, string mailSubject, string mailBody)
+        public static int sendMailInHtmlFormat(string sendMailForm, string sendMailTo, string strCCSemiColon, string mailSubject, string mailBody)
         {
             try
             {
@@ -76,7 +80,7 @@ namespace BusinessLogicLayer
                 string strCCEmail1 = ConfigurationSettings.AppSettings["CCEmail1"].Trim();
                 string strCCEmail2 = ConfigurationSettings.AppSettings["CCEmail2"].Trim();
                 string strCCEmail3 = ConfigurationSettings.AppSettings["CCEmail3"].Trim();
-                
+
                 if (strCCSemiColon.Trim() != "" && strCCSemiColon.IndexOf(";") != -1)
                 {
                     strCCSemiColon = strCCSemiColon.Trim().Replace(" ", "").Replace(";", ",");
@@ -97,7 +101,7 @@ namespace BusinessLogicLayer
                 mailClient.Port = Int32.Parse(ConfigurationSettings.AppSettings["SMTPPort"].Trim());
                 //mailClient.UseDefaultCredentials = true;
                 //mailClient.Credentials = CredentialCache.DefaultNetworkCredentials;
-                //mailClient.Credentials = new NetworkCredential("ops@3plintegration.com", "kickass3");
+                //mailClient.Credentials = new NetworkCredential("ops@3plintegration.com", "password");
                 mailClient.Credentials = new NetworkCredential(ConfigurationSettings.AppSettings["AdminEmail"].Trim(), ConfigurationSettings.AppSettings["AdminEmailPwd"].Trim());
                 //mailClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 mailClient.EnableSsl = bool.Parse(ConfigurationSettings.AppSettings["SMTPEnableSsl"].Trim());
@@ -143,8 +147,8 @@ namespace BusinessLogicLayer
                 //mailClient.Host = "127.0.0.1";
                 //mailClient.Port = 25;
                 //mailClient.UseDefaultCredentials = true;
-                //mailClient.Credentials = new NetworkCredential("ops@3plintegration.com", "kickass3");                
-                //mailClient.Credentials = new NetworkCredential("ops@3plintegration.com", "kickass3");
+                //mailClient.Credentials = new NetworkCredential("ops@3plintegration.com", "password");                
+                //mailClient.Credentials = new NetworkCredential("ops@3plintegration.com", "password");
                 mailClient.Credentials = new NetworkCredential(ConfigurationSettings.AppSettings["AdminEmail"].Trim(), ConfigurationSettings.AppSettings["AdminEmailPwd"].Trim());
                 //mailClient.Credentials = CredentialCache.DefaultNetworkCredentials;
                 //mailClient.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -184,8 +188,8 @@ namespace BusinessLogicLayer
         }
         public static bool isDate(string date)
         {
-            DateTime dt=new DateTime();
-            return DateTime.TryParse(date,out dt);
-        }        
+            DateTime dt = new DateTime();
+            return DateTime.TryParse(date, out dt);
+        }
     }
 }

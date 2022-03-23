@@ -43,12 +43,12 @@ namespace CF.Web.Security
                     tagValues[i++] = key + "=" + tags[key];
 
                 tagString = string.Join("||", tagValues);
-                
+
             }
 
             DateTime expires = persist ? DateTime.Now.AddYears(1) : DateTime.Now.Add(Timeout);
             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, user.Email, DateTime.Now, expires, persist, userString);
-            
+
             HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
             if (ticket.IsPersistent)
                 cookie.Expires = ticket.Expiration;
@@ -63,12 +63,12 @@ namespace CF.Web.Security
             return ticket;
         }
 
-       
+
         #region IHttpModule Members
 
         public void Dispose()
         {
-            
+
         }
 
         //public void Init(HttpApplication context)
@@ -132,7 +132,7 @@ namespace CF.Web.Security
 
         #region IHttpModule Members
 
-      
+
         #endregion
     }
 }

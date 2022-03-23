@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Web;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Security.Cryptography;
-using System.IO;
 using System.Configuration;
-using CF.Web.Security;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace CF.Web.Security
 {

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace EntityLayer
+﻿namespace EntityLayer
 {
-  public   class InfoRequest
+    public class InfoRequest
     {
         public int Id { get; set; }
         public string ServiceType { get; set; }

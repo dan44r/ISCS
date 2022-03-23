@@ -1,0 +1,3 @@
+<CustomerAddRq requestID="15">
+			     <CustomerAdd><Name>BTX Global</Name><CompanyName>BTX Global</CompanyName><BillAddress></BillAddress><Email>victoria.tago@towneair.com</Email></CustomerAdd>
+		                        </CustomerAddRq>

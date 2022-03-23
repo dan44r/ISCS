@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Text;
 using System.Web.UI;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -244,7 +244,7 @@ namespace ISCS.Admin
             Response.Write(strBody.ToString());
             Response.End();
             string sHTML = "<div style='width: 416px; font-family: @Arial Unicode MS; font-size: 10px;'>dfgfdg</div>";
-            
+
         }
 
         public void GenerateSendMail(string strBody)

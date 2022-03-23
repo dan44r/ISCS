@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
@@ -56,6 +55,6 @@ namespace CF.Web.Security
             return new string(password);
         }
 
-        
+
     }
 }

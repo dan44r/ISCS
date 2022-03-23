@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using EntityLayer;
+using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using EntityLayer;
 
 namespace ISCS.Admin
 {
@@ -20,7 +20,7 @@ namespace ISCS.Admin
             DataSet ds = PackageTypeBL.FetchPackageTypes("", "");
             drpHandlingUnitType.DataSource = ds;
             drpHandlingUnitType.DataTextField = "PackageType";
-            drpHandlingUnitType.DataValueField="PackageTypeId";
+            drpHandlingUnitType.DataValueField = "PackageTypeId";
             drpHandlingUnitType.DataBind();
             drpHandlingUnitType.Items.Insert(0, new ListItem("Please Select", "0"));
         }

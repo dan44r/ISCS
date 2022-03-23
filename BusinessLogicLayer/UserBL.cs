@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Data;
-using DataAccessLayer;
 
 namespace BusinessLogicLayer
 {
@@ -8,13 +8,13 @@ namespace BusinessLogicLayer
     {
         public static DataTable GetUserByUserName(string _userName)
         {
-            DataTable dtUser = new DataTable();           
+            DataTable dtUser = new DataTable();
             try
             {
                 ProcedureExecute proc = new ProcedureExecute("sp_tblUsers");
                 proc.AddVarcharPara("@Mode", 30, "selectbyusername");
                 proc.AddVarcharPara("@Email", 128, _userName);
-                dtUser = proc.GetTable();                
+                dtUser = proc.GetTable();
             }
             catch (Exception ex)
             { }
@@ -59,13 +59,13 @@ namespace BusinessLogicLayer
             ds = proc.GetDataSet();
             return ds;
         }
-        
+
         public static int DeleteUsers(int Id)
-        {            
+        {
             ProcedureExecute proc = new ProcedureExecute("sp_tblUsers");
             proc.AddVarcharPara("@Mode", 30, "delete");
             proc.AddIntegerPara("@UserId", Id);
-            int i = proc.RunActionQuery();            
+            int i = proc.RunActionQuery();
             return i;
         }
         public static DataTable GetUserByUserId(int Id)
@@ -74,7 +74,7 @@ namespace BusinessLogicLayer
             ProcedureExecute proc = new ProcedureExecute("sp_tblUsers");
             proc.AddVarcharPara("@Mode", 30, "byid");
             proc.AddIntegerPara("@UserId", Id);
-            ds = proc.GetTable();            
+            ds = proc.GetTable();
             return ds;
         }
 
@@ -102,7 +102,7 @@ namespace BusinessLogicLayer
             proc.AddIntegerPara("@CountryId", objEl.CountryId);
             try
             {
-             i=   proc.RunActionQuery();
+                i = proc.RunActionQuery();
             }
             catch (Exception ex)
             { }
@@ -138,11 +138,11 @@ namespace BusinessLogicLayer
             proc.AddIntegerPara("@CountryId", objEl.CountryId);
             try
             {
-                 i = proc.RunActionQuery();
+                i = proc.RunActionQuery();
             }
             catch (Exception ex)
             { }
-            
+
             if (i > 0)
             {
                 stat = true;
@@ -171,7 +171,7 @@ namespace BusinessLogicLayer
         {
             DataSet ds = null;
             ProcedureExecute proc = new ProcedureExecute("spAdminCompareAccountCodes");
-            proc.AddVarcharPara("@ShipFromEmail", 30, ShipFromEmail);    
+            proc.AddVarcharPara("@ShipFromEmail", 30, ShipFromEmail);
             ds = proc.GetDataSet();
             return ds;
         }

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Data;
-using DataAccessLayer;
 
 namespace BusinessLogicLayer
 {
@@ -11,25 +11,25 @@ namespace BusinessLogicLayer
             Boolean stat = false;
             try
             {
-                ProcedureExecute proc = new ProcedureExecute("sp_Feedback");               
+                ProcedureExecute proc = new ProcedureExecute("sp_Feedback");
                 proc.AddVarcharPara("@Mode", 10, "insert");
                 proc.AddNVarcharPara("@Name", 256, objEl.Name);
                 proc.AddNVarcharPara("@Company", 256, objEl.Company);
                 proc.AddNVarcharPara("@Email", 256, objEl.Email);
                 proc.AddNVarcharPara("@Phone", 256, objEl.Phone);
                 proc.AddNVarcharPara("@Fax", 256, objEl.Fax);
-                proc.AddBooleanPara("@IsPriority",  objEl.IsPriority);
+                proc.AddBooleanPara("@IsPriority", objEl.IsPriority);
                 proc.AddNVarcharPara("@CommentType", 256, objEl.CommentType);
                 proc.AddNVarcharPara("@CommentOn", 256, objEl.CommentOn);
-                proc.AddBooleanPara("@IsActive",  objEl.IsActive);
-                proc.AddBooleanPara("@IsDeleted",  objEl.IsDeleted);
-                proc.AddDateTimePara("@CommentDate",  objEl.CommentDate);
+                proc.AddBooleanPara("@IsActive", objEl.IsActive);
+                proc.AddBooleanPara("@IsDeleted", objEl.IsDeleted);
+                proc.AddDateTimePara("@CommentDate", objEl.CommentDate);
                 proc.AddNTextPara("@Comment", objEl.Comment);
-               int i= proc.RunActionQuery();
-               if (i > 0)
-               {
-                   stat = true;
-               }
+                int i = proc.RunActionQuery();
+                if (i > 0)
+                {
+                    stat = true;
+                }
             }
             catch (Exception ex)
             {
@@ -37,7 +37,7 @@ namespace BusinessLogicLayer
             }
             return stat;
         }
-        public static DataSet FetchAllFeedback(string strSearchKey,string strSearchCol)
+        public static DataSet FetchAllFeedback(string strSearchKey, string strSearchCol)
         {
             DataSet ds;
             ProcedureExecute proc = new ProcedureExecute("sp_Feedback");
@@ -55,8 +55,8 @@ namespace BusinessLogicLayer
         {
             DataSet ds;
             ProcedureExecute proc = new ProcedureExecute("sp_Feedback");
-            proc.AddVarcharPara("@Mode", 10, "byID");            
-            proc.AddIntegerPara("@Id", FeedbackID);           
+            proc.AddVarcharPara("@Mode", 10, "byID");
+            proc.AddIntegerPara("@Id", FeedbackID);
             ds = proc.GetDataSet();
             return ds;
         }

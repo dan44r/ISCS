@@ -90,6 +90,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\images\custom_logo_banner.jpg" />
     <Content Include="Admin\PageContent.aspx" />
     <Content Include="Admin\PageList.aspx" />
     <Content Include="AirportCodes.aspx" />

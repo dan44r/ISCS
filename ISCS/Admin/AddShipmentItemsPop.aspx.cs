@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using EntityLayer;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using EntityLayer;
 
 namespace ISCS.Admin
 {
@@ -40,8 +40,8 @@ namespace ISCS.Admin
             objEL.LotNumber_SI = txtLotNumber.Text.ToString().Trim();
             if (txtDeclaredValue.Text.ToString().Trim() != "")
             {
-                int j=0;
-                if (int.TryParse(txtDeclaredValue.Text.ToString().Trim(), out j) ==true)
+                int j = 0;
+                if (int.TryParse(txtDeclaredValue.Text.ToString().Trim(), out j) == true)
                 {
                     objEL.DeclaredValue_SI = Convert.ToDecimal(txtDeclaredValue.Text.ToString().Trim());
                 }
@@ -51,10 +51,10 @@ namespace ISCS.Admin
             objEL.Export_MFG_SI = "Domestic";
             objEL.DateAdded_SI = DateTime.Now;
             objEL.DateModified_SI = DateTime.Now;
-            Boolean stat= ShipmentItemsBL.AddShipmentItem(objEL);
+            Boolean stat = ShipmentItemsBL.AddShipmentItem(objEL);
             if (stat == true)
-            {               
-                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "shipclose", "parent.parent.GB_hide();parent.parent.CallMe();", true);               
+            {
+                ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "shipclose", "parent.parent.GB_hide();parent.parent.CallMe();", true);
             }
             else
             {

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
-using EntityLayer;
-using BusinessLogicLayer;
+using System.Web.UI.WebControls;
 
 namespace ISCS.Admin
 {
@@ -74,11 +69,11 @@ namespace ISCS.Admin
                 Response.Redirect(ResolveUrl("~/SecureLogin.aspx"));
             }
         }
-        
+
         protected void lnkmaskedskidClick_Click(object sender, EventArgs e)
         {
             LinkButton btnSender = (LinkButton)sender;
-            hidFSkuid.Value = btnSender.CommandArgument;            
+            hidFSkuid.Value = btnSender.CommandArgument;
         }
 
         protected void gridUsers_PageIndexChanging(object sender, GridViewPageEventArgs e)

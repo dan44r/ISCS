@@ -1,7 +1,7 @@
-﻿using System;
-using System.Data;
-using DataAccessLayer;
+﻿using DataAccessLayer;
 using EntityLayer;
+using System;
+using System.Data;
 
 namespace BusinessLogicLayer
 {
@@ -30,7 +30,7 @@ namespace BusinessLogicLayer
                 ProcedureExecute proc = new ProcedureExecute("sp_tblUserTypeSectionsXref");
                 proc.AddVarcharPara("@Mode", 30, "insert");
                 proc.AddIntegerPara("@UserTypeId", objUserTypeSectionsXref.UserTypeId);
-                proc.AddIntegerPara("@SectionId", objUserTypeSectionsXref.SectionId);                
+                proc.AddIntegerPara("@SectionId", objUserTypeSectionsXref.SectionId);
 
                 int i = proc.RunActionQuery();
                 if (i > 0)
@@ -76,7 +76,7 @@ namespace BusinessLogicLayer
                 proc.AddVarcharPara("@Mode", 30, "checksectionid");
                 proc.AddIntegerPara("@SectionId", _sectionid);
                 proc.AddIntegerPara("@UserTypeId", _usertypeid);
-                dtUserTypeSectionXref = proc.GetTable();                
+                dtUserTypeSectionXref = proc.GetTable();
                 if (dtUserTypeSectionXref.Rows.Count > 0)
                 {
                     stat = true;

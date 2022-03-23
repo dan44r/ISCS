@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -20,7 +20,7 @@ namespace ISCS.Admin
         {
             ContentPlaceHolder contentPh = (ContentPlaceHolder)Page.PreviousPage.Form.FindControl("ContentPlaceHolder1");
             HiddenField hfFeedbackid = (HiddenField)contentPh.FindControl("hidFFeedbackid");
-            int strFeedbackid = Convert.ToInt32(hfFeedbackid.Value);            
+            int strFeedbackid = Convert.ToInt32(hfFeedbackid.Value);
 
             DataTable dtFeedback = FeedbackBL.FetchFeedbackByID(strFeedbackid).Tables[0];
             if (dtFeedback.Rows != null && dtFeedback.Rows.Count > 0)
@@ -34,13 +34,13 @@ namespace ISCS.Admin
                 lblCommentOn.Text = dtFeedback.Rows[0]["CommentOn"].ToString().Trim();
                 lblCommentDate.Text = dtFeedback.Rows[0]["CommentDate"].ToString().Trim();
                 lblComment.Text = dtFeedback.Rows[0]["Comment"].ToString().Trim();
-            }            
-        }       
+            }
+        }
 
         protected void btnRetuen_Click(object sender, EventArgs e)
         {
             Response.Redirect("ManageFeedback.aspx");
         }
-        
+
     }
 }

@@ -105,7 +105,7 @@ namespace ISCS
                     AllFileData = sr.ReadToEnd();
                     sr.Close();
 
-                    
+
                     if (f.Name.Trim().ToLower().IndexOf("qbxml") != -1)
                     {
                         string strRes1 = VendorADD(AllFileData, f.Name.ToString().Trim());

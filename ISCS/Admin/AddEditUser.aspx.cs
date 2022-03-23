@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using EntityLayer;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using EntityLayer;
 
 namespace ISCS.Admin
 {
@@ -65,8 +65,8 @@ namespace ISCS.Admin
         }
 
         protected void BindDrpAccountCode()
-        {            
-            DataSet dtAccountCodes = AccountCodesBL.FetchAllAccountCodesWithMargins();            
+        {
+            DataSet dtAccountCodes = AccountCodesBL.FetchAllAccountCodesWithMargins();
             drpAccountCode.DataSource = dtAccountCodes;
             drpAccountCode.DataValueField = "Id";
             drpAccountCode.DataTextField = "Value";
@@ -94,7 +94,7 @@ namespace ISCS.Admin
             drpCountry.DataTextField = "Name";
             drpCountry.DataBind();
             ListItem lstItem = new ListItem("--Select Country--", "0");
-            drpCountry.Items.Insert(0, lstItem);            
+            drpCountry.Items.Insert(0, lstItem);
             for (int i = 0; i < drpCountry.Items.Count; i++)
             {
                 if (drpCountry.Items[i].Text.Trim().ToUpper() == "UNITED STATES")
@@ -167,8 +167,8 @@ namespace ISCS.Admin
                     {
                         if (dtuser.Rows[i]["Password"] != null && Convert.ToString(dtuser.Rows[i]["Password"]) == txtPassword.Text.ToString().Trim() && Convert.ToString(dtuser.Rows[i]["UserId"]) != strUserid.ToString().Trim())
                         {
-                            Count++;                            
-                        }                                             
+                            Count++;
+                        }
                     }
                     if (Count == 0)
                     {
@@ -180,7 +180,7 @@ namespace ISCS.Admin
                         lblMsg.Text = "This email / password combination you supplied belongs to another user, please try other combination.";
                         return;
                     }
-                }  
+                }
             }
             else
             {
@@ -201,7 +201,7 @@ namespace ISCS.Admin
                     {
                         res = UserBL.InsertUser(objUsers);
                     }
-                }                
+                }
             }
             if (res)
             {

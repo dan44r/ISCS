@@ -1,13 +1,13 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using EntityLayer;
+using System;
 using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
-using EntityLayer;
 
 namespace ISCS.Admin
 {
@@ -34,7 +34,7 @@ namespace ISCS.Admin
             }
         }
         protected void BindValues()
-        {            
+        {
             DataTable dtSI = null;
             int strtrackingbillid = 0;
             string strtrackingbillno = null;
@@ -87,11 +87,11 @@ namespace ISCS.Admin
                 drpstatusday.SelectedValue = day.ToString();
                 drpstatusyear.SelectedValue = year.ToString();
                 drptimehr.SelectedValue = hour.ToString();
-                drptimemin.SelectedValue = min.ToString();                
+                drptimemin.SelectedValue = min.ToString();
                 drpagentsid.SelectedValue = dtSI.Rows[0]["Agent_Id"].ToString();
                 txtpieces.Text = dtSI.Rows[0]["Pieces"].ToString();
-                txtactualweight.Text = dtSI.Rows[0]["Actual_Weight"].ToString();                
-                txtnotes.Text = dtSI.Rows[0]["Notes"].ToString();                
+                txtactualweight.Text = dtSI.Rows[0]["Actual_Weight"].ToString();
+                txtnotes.Text = dtSI.Rows[0]["Notes"].ToString();
                 lblglscarriername.Text = dtSI.Rows[0]["GLSCarrierName"].ToString();
                 StringBuilder sbshipper = new StringBuilder();
                 sbshipper.Append(dtSI.Rows[0]["ShipFromCompany"] + ",<br />");
@@ -100,7 +100,7 @@ namespace ISCS.Admin
                 sbshipper.Append((dtSI.Rows[0]["ShipFromState"].ToString() != "") ? " ," + dtSI.Rows[0]["ShipFromState"] : "");
                 sbshipper.Append("<br />");
                 sbshipper.Append((dtSI.Rows[0]["ShipFromPostalCode"].ToString() != "") ? " " + dtSI.Rows[0]["ShipFromPostalCode"] : "");
-               
+
                 lblshipper.Text = sbshipper.ToString();
 
                 StringBuilder sbconsignee = new StringBuilder();
@@ -111,9 +111,9 @@ namespace ISCS.Admin
                 sbconsignee.Append("<br />");
                 sbconsignee.Append((dtSI.Rows[0]["ShipToPostalCode"].ToString() != "") ? " " + dtSI.Rows[0]["ShipToPostalCode"] : "");
 
-                
+
                 lblconsignee.Text = sbconsignee.ToString();
-                
+
                 lbltransmode.Text = dtSI.Rows[0]["TransMode"].ToString();
                 transportationmode = Convert.ToInt32(dtSI.Rows[0]["TransMode"]);
                 txtpronumber.Text = dtSI.Rows[0]["ProNumber"].ToString();
@@ -123,7 +123,7 @@ namespace ISCS.Admin
 
                 lblglscarriernameinterm.Text = dtSI.Rows[0]["GLSCarrierNameInterm"].ToString();
                 lblglscarriernamedelivery.Text = dtSI.Rows[0]["GLSCarrierNameDelivery"].ToString();
-                lblglscarriernameother.Text = dtSI.Rows[0]["GLSCarrierNameOther"].ToString();                
+                lblglscarriernameother.Text = dtSI.Rows[0]["GLSCarrierNameOther"].ToString();
                 lblshipperrefno.Text = dtSI.Rows[0]["ShipFromRefNumber"].ToString();
                 lblconsigneerefno.Text = dtSI.Rows[0]["ShipToConsigneeRefNumber"].ToString();
                 hdPickupRequestId.Value = dtSI.Rows[0]["PickupRequestId"].ToString();
@@ -166,7 +166,7 @@ namespace ISCS.Admin
 
         protected void BindDrpYear()
         {
-            for (int i = DateTime.Now.AddYears(-10).Year; i <= DateTime.Now.Year+1; i++)
+            for (int i = DateTime.Now.AddYears(-10).Year; i <= DateTime.Now.Year + 1; i++)
             {
                 ListItem lstItem = new ListItem(i.ToString(), i.ToString());
                 drpstatusyear.Items.Add(lstItem);
@@ -199,7 +199,7 @@ namespace ISCS.Admin
             drpagentsid.DataValueField = "UserId";
             drpagentsid.DataTextField = "FirstName";
             drpagentsid.DataBind();
-        }      
+        }
 
         protected void btnRetuen_Click(object sender, EventArgs e)
         {
@@ -361,7 +361,7 @@ namespace ISCS.Admin
                 }
 
             }
-            
+
         }
 
         protected void delete_Click(object sender, EventArgs e)
@@ -386,6 +386,6 @@ namespace ISCS.Admin
         protected void return_Click(object sender, EventArgs e)
         {
             Response.Redirect("ManageShipmentTracking.aspx");
-        }       
+        }
     }
 }

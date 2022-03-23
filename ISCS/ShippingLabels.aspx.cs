@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
 
 namespace ISCS
 {
@@ -29,7 +29,7 @@ namespace ISCS
                     pickupreqid = Convert.ToInt32(strReqIDDecode);
                 }
                 BindGrid(pickupreqid);
-            }           
+            }
         }
 
         protected void BindGrid(int pickupreqid)
@@ -53,7 +53,7 @@ namespace ISCS
                 {
                     pnlnorecord.Visible = true;
                     pnldoc.Visible = false;
-                }                
+                }
             }
             else
             {
@@ -85,7 +85,7 @@ namespace ISCS
 
         protected void gridContents_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            
+
         }
     }
 }

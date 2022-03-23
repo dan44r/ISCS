@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Security.Principal;
 
 namespace CF.Web.Security
@@ -35,7 +33,7 @@ namespace CF.Web.Security
             string[] roleArray = null;
             if (role != null)
             {
-                roleArray  = role.Split(',');
+                roleArray = role.Split(',');
 
                 foreach (string r in roleArray)
                     if (roles.Contains(r.Trim()))

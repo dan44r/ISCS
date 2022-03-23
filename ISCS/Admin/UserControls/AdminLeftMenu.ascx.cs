@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using EntityLayer;
-using BusinessLogicLayer;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
-using System.Web.Security;
 using System.Text;
 
 namespace ISCS.Admin.UserControls
@@ -46,7 +39,7 @@ namespace ISCS.Admin.UserControls
                     DataTable dtUserTypeSectionXref = UserTypeSectionsXrefBL.GetSectionIdByUserTypeId(userTypeId);
                     foreach (DataRow drUserTypeSectionXref in dtUserTypeSectionXref.Rows)
                     {
-                       
+
 
                         DataTable dtSection = SectionsBL.GetSectionById(Convert.ToInt32(drUserTypeSectionXref["SectionId"]));
 
@@ -80,7 +73,7 @@ namespace ISCS.Admin.UserControls
                             }
                         }
 
-                        
+
                     }
                     if (strMenu != null)
                     {

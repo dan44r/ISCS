@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Data;
-using DataAccessLayer;
 
 namespace BusinessLogicLayer
 {

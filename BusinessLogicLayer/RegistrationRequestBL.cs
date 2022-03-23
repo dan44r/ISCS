@@ -1,7 +1,7 @@
-﻿using System;
-using System.Data;
-using DataAccessLayer;
+﻿using DataAccessLayer;
 using EntityLayer;
+using System;
+using System.Data;
 
 namespace BusinessLogicLayer
 {
@@ -60,7 +60,7 @@ namespace BusinessLogicLayer
                 }
             }
             catch (Exception ex)
-            {                
+            {
             }
             return stat;
         }

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -47,7 +47,7 @@ namespace ISCS.Admin
             else
             {
                 ds = AccountCodesBL.FetchAllAccountCodes();
-            }            
+            }
             DataView dv = new DataView();
             dv.Table = ds.Tables[0];
             dv.Sort = ViewState["SortOrder"].ToString();
@@ -56,8 +56,8 @@ namespace ISCS.Admin
         }
         protected void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            ImageButton btnSender = (ImageButton)sender;            
-            int stat = AccountCodesBL.DeleteAccountCodes(Convert.ToInt32(btnSender.CommandArgument));            
+            ImageButton btnSender = (ImageButton)sender;
+            int stat = AccountCodesBL.DeleteAccountCodes(Convert.ToInt32(btnSender.CommandArgument));
             if (stat > 0)
             {
                 lblMsg.Visible = true;
@@ -67,7 +67,7 @@ namespace ISCS.Admin
             if (stat == -547)
             {
                 lblMsg.Visible = true;
-                lblMsg.Text = "Cannot delete record due to database exception.";                
+                lblMsg.Text = "Cannot delete record due to database exception.";
             }
         }
         protected void btnEditUser_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace ISCS.Admin
                 }
                 BindGrid();
             }
-             if (e.CommandName == "sortAccountCode")
+            if (e.CommandName == "sortAccountCode")
             {
                 if (ViewState["SortOrder"].ToString() == "AccountCode desc")
                 {
@@ -108,7 +108,7 @@ namespace ISCS.Admin
                 }
                 BindGrid();
             }
-        }              
+        }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {

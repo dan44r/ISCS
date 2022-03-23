@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Configuration;
 using System.Net.Mail;
 using System.Text;
 using System.Web.UI.HtmlControls;
-using BusinessLogicLayer;
 
 namespace ISCS
 {
@@ -15,7 +15,7 @@ namespace ISCS
 
             lnk = this.Master.FindControl("lnkContact") as HtmlAnchor;
             if (lnk != null)
-                lnk.Attributes.Add("class", "active");            
+                lnk.Attributes.Add("class", "active");
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -76,14 +76,14 @@ namespace ISCS
                 sbMailBody.Append("</td></tr><tr><td>Email : </td><td>");
                 sbMailBody.Append(objEl.Email);
 
-                sbMailBody.Append("</td></tr></table>");                
+                sbMailBody.Append("</td></tr></table>");
 
                 CommonBL.sendMailInHtmlFormat(objEl.Email, ConfigurationManager.AppSettings["AdminEmail"].Trim(), "ISCS Information Request", sbMailBody.ToString());
-                
+
                 if (stat == true)
                 {
                     lblMsg.Text = "Your request has been sent succesfully.";
-                    hdMsg.Value = "Thank you for submitting your request.";                    
+                    hdMsg.Value = "Thank you for submitting your request.";
                 }
                 else
                 {

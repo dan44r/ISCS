@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace EntityLayer
+﻿namespace EntityLayer
 {
     public class QuickBookEL
-    {        
+    {
         public string VendorName { get; set; }
         public string IsActive { get; set; }
         public int CarrierID { get; set; }
@@ -59,6 +54,6 @@ namespace EntityLayer
         public int CustomerTotalQty { get; set; }
 
         public string CustomerInvoiceNo { get; set; }
-        
+
     }
 }

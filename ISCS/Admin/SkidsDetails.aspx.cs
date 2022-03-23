@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using EntityLayer;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using EntityLayer;
 
 namespace ISCS.Admin
 {
@@ -32,10 +32,10 @@ namespace ISCS.Admin
                     }
                     btnUpdate.Visible = true;
                     btnSubmit.Visible = false;
-                    btnAddMore.Visible = false;                    
+                    btnAddMore.Visible = false;
                 }
                 else if (Request.QueryString["addship"] != null) // Add Shipment Item for a Handling Unit
-                {                    
+                {
                     Panel1.Visible = false;
                     btnUpdate.Visible = false;
                     btnSubmit.Visible = true;
@@ -45,7 +45,7 @@ namespace ISCS.Admin
                 {
                     btnUpdate.Visible = false;
                     btnSubmit.Visible = true;
-                    btnAddMore.Visible = true;                    
+                    btnAddMore.Visible = true;
                 }
 
                 if (Request.QueryString["skid"] != null)
@@ -53,9 +53,9 @@ namespace ISCS.Admin
                     // Initiating new Pickup Request from Warehouse(click ship item button)
                     // getting skid from old Pickup Request, if skid supplied ,
                     // add both Handling unit and Shipment item
-                    hidSkid.Value = Request.QueryString["skid"].ToString();                    
+                    hidSkid.Value = Request.QueryString["skid"].ToString();
                     trWeight1.Visible = false;
-                    trWeight2.Visible = false;                    
+                    trWeight2.Visible = false;
                     Panel2.Visible = false;
                 }
 
@@ -64,7 +64,7 @@ namespace ISCS.Admin
                     // Adding from other PickupRequest's skid from Warehouse list popup, 
                     // if no skid supplied , only add Handling unit, dont add Shipment item.                    
                     Panel2.Visible = false;
-                }                
+                }
             }
         }
         #endregion
@@ -91,30 +91,30 @@ namespace ISCS.Admin
         #region protected void FetchShipments()
         protected void FetchShipments()
         {
-           DataSet ds= ShipmentItemsBL.FetchShipmentSingle(IsInteger(Request.QueryString["shipid"].ToString()));
-           if (ds.Tables.Count > 0)
-           {
-               txtPackageQuantity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PackageQuantity_SI"]);
+            DataSet ds = ShipmentItemsBL.FetchShipmentSingle(IsInteger(Request.QueryString["shipid"].ToString()));
+            if (ds.Tables.Count > 0)
+            {
+                txtPackageQuantity.Text = Convert.ToString(ds.Tables[0].Rows[0]["PackageQuantity_SI"]);
 
-               string strPackageType = Convert.ToString(ds.Tables[0].Rows[0]["PackageType_SI"]);
-               if (strPackageType != "")
-               {                   
-                   for (int i = 0; i < drpPackageType.Items.Count; i++)
-                   {
-                       if (drpPackageType.Items[i].Text.Trim().ToUpper() == strPackageType.Trim().ToUpper())
-                       {
-                           drpPackageType.ClearSelection();
-                           drpPackageType.Items[i].Selected = true;
-                       }
-                   }
-               }
-               //txtWeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["Weight_SI"]);
-               txtareaProdDescription.Value = Convert.ToString(ds.Tables[0].Rows[0]["Description_SI"]);
-               txtPartNumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["PartNumber_SI"]);
-               txtPONumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["PurchaseOrderNumber_SI"]);
-               txtLotNumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["LotNumber_SI"]);
-               txtDeclaredValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["DeclaredValue_SI"]);
-           }
+                string strPackageType = Convert.ToString(ds.Tables[0].Rows[0]["PackageType_SI"]);
+                if (strPackageType != "")
+                {
+                    for (int i = 0; i < drpPackageType.Items.Count; i++)
+                    {
+                        if (drpPackageType.Items[i].Text.Trim().ToUpper() == strPackageType.Trim().ToUpper())
+                        {
+                            drpPackageType.ClearSelection();
+                            drpPackageType.Items[i].Selected = true;
+                        }
+                    }
+                }
+                //txtWeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["Weight_SI"]);
+                txtareaProdDescription.Value = Convert.ToString(ds.Tables[0].Rows[0]["Description_SI"]);
+                txtPartNumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["PartNumber_SI"]);
+                txtPONumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["PurchaseOrderNumber_SI"]);
+                txtLotNumber.Text = Convert.ToString(ds.Tables[0].Rows[0]["LotNumber_SI"]);
+                txtDeclaredValue.Text = Convert.ToString(ds.Tables[0].Rows[0]["DeclaredValue_SI"]);
+            }
         }
         #endregion
 
@@ -122,33 +122,33 @@ namespace ISCS.Admin
         protected void FetchHandlingUnits()
         {
             DataSet ds = HandlingUnitBL.FetchHandlingUnitSingle(IsInteger(Request.QueryString["huid"].ToString()));
-           if (ds.Tables.Count > 0)
-           {
-               string strHandlingUnitType = Convert.ToString(ds.Tables[0].Rows[0]["HandlingUnitType"]);
-               if (strHandlingUnitType != "")
-               {              
-                   for (int i = 0; i < drpHandlingUnitType.Items.Count; i++)
-                   {
-                       if (drpHandlingUnitType.Items[i].Text.Trim().ToUpper() == strHandlingUnitType.Trim().ToUpper())
-                       {
-                           drpHandlingUnitType.ClearSelection();
-                           drpHandlingUnitType.Items[i].Selected = true;
-                       }
-                   }
-               }
-               txtLength.Text = Convert.ToString(ds.Tables[0].Rows[0]["Length"]);
-               txtWidth.Text = Convert.ToString(ds.Tables[0].Rows[0]["Width"]);
-               txtHeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["Height"]);
-               txtWeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["Weight_SI"]);
-               if (IsInteger(Convert.ToString(ds.Tables[0].Rows[0]["HazMat"])) == 1)
-               {
-                   chkHazmat.Checked = true;
-               }
-               txtPhone.Text = Convert.ToString(ds.Tables[0].Rows[0]["HazMatEmergencyPhone"]);
-               txtClass.Text = Convert.ToString(ds.Tables[0].Rows[0]["Class"]);
-               txtNMFCCode.Text = Convert.ToString(ds.Tables[0].Rows[0]["NMFCCode"]);
-               txtCommoDesc.Text = Convert.ToString(ds.Tables[0].Rows[0]["CommodityDescription"]);
-           }
+            if (ds.Tables.Count > 0)
+            {
+                string strHandlingUnitType = Convert.ToString(ds.Tables[0].Rows[0]["HandlingUnitType"]);
+                if (strHandlingUnitType != "")
+                {
+                    for (int i = 0; i < drpHandlingUnitType.Items.Count; i++)
+                    {
+                        if (drpHandlingUnitType.Items[i].Text.Trim().ToUpper() == strHandlingUnitType.Trim().ToUpper())
+                        {
+                            drpHandlingUnitType.ClearSelection();
+                            drpHandlingUnitType.Items[i].Selected = true;
+                        }
+                    }
+                }
+                txtLength.Text = Convert.ToString(ds.Tables[0].Rows[0]["Length"]);
+                txtWidth.Text = Convert.ToString(ds.Tables[0].Rows[0]["Width"]);
+                txtHeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["Height"]);
+                txtWeight.Text = Convert.ToString(ds.Tables[0].Rows[0]["Weight_SI"]);
+                if (IsInteger(Convert.ToString(ds.Tables[0].Rows[0]["HazMat"])) == 1)
+                {
+                    chkHazmat.Checked = true;
+                }
+                txtPhone.Text = Convert.ToString(ds.Tables[0].Rows[0]["HazMatEmergencyPhone"]);
+                txtClass.Text = Convert.ToString(ds.Tables[0].Rows[0]["Class"]);
+                txtNMFCCode.Text = Convert.ToString(ds.Tables[0].Rows[0]["NMFCCode"]);
+                txtCommoDesc.Text = Convert.ToString(ds.Tables[0].Rows[0]["CommodityDescription"]);
+            }
 
         }
         #endregion
@@ -169,7 +169,7 @@ namespace ISCS.Admin
                     lblMsg.Visible = true;
                     lblMsg.Text = "Sorry, not updated.Please try again.";
                     return;
-                }                
+                }
             }
             if (Request.QueryString["pickuprequestid"] != null)
             {
@@ -195,11 +195,11 @@ namespace ISCS.Admin
                 objEL.DateModified = DateTime.Now;
                 objEL.DateAdded = DateTime.Now;
                 Boolean stat = false;
-                if (hidSkid.Value!="")
+                if (hidSkid.Value != "")
                 {
                     // Update existing record for Handling Unit
                     objEL.SkidId = IsInteger(hidSkid.Value);
-                    stat= HandlingUnitBL.UpdateHandlingUnitItem(objEL);
+                    stat = HandlingUnitBL.UpdateHandlingUnitItem(objEL);
                     hidSkid.Value = "";
                 }
                 else
@@ -220,11 +220,11 @@ namespace ISCS.Admin
                     objEL1.PurchaseOrderNumber_SI = txtPONumber.Text.ToString().Trim();
                     objEL1.LotNumber_SI = txtLotNumber.Text.ToString().Trim();
                     if (txtDeclaredValue.Text.ToString().Trim() != "")
-                    {                        
-                        objEL1.DeclaredValue_SI = IsDecimal(txtDeclaredValue.Text.ToString().Trim());                     
+                    {
+                        objEL1.DeclaredValue_SI = IsDecimal(txtDeclaredValue.Text.ToString().Trim());
                     }
                     objEL1.PickupRequestId_SI = IsInteger(Request.QueryString["pickuprequestid"].ToString());
-                    objEL1.SkidId_SI = objEL.SkidId;                    
+                    objEL1.SkidId_SI = objEL.SkidId;
                     objEL1.DateAdded_SI = DateTime.Now;
                     objEL1.DateModified_SI = DateTime.Now;
                     Boolean stat1 = false;
@@ -235,9 +235,9 @@ namespace ISCS.Admin
                     else
                     {
                         stat1 = stat;
-                    }                        
+                    }
                     if (stat1 == true)
-                    {                            
+                    {
                         ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "shipclose", "parent.parent.GB_hide();parent.parent.CallMe();", true);
                     }
                     else
@@ -245,7 +245,7 @@ namespace ISCS.Admin
                         lblMsg.Visible = true;
                         lblMsg.Text = "Sorry, not updated.Please try again.";
                         return;
-                    }                    
+                    }
                 }
                 else if (stat == true && Request.QueryString["ChooseWHlist"] != null)
                 {
@@ -259,7 +259,7 @@ namespace ISCS.Admin
                     lblMsg.Text = "Sorry, not updated.Please try again.";
                     return;
                 }
-            }            
+            }
         }
         #endregion
 
@@ -270,7 +270,7 @@ namespace ISCS.Admin
             {
                 Boolean stat2 = false;
                 stat2 = AddShipmentItem();
-            
+
                 if (stat2 == true)
                 {
                     ClearAllFields();
@@ -285,7 +285,7 @@ namespace ISCS.Admin
             }
             HandlingUnitEL objEL = new HandlingUnitEL();
             if (Request.QueryString["pickuprequestid"] != null)
-            {                
+            {
                 objEL.PickupRequestId = IsInteger(Request.QueryString["pickuprequestid"].ToString());
                 objEL.HandlingUnitType = drpHandlingUnitType.SelectedItem.Text;
                 objEL.Length = IsInteger(txtLength.Text.ToString().Trim());
@@ -307,7 +307,7 @@ namespace ISCS.Admin
                 objEL.DateModified = DateTime.Now;
                 objEL.DateAdded = DateTime.Now;
                 Boolean stat = false;
-                if (hidSkid.Value!="")
+                if (hidSkid.Value != "")
                 {
                     // Update existing record for Handling Unit
                     objEL.SkidId = IsInteger(hidSkid.Value);
@@ -332,15 +332,15 @@ namespace ISCS.Admin
                     objEL1.PurchaseOrderNumber_SI = txtPONumber.Text.ToString().Trim();
                     objEL1.LotNumber_SI = txtLotNumber.Text.ToString().Trim();
                     if (txtDeclaredValue.Text.ToString().Trim() != "")
-                    {                        
-                        objEL1.DeclaredValue_SI = IsDecimal(txtDeclaredValue.Text.ToString().Trim());                     
+                    {
+                        objEL1.DeclaredValue_SI = IsDecimal(txtDeclaredValue.Text.ToString().Trim());
                     }
                     objEL1.PickupRequestId_SI = IsInteger(Request.QueryString["pickuprequestid"].ToString());
-                    objEL1.SkidId_SI = objEL.SkidId;                    
+                    objEL1.SkidId_SI = objEL.SkidId;
                     objEL1.DateAdded_SI = DateTime.Now;
                     objEL1.DateModified_SI = DateTime.Now;
                     Boolean stat1;
-                    if (hidSkid.Value=="")
+                    if (hidSkid.Value == "")
                     {
                         stat1 = ShipmentItemsBL.AddShipmentItem(objEL1);
                     }
@@ -349,7 +349,7 @@ namespace ISCS.Admin
                         stat1 = stat;
                     }
                     if (stat1 == true)
-                    {                        
+                    {
                         ClearAllFields();
                     }
                     else
@@ -357,7 +357,7 @@ namespace ISCS.Admin
                         lblMsg.Visible = true;
                         lblMsg.Text = "Sorry, not updated.Please try again.";
                         return;
-                    }                    
+                    }
                 }
                 else if (stat == true && Request.QueryString["ChooseWHlist"] != null)
                 {
@@ -365,13 +365,13 @@ namespace ISCS.Admin
                     // just open Warehouse list popup
                     Response.Redirect("ManageShipFromWarehousePop.aspx?skidid=" + objEL.SkidId.ToString() + "&pickuprequestid=" + Request.QueryString["pickuprequestid"].ToString());
                 }
-                else if(stat == false)
+                else if (stat == false)
                 {
                     lblMsg.Visible = true;
                     lblMsg.Text = "Sorry, not updated.Please try again.";
                     return;
                 }
-            }            
+            }
         }
         #endregion
 
@@ -404,7 +404,7 @@ namespace ISCS.Admin
             }
             else
             {
-                HandlingUnitEL objEL = new HandlingUnitEL();               
+                HandlingUnitEL objEL = new HandlingUnitEL();
                 objEL.HandlingUnitType = drpHandlingUnitType.SelectedItem.Text;
                 objEL.Length = IsInteger(txtLength.Text.ToString().Trim());
                 objEL.Width = IsInteger(txtWidth.Text.ToString().Trim());
@@ -424,7 +424,7 @@ namespace ISCS.Admin
                 objEL.HazMatEmergencyPhone = txtPhone.Text.ToString().Trim();
                 objEL.DateModified = DateTime.Now;
                 objEL.SkidId = IsInteger(Request.QueryString["huid"].ToString());
-                bool stat= HandlingUnitBL.UpdateHandlingUnitItem(objEL);
+                bool stat = HandlingUnitBL.UpdateHandlingUnitItem(objEL);
                 if (stat == true)
                 {
                     ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "shipclose", "parent.parent.GB_hide();parent.parent.CallMe();", true);
@@ -452,7 +452,7 @@ namespace ISCS.Admin
             txtNMFCCode.Text = "";
             txtCommoDesc.Text = "";
             txtPackageQuantity.Text = "";
-            drpPackageType.SelectedIndex=0;
+            drpPackageType.SelectedIndex = 0;
             txtareaProdDescription.Value = "";
             txtPartNumber.Text = "";
             txtPONumber.Text = "";
@@ -497,7 +497,7 @@ namespace ISCS.Admin
                 objEL1.DeclaredValue_SI = IsDecimal(txtDeclaredValue.Text.ToString().Trim());
             }
             objEL1.PickupRequestId_SI = IsInteger(Request.QueryString["pickuprequestid"].ToString());
-            objEL1.SkidId_SI = IsInteger(Request.QueryString["huid"].ToString());            
+            objEL1.SkidId_SI = IsInteger(Request.QueryString["huid"].ToString());
             objEL1.DateAdded_SI = DateTime.Now;
             objEL1.DateModified_SI = DateTime.Now;
             Boolean stat1 = false;

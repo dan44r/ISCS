@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace EntityLayer
 {
-   public class UserFeedback
+    public class UserFeedback
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -19,6 +16,6 @@ namespace EntityLayer
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime CommentDate { get; set; }
-        public string Comment { get; set; }        
+        public string Comment { get; set; }
     }
 }

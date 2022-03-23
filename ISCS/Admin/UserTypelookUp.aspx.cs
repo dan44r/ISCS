@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -17,9 +17,9 @@ namespace ISCS.Admin
             }
         }
         protected void BindGrid()
-        {            
+        {
             DataTable dt;
-            dt = UserTypesBL.FetchAllUserTypes();      
+            dt = UserTypesBL.FetchAllUserTypes();
             DataView dv = new DataView();
             dv.Table = dt;
             dv.Sort = ViewState["SortOrder"].ToString();

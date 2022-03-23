@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
 
 namespace ISCS.Admin
 {
@@ -20,10 +20,10 @@ namespace ISCS.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int pickupreqid = 0;            
+            int pickupreqid = 0;
 
             if (PreviousPage != null && PreviousPage.IsCrossPagePostBack && PreviousPage.IsPostBack)
-            {                
+            {
                 ContentPlaceHolder contentPh = (ContentPlaceHolder)Page.PreviousPage.Form.FindControl("ContentPlaceHolder1");
                 HiddenField hfPickUpRequestid = (HiddenField)contentPh.FindControl("hdPickupRequestId");
                 if (PreviousPage != null)
@@ -34,12 +34,12 @@ namespace ISCS.Admin
                 else
                 {
                     pickupreqid = Convert.ToInt32(ViewState["pickupreqid"]);
-                }                
+                }
             }
             if (Request.QueryString["PickupRequestId"] != null)
             {
                 string strReqIDDecode = SecurityUtils.UrlDecode(Convert.ToString(Request.QueryString["PickupRequestId"]));
-                pickupreqid = Convert.ToInt32(strReqIDDecode);                
+                pickupreqid = Convert.ToInt32(strReqIDDecode);
             }
             BindValues(pickupreqid);
         }
@@ -50,7 +50,7 @@ namespace ISCS.Admin
             if (dtBOL.Rows.Count > 0)
             {
                 strRelativePath = ConfigurationSettings.AppSettings["cpath"].Trim();
-                
+
                 lblstrDisplayGLSCodFee.Text = dtBOL.Rows[0]["GLSCodFee"].ToString();
                 lblstrGLSBillAddress.Text = dtBOL.Rows[0]["GLSBillAddress"].ToString();
                 lblstrGLSBillCity.Text = dtBOL.Rows[0]["GLSBillCity"].ToString();
@@ -71,7 +71,7 @@ namespace ISCS.Admin
                     divCollectNumber.Style.Add("display", "none");
                 }
 
-                lblstrGLSTrackingNumber.Text = dtBOL.Rows[0]["GLSTrackingNumber"].ToString();                
+                lblstrGLSTrackingNumber.Text = dtBOL.Rows[0]["GLSTrackingNumber"].ToString();
                 lblstrShipFromAddress.Text = dtBOL.Rows[0]["ShipFromAddress"].ToString();
                 lblstrShipFromCity.Text = dtBOL.Rows[0]["ShipFromCity"].ToString();
                 lblstrShipFromCompany.Text = dtBOL.Rows[0]["ShipFromCompany"].ToString();
@@ -253,36 +253,36 @@ namespace ISCS.Admin
                         if (dtUser.Rows[k]["PackageQuantity_SI"] != DBNull.Value)
                         {
                             iShipmentTotalQty += IsInteger(Convert.ToString(dtUser.Rows[k]["PackageQuantity_SI"]));
-                            
+
                         }
                     }
                     ViewState["ShipmentTotalQty"] = iShipmentTotalQty;
 
-                        if (dtUser.Rows.Count > 4)
+                    if (dtUser.Rows.Count > 4)
+                    {
+                        iOverflow = 1;
+                        DataTable dtUser1 = null;
+                        DataTable dtUser2 = null;
+                        dtUser1 = dtUser.Copy();
+                        dtUser2 = dtUser.Copy();
+                        dtUser1.Clear();
+                        dtUser2.Clear();
+                        for (int i = 0; i < 4; i++)
                         {
-                            iOverflow = 1;
-                            DataTable dtUser1 = null;
-                            DataTable dtUser2 = null;
-                            dtUser1 = dtUser.Copy();
-                            dtUser2 = dtUser.Copy();
-                            dtUser1.Clear();
-                            dtUser2.Clear();
-                            for (int i = 0; i < 4; i++)
-                            {
-                                dtUser1.ImportRow(dtUser.Rows[i]);
-                            }
-                            for (int j = 4; j < dtUser.Rows.Count; j++)
-                            {
-                                dtUser2.ImportRow(dtUser.Rows[j]);
-                            }
-                            gridShipmentItems.DataSource = dtUser1;
-                            gridShipmentItems1.DataSource = dtUser2;
-                            gridShipmentItems1.DataBind();
+                            dtUser1.ImportRow(dtUser.Rows[i]);
                         }
-                        else
+                        for (int j = 4; j < dtUser.Rows.Count; j++)
                         {
-                            gridShipmentItems.DataSource = dtUser;
+                            dtUser2.ImportRow(dtUser.Rows[j]);
                         }
+                        gridShipmentItems.DataSource = dtUser1;
+                        gridShipmentItems1.DataSource = dtUser2;
+                        gridShipmentItems1.DataBind();
+                    }
+                    else
+                    {
+                        gridShipmentItems.DataSource = dtUser;
+                    }
                     gridShipmentItems.DataBind();
                 }
             }
@@ -325,13 +325,13 @@ namespace ISCS.Admin
                         dtUser2.Clear();
                         for (int i = 0; i < 4; i++)
                         {
-                            
+
                             dtUser1.ImportRow(dtUser.Rows[i]);
                         }
-                       
+
                         for (int j = 4; j < dtUser.Rows.Count; j++)
                         {
-                            
+
                             dtUser2.ImportRow(dtUser.Rows[j]);
                         }
                         gridSkidItems.DataSource = dtUser1;
@@ -347,12 +347,12 @@ namespace ISCS.Admin
             }
             return strShipHtml;
         }
-        
+
         int TotPackageQuantity_SI = 0;
         decimal TotWeight_SI = 0;
-        
+
         protected void gridShipmentItems_RowDataBound(object sender, GridViewRowEventArgs e)
-        {            
+        {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 int iPackageQuantity_SITot = Convert.ToInt32(((Label)e.Row.FindControl("lblPackageQuantity_SI")).Text);
@@ -362,13 +362,13 @@ namespace ISCS.Admin
 
                 if (strDeclaredValue_SI != "")
                 {
-                    TotDeclaredValue_SI = TotDeclaredValue_SI +Convert.ToDecimal(strDeclaredValue_SI);
+                    TotDeclaredValue_SI = TotDeclaredValue_SI + Convert.ToDecimal(strDeclaredValue_SI);
                 }
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
-                
-                ((Label)e.Row.FindControl("lblPackageQuantity_SITot")).Text = ViewState["ShipmentTotalQty"].ToString(); 
+
+                ((Label)e.Row.FindControl("lblPackageQuantity_SITot")).Text = ViewState["ShipmentTotalQty"].ToString();
             }
         }
 
@@ -384,15 +384,15 @@ namespace ISCS.Admin
                 GridViewRow row = new GridViewRow(0, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 6; i++)
                 {
-                    TableCell cell = new TableCell();                    
+                    TableCell cell = new TableCell();
                     cell.Font.Bold = true;
                     if (i == 5)
                     {
-                        cell.ColumnSpan = 2;                        
+                        cell.ColumnSpan = 2;
                     }
                     else if (i == 2 || i == 3 || i == 4)
                     {
-                        cell.RowSpan = 2;                        
+                        cell.RowSpan = 2;
                         if (i == 4)
                         {
                             cell.Font.Bold = false;
@@ -408,11 +408,11 @@ namespace ISCS.Admin
                     row.Cells.Add(cell);
                 }
                 gridSkidItems.Controls[0].Controls.AddAt(0, row);
-                GridViewRow row1 = new GridViewRow(1,0, DataControlRowType.DataRow, DataControlRowState.Normal);
+                GridViewRow row1 = new GridViewRow(1, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 4; i++)
                 {
-                    TableCell cell = new TableCell();                    
-                    cell.Font.Bold = true;                    
+                    TableCell cell = new TableCell();
+                    cell.Font.Bold = true;
                     cell.HorizontalAlign = HorizontalAlign.Center;
                     cell.VerticalAlign = VerticalAlign.Top;
                     cell.Text = arr2[i].ToString();
@@ -447,10 +447,10 @@ namespace ISCS.Admin
 
             }
             if (e.Row.RowType == DataControlRowType.Footer)
-            {                
-                
-                ((Label)e.Row.FindControl("lblQTY2Tot")).Text = ViewState["SkidTotalQty"].ToString(); 
-                
+            {
+
+                ((Label)e.Row.FindControl("lblQTY2Tot")).Text = ViewState["SkidTotalQty"].ToString();
+
                 ((Label)e.Row.FindControl("lblSkidWeightTot")).Text = ViewState["SkidTotalWt"].ToString();
             }
         }

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -48,7 +48,7 @@ namespace ISCS.Admin
             {
                 ds = UserBL.FetchAllUsers();
             }
-            
+
             DataView dv = new DataView();
             dv.Table = ds.Tables[0];
             dv.Sort = ViewState["SortOrder"].ToString();
@@ -57,8 +57,8 @@ namespace ISCS.Admin
         }
         protected void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            ImageButton btnSender = (ImageButton)sender;            
-            int stat = UserBL.DeleteUsers(Convert.ToInt32(btnSender.CommandArgument));            
+            ImageButton btnSender = (ImageButton)sender;
+            int stat = UserBL.DeleteUsers(Convert.ToInt32(btnSender.CommandArgument));
             if (stat > 0)
             {
                 lblMsg.Visible = true;
@@ -161,7 +161,7 @@ namespace ISCS.Admin
                     ((Label)e.Row.FindControl("lblActive")).Text = "No";
                 }
             }
-        }        
+        }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {

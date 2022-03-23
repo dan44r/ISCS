@@ -1,5 +1,5 @@
-﻿using System;
-using BusinessLogicLayer;
+﻿using BusinessLogicLayer;
+using System;
 
 namespace ISCS
 {
@@ -7,7 +7,7 @@ namespace ISCS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnSendPass_Click(object sender, EventArgs e)
@@ -16,7 +16,7 @@ namespace ISCS
 
             strBodyUser = "<p>Thank you, Your request is pending for verification. We will get back to you soon.<br><br>Please find your request details below.</p><br><br>";
             strBodyUser += "<table cellpadding=\"5\" cellspacing=\"0\" align=\"center\" border=\"0\" width=\"70%\">";
-            strBodyUser += String.Format("<tr><td>Name</td><td>{0}</td></tr>", txtName.Text.ToString().Trim()); 
+            strBodyUser += String.Format("<tr><td>Name</td><td>{0}</td></tr>", txtName.Text.ToString().Trim());
             strBodyUser += String.Format("<tr><td>Email Address</td><td>{0}</td></tr>", txtEmail.Text.ToString().Trim());
             strBodyUser += "<tr><td>Thank You</td><td>&nbsp;</td></tr>";
             strBodyUser += "</table>";

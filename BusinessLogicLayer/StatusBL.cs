@@ -1,5 +1,5 @@
-﻿using System.Data;
-using DataAccessLayer;
+﻿using DataAccessLayer;
+using System.Data;
 
 namespace BusinessLogicLayer
 {
@@ -9,9 +9,9 @@ namespace BusinessLogicLayer
         {
             DataSet ds;
             ProcedureExecute proc = new ProcedureExecute("sp_status");
-            proc.AddVarcharPara("@Mode", 30, "all");            
+            proc.AddVarcharPara("@Mode", 30, "all");
             ds = proc.GetDataSet();
-            return ds; 
+            return ds;
         }
     }
 }

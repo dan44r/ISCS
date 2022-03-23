@@ -11,8 +11,8 @@ namespace ISCS
 
             lnk = this.Master.FindControl("lnkHome") as HtmlAnchor;
             if (lnk != null)
-                lnk.Attributes.Add("class", "active");           
+                lnk.Attributes.Add("class", "active");
 
-        }       
+        }
     }
 }

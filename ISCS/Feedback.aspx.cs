@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Configuration;
 using System.Net.Mail;
 using System.Text;
 using System.Web.UI.HtmlControls;
-using BusinessLogicLayer;
 
 namespace ISCS
 {
@@ -15,9 +15,9 @@ namespace ISCS
 
             lnk = this.Master.FindControl("lnkContact") as HtmlAnchor;
             if (lnk != null)
-                lnk.Attributes.Add("class", "active");               
-            
-        }   
+                lnk.Attributes.Add("class", "active");
+
+        }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -82,12 +82,12 @@ namespace ISCS
                 }
 
                 sbMailBody.Append("</td></tr></table>");
-                
+
                 CommonBL.sendMailInHtmlFormat(objEl.Email, ConfigurationManager.AppSettings["AdminEmail"].Trim(), "ISCS Feedback", sbMailBody.ToString());
                 if (stat == true)
-                {                    
+                {
                     lblMsg.Text = "Your feedback has been sent succesfully.";
-                    hdMsg.Value = "Thank you for submitting your feedback.";                    
+                    hdMsg.Value = "Thank you for submitting your feedback.";
                 }
                 else
                 {

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -9,10 +9,10 @@ namespace ISCS.Admin
     {
         protected string strCompanyArr = "";
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
             if (!IsPostBack)
             {
-                if (Request.QueryString["dt"]!=null && Request.QueryString["dt"].ToString() == "1")
+                if (Request.QueryString["dt"] != null && Request.QueryString["dt"].ToString() == "1")
                 {
                     hidType.Value = "1";
                 }
@@ -21,15 +21,15 @@ namespace ISCS.Admin
                     hidType.Value = "2";
                 }
                 BindData();
-            }     
+            }
         }
 
         protected void BindData()
         {
-            DataSet ds=null;
+            DataSet ds = null;
             if (Session["cacheUserId"] != null)
-            {                
-                ds = UserLocationBL.FetchUserLocation(Convert.ToInt32(Session["cacheUserId"].ToString()), Convert.ToInt32(Session["cacheUserCode"].ToString()), "", txtCompany.Text.Trim());                
+            {
+                ds = UserLocationBL.FetchUserLocation(Convert.ToInt32(Session["cacheUserId"].ToString()), Convert.ToInt32(Session["cacheUserCode"].ToString()), "", txtCompany.Text.Trim());
             }
             if (ds != null && ds.Tables[0].Rows.Count == 0)
             {
@@ -54,7 +54,7 @@ namespace ISCS.Admin
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             BindData();
-        }        
+        }
 
         protected void btnListAll_Click(object sender, EventArgs e)
         {
@@ -65,9 +65,9 @@ namespace ISCS.Admin
         protected void gridUserLocations_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
-            {                
+            {
                 ((Label)e.Row.FindControl("lblCompanyName")).Attributes.Add("onclick", "SelectLocation(this.id);");
-                strCompanyArr += "'"+((Label)e.Row.FindControl("lblCompanyName")).Text.Replace("'"," ") + "',";                
+                strCompanyArr += "'" + ((Label)e.Row.FindControl("lblCompanyName")).Text.Replace("'", " ") + "',";
             }
         }
         protected void imgBtnDelLocation_Click(object sender, EventArgs e)

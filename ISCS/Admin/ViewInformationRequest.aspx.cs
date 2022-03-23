@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -21,7 +21,7 @@ namespace ISCS.Admin
         {
             ContentPlaceHolder contentPh = (ContentPlaceHolder)Page.PreviousPage.Form.FindControl("ContentPlaceHolder1");
             HiddenField hfInfoReqid = (HiddenField)contentPh.FindControl("hidFInfoReqid");
-            int strInfoReqid = Convert.ToInt32(hfInfoReqid.Value);            
+            int strInfoReqid = Convert.ToInt32(hfInfoReqid.Value);
 
             DataTable dtInfoRequest = InformationRequestBL.FetchInfoRequestByID(strInfoReqid).Tables[0];
             if (dtInfoRequest.Rows != null && dtInfoRequest.Rows.Count > 0)

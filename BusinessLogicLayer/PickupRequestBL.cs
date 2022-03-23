@@ -1,7 +1,7 @@
-﻿using System;
-using System.Data;
-using DataAccessLayer;
+﻿using DataAccessLayer;
 using EntityLayer;
+using System;
+using System.Data;
 
 namespace BusinessLogicLayer
 {
@@ -12,53 +12,53 @@ namespace BusinessLogicLayer
             Boolean stat = false;
             ProcedureExecute proc = new ProcedureExecute("sp_AdminUpdatePickupRequest");
             proc.AddVarcharPara("@Mode", 10, "add");
-            proc.AddIntegerPara("@PickupRequestType",objEL.PickupRequestType);
-            proc.AddIntegerPara("@PickupRequestTypeWarehouse",objEL.PickupRequestTypeWarehouse);
-            proc.AddIntegerPara("@UserId",objEL.UserId);            
-            proc.AddVarcharPara("@ShipFromCompany",100,objEL.ShipFromCompany);
-            proc.AddVarcharPara("@ShipFromRefNumber",20,objEL.ShipFromRefNumber);
-            proc.AddVarcharPara("@ShipFromAddress",100,objEL.ShipFromAddress);
-            proc.AddVarcharPara("@ShipFromCity",50,objEL.ShipFromCity);
+            proc.AddIntegerPara("@PickupRequestType", objEL.PickupRequestType);
+            proc.AddIntegerPara("@PickupRequestTypeWarehouse", objEL.PickupRequestTypeWarehouse);
+            proc.AddIntegerPara("@UserId", objEL.UserId);
+            proc.AddVarcharPara("@ShipFromCompany", 100, objEL.ShipFromCompany);
+            proc.AddVarcharPara("@ShipFromRefNumber", 20, objEL.ShipFromRefNumber);
+            proc.AddVarcharPara("@ShipFromAddress", 100, objEL.ShipFromAddress);
+            proc.AddVarcharPara("@ShipFromCity", 50, objEL.ShipFromCity);
             proc.AddVarcharPara("@ShipFromStatePick", 20, objEL.ShipFromState);
             proc.AddVarcharPara("@ShipFromCountryPick", 50, objEL.ShipFromCountry);
-            proc.AddVarcharPara("@ShipFromPostalCode",10,objEL.ShipFromPostalCode);
-            proc.AddVarcharPara("@ShipFromContact",50,objEL.ShipFromContact);
-            proc.AddVarcharPara("@ShipFromPhone",20,objEL.ShipFromPhone);
-            proc.AddVarcharPara("@ShipFromFax",20,objEL.ShipFromFax);
-            proc.AddVarcharPara("@ShipFromEmail",100,objEL.ShipFromEmail);
-            proc.AddDateTimePara("@ShipFromDate",objEL.ShipFromDate);
-            proc.AddVarcharPara("@ShipFromTimeReady",20,objEL.ShipFromTimeReady);
-            proc.AddVarcharPara("@ShipFromTimeNLT",20,objEL.ShipFromTimeNLT);
-            proc.AddIntegerPara("@ShipToLocationId",objEL.ShipToLocationId);
-            proc.AddVarcharPara("@ShipToCompany",100,objEL.ShipToCompany);
-            proc.AddDateTimePara("@ShipToDate",objEL.ShipToDate);
-            proc.AddVarcharPara("@ShipToAddress",100,objEL.ShipToAddress);
-            proc.AddVarcharPara("@ShipToCity",50,objEL.ShipToCity);
+            proc.AddVarcharPara("@ShipFromPostalCode", 10, objEL.ShipFromPostalCode);
+            proc.AddVarcharPara("@ShipFromContact", 50, objEL.ShipFromContact);
+            proc.AddVarcharPara("@ShipFromPhone", 20, objEL.ShipFromPhone);
+            proc.AddVarcharPara("@ShipFromFax", 20, objEL.ShipFromFax);
+            proc.AddVarcharPara("@ShipFromEmail", 100, objEL.ShipFromEmail);
+            proc.AddDateTimePara("@ShipFromDate", objEL.ShipFromDate);
+            proc.AddVarcharPara("@ShipFromTimeReady", 20, objEL.ShipFromTimeReady);
+            proc.AddVarcharPara("@ShipFromTimeNLT", 20, objEL.ShipFromTimeNLT);
+            proc.AddIntegerPara("@ShipToLocationId", objEL.ShipToLocationId);
+            proc.AddVarcharPara("@ShipToCompany", 100, objEL.ShipToCompany);
+            proc.AddDateTimePara("@ShipToDate", objEL.ShipToDate);
+            proc.AddVarcharPara("@ShipToAddress", 100, objEL.ShipToAddress);
+            proc.AddVarcharPara("@ShipToCity", 50, objEL.ShipToCity);
             proc.AddVarcharPara("@ShipToStateDeli", 25, objEL.ShipToState);
             proc.AddVarcharPara("@ShipToCountryDeli", 50, objEL.ShipToCountry);
-            proc.AddVarcharPara("@ShipToPostalCode",10,objEL.ShipToPostalCode);
-            proc.AddVarcharPara("@ShipToContact",50,objEL.ShipToContact);
-            proc.AddVarcharPara("@ShipToPhone",20,objEL.ShipToPhone);
-            proc.AddVarcharPara("@ShipToFax",20,objEL.ShipToFax);
-            proc.AddVarcharPara("@ShipToNotifyName",50,objEL.ShipToNotifyName);
-            proc.AddVarcharPara("@ShipToNotifyPhone",20,objEL.ShipToNotifyPhone);
-            proc.AddVarcharPara("@ShipToConsigneeRefNumber",20,objEL.ShipToConsigneeRefNumber);            
-            proc.AddVarcharPara("@ExportEIN",20,objEL.ExportEIN);
+            proc.AddVarcharPara("@ShipToPostalCode", 10, objEL.ShipToPostalCode);
+            proc.AddVarcharPara("@ShipToContact", 50, objEL.ShipToContact);
+            proc.AddVarcharPara("@ShipToPhone", 20, objEL.ShipToPhone);
+            proc.AddVarcharPara("@ShipToFax", 20, objEL.ShipToFax);
+            proc.AddVarcharPara("@ShipToNotifyName", 50, objEL.ShipToNotifyName);
+            proc.AddVarcharPara("@ShipToNotifyPhone", 20, objEL.ShipToNotifyPhone);
+            proc.AddVarcharPara("@ShipToConsigneeRefNumber", 20, objEL.ShipToConsigneeRefNumber);
+            proc.AddVarcharPara("@ExportEIN", 20, objEL.ExportEIN);
             proc.AddIntegerPara("@ExportPartiesToTransaction", objEL.ExportPartyTrans);
-            proc.AddVarcharPara("@ExportLicence",20,objEL.ExportLicence);
-            proc.AddVarcharPara("@ExportECCN",20,objEL.ExportECCN);
-            proc.AddVarcharPara("@ExportIntermediateConsignee",255,objEL.ExportIntermediateConsignee);
-            proc.AddVarcharPara("@ExportAddress",255,objEL.ExportAddress);
-            proc.AddVarcharPara("@ExportCity",50,objEL.ExportCity);
-            proc.AddVarcharPara("@ExportIntermediateContact",50,objEL.ExportIntermediateContact);
-            proc.AddVarcharPara("@ExportPostalCode",10,objEL.ExportPostalCode);            
-            proc.AddVarcharPara("@ExportIntermediatePhone",20,objEL.ExportIntermediatePhone);
-            proc.AddVarcharPara("@ExportCountryName", 100, objEL.ExportCountry);           
-            proc.AddDecimalPara("@Margin",4,18,objEL.Margin);          
-            proc.AddIntegerPara("@SkeletonRecord",objEL.SkeletonRecord);
+            proc.AddVarcharPara("@ExportLicence", 20, objEL.ExportLicence);
+            proc.AddVarcharPara("@ExportECCN", 20, objEL.ExportECCN);
+            proc.AddVarcharPara("@ExportIntermediateConsignee", 255, objEL.ExportIntermediateConsignee);
+            proc.AddVarcharPara("@ExportAddress", 255, objEL.ExportAddress);
+            proc.AddVarcharPara("@ExportCity", 50, objEL.ExportCity);
+            proc.AddVarcharPara("@ExportIntermediateContact", 50, objEL.ExportIntermediateContact);
+            proc.AddVarcharPara("@ExportPostalCode", 10, objEL.ExportPostalCode);
+            proc.AddVarcharPara("@ExportIntermediatePhone", 20, objEL.ExportIntermediatePhone);
+            proc.AddVarcharPara("@ExportCountryName", 100, objEL.ExportCountry);
+            proc.AddDecimalPara("@Margin", 4, 18, objEL.Margin);
+            proc.AddIntegerPara("@SkeletonRecord", objEL.SkeletonRecord);
             proc.AddVarcharPara("@StatusCode", 20, objEL.StatusCode);
             proc.AddIntegerPara("@NewRequestid", 0, QueryParameterDirection.Output);
-            
+
             int i = proc.RunActionQuery();
             objEL.PickupRequestId = Convert.ToInt32(proc.GetParaValue("@NewRequestid"));
             if (i > 0)
@@ -76,7 +76,7 @@ namespace BusinessLogicLayer
             proc.AddIntegerPara("@PickupRequestId", objEL.PickupRequestId);
             proc.AddIntegerPara("@PickupRequestType", objEL.PickupRequestType);
             proc.AddIntegerPara("@PickupRequestTypeWarehouse", objEL.PickupRequestTypeWarehouse);
-            proc.AddIntegerPara("@UserId", objEL.UserId);            
+            proc.AddIntegerPara("@UserId", objEL.UserId);
             proc.AddVarcharPara("@ShipFromCompany", 100, objEL.ShipFromCompany);
             proc.AddVarcharPara("@ShipFromRefNumber", 20, objEL.ShipFromRefNumber);
             proc.AddVarcharPara("@ShipFromAddress", 100, objEL.ShipFromAddress);
@@ -132,8 +132,8 @@ namespace BusinessLogicLayer
             proc.AddVarcharPara("@GLSCertifiedCheck", 3, objEL.GLSCertifiedCheck);
             proc.AddVarcharPara("@GLSBillCompany", 100, objEL.GLSBillCompany);
             proc.AddVarcharPara("@GLSBillAddress", 100, objEL.GLSBillAddress);
-            proc.AddVarcharPara("@GLSBillCity", 100, objEL.GLSBillCity);          
-            proc.AddVarcharPara("@GLSBillPostalCode", 10, objEL.GLSBillPostalCode);           
+            proc.AddVarcharPara("@GLSBillCity", 100, objEL.GLSBillCity);
+            proc.AddVarcharPara("@GLSBillPostalCode", 10, objEL.GLSBillPostalCode);
             proc.AddVarcharPara("@BillToStateName", 20, objEL.BillToStateName);
             proc.AddVarcharPara("@BillToCountryName", 20, objEL.BillToCountryName);
             proc.AddVarcharPara("@GLSCarrierName", 50, objEL.GLSCarrierName);
@@ -201,21 +201,21 @@ namespace BusinessLogicLayer
         {
             DataSet ds;
             ProcedureExecute proc = new ProcedureExecute("sp_AdminUpdatePickupRequest");
-            proc.AddVarcharPara("@Mode", 10, "all");            
+            proc.AddVarcharPara("@Mode", 10, "all");
             proc.AddVarcharPara("@StatusCode", 20, strPending);
             ds = proc.GetDataSet();
             return ds;
-        }        
-        
+        }
+
         public static int DeletePickupRequest(int PickupRequestId)
-        {            
+        {
             ProcedureExecute proc = new ProcedureExecute("sp_AdminUpdatePickupRequest");
             proc.AddVarcharPara("@Mode", 10, "delete");
             proc.AddIntegerPara("@PickupRequestId", PickupRequestId);
-            int i = proc.RunActionQuery();           
+            int i = proc.RunActionQuery();
             return i;
         }
-        
+
         public static DataTable FetchAirwayBill(int PickupRequestId)
         {
             DataTable dt;
@@ -282,7 +282,7 @@ namespace BusinessLogicLayer
             return dt;
         }
 
-        public static Boolean LockPickupRequest(int iPickupRequestID,int iUserID,bool istat)
+        public static Boolean LockPickupRequest(int iPickupRequestID, int iUserID, bool istat)
         {
             Boolean stat = false;
             ProcedureExecute proc = new ProcedureExecute("sp_AdminUpdatePickupRequest");
@@ -313,7 +313,7 @@ namespace BusinessLogicLayer
         {
             DataSet ds;
             ProcedureExecute proc = new ProcedureExecute("spCostSummaryByOrderNoReport");
-            proc.AddVarcharPara("@OrderNo",500, OrderNo);
+            proc.AddVarcharPara("@OrderNo", 500, OrderNo);
             proc.AddIntegerPara("@AccountCodeId", AccountCodeId);
             ds = proc.GetDataSet();
             return ds;
@@ -321,7 +321,7 @@ namespace BusinessLogicLayer
 
         public static int UnlockPickupRequest()
         {
-            ProcedureExecute proc = new ProcedureExecute("spUnlockPickupRequest");            
+            ProcedureExecute proc = new ProcedureExecute("spUnlockPickupRequest");
             int i = proc.RunActionQuery();
             return i;
         }

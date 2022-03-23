@@ -106,6 +106,7 @@ function formatItem(row) {
 
 function lookupLocal(){
     var oSuggest = $("#txtCompany")[0].autocompleter;
+
 	oSuggest.findValue();
 
 	return false;

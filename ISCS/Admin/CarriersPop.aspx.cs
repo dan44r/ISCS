@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -11,17 +11,17 @@ namespace ISCS.Admin
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["dt"] !=null)
+                if (Request.QueryString["dt"] != null)
                 {
                     hidType.Value = Request.QueryString["dt"].ToString();
-                }               
+                }
                 BindData();
-            }     
+            }
         }
 
         protected void BindData()
         {
-            DataSet ds=null;
+            DataSet ds = null;
             if (Session["cacheUserId"] != null)
             {
                 ds = CarriersBL.FetchAllCarriersforpopup(Convert.ToInt32(Session["cacheUserCode"].ToString()), Convert.ToInt32(Session["cacheUserId"].ToString()));
@@ -34,7 +34,7 @@ namespace ISCS.Admin
             ImageButton btnSender = (ImageButton)sender;
             bool stat = CarriersBL.DeleteCarriers(Convert.ToInt32(btnSender.CommandArgument));
             if (stat == true)
-            {               
+            {
                 BindData();
             }
         }

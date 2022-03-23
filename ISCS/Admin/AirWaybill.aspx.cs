@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
 
 namespace ISCS.Admin
 {
@@ -55,7 +55,7 @@ namespace ISCS.Admin
         {
             int pickupreqid = 0;
             if (PreviousPage != null && PreviousPage.IsCrossPagePostBack && PreviousPage.IsPostBack)
-            {                
+            {
                 ContentPlaceHolder contentPh = (ContentPlaceHolder)Page.PreviousPage.Form.FindControl("ContentPlaceHolder1");
                 HiddenField hfPickUpRequestid = (HiddenField)contentPh.FindControl("hdPickupRequestId");
                 if (PreviousPage != null)
@@ -66,7 +66,7 @@ namespace ISCS.Admin
                 else
                 {
                     pickupreqid = IsInteger(Convert.ToString(ViewState["pickupreqid"]));
-                }                
+                }
             }
             if (Request.QueryString["PickupRequestId"] != null)
             {
@@ -84,7 +84,7 @@ namespace ISCS.Admin
                 strRelativePath = ConfigurationSettings.AppSettings["cpath"].Trim();
                 strGLSCarrierName = dtUser.Rows[0]["GLSCarrierName"].ToString().Trim();
                 strGLSTrackingNumber = dtUser.Rows[0]["GLSTrackingNumber"].ToString().Trim();
-                lblAirwayBillNo1.Text = strGLSTrackingNumber;                
+                lblAirwayBillNo1.Text = strGLSTrackingNumber;
                 strShipFromDate = Convert.ToDateTime(dtUser.Rows[0]["ShipFromDate"]).ToString("MM/dd/yyyy");
                 lblShipFromDate.Text = strShipFromDate;
                 if (dtUser.Rows[0]["GLSKnownShipper"] != DBNull.Value)
@@ -106,7 +106,7 @@ namespace ISCS.Admin
                 strShipFromRefNumber = dtUser.Rows[0]["ShipFromRefNumber"].ToString();
 
                 lblShipperAddress.Text = strShipFromAddress + "<br/>" + strShipFromCity + "," + strShipFromState + " " + strShipFromPostalCode + "<br/>" + strShipFromCountry + "<br/>" + "<b>SID#:</b>&nbsp;" + strShipFromRefNumber + "&nbsp;";
-                
+
                 strShiptoCompany = dtUser.Rows[0]["ShipToCompany"].ToString();
                 strShiptoAddress = dtUser.Rows[0]["ShipToAddress"].ToString();
                 strShiptoCity = dtUser.Rows[0]["ShipToCity"].ToString();
@@ -138,12 +138,12 @@ namespace ISCS.Admin
                 lblToFax.Text = strShipToFax;
 
                 strTransModeName = dtUser.Rows[0]["TransModeName"].ToString();
-                
+
                 strTransModeService1 = dtUser.Rows[0]["TransModeService1"].ToString();
                 strTransModeService2 = dtUser.Rows[0]["TransModeService2"].ToString();
 
                 lblstrSpecialInstructions.Text = dtUser.Rows[0]["SpecialInstructions"].ToString().ToUpper();
-                
+
                 if (strTransModeService1.ToUpper() != "N/A")
                 {
                     lblSpecialInst.Text = "Air Waybill for " + strTransModeService1.ToUpper() + " service";
@@ -163,129 +163,129 @@ namespace ISCS.Admin
 
         protected void GetSpecialServicesText(int SServiceNumber)
         {
-            switch ( SServiceNumber)
+            switch (SServiceNumber)
             {
-	            case 1 :    //1 LiftGateService
-			            strServiceText = "";
-			            if(strSpecialServiceCodes.IndexOf("101")!=-1 && strSpecialServiceCodes.IndexOf("102")!=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>LIFT GATE REQUIRED:&nbsp;Origin and Destination</b></td></tr>";
-			                Response.Write(strServiceText);
-			                //If both are true then write out the text string and exit the sub.
-                            return;
-		                }
+                case 1:    //1 LiftGateService
+                    strServiceText = "";
+                    if (strSpecialServiceCodes.IndexOf("101") != -1 && strSpecialServiceCodes.IndexOf("102") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>LIFT GATE REQUIRED:&nbsp;Origin and Destination</b></td></tr>";
+                        Response.Write(strServiceText);
+                        //If both are true then write out the text string and exit the sub.
+                        return;
+                    }
 
-			            if (strSpecialServiceCodes.IndexOf("101")!=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>LIFT GATE REQUIRED:&nbsp;Origin</b></td></tr>";
-			            }
+                    if (strSpecialServiceCodes.IndexOf("101") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>LIFT GATE REQUIRED:&nbsp;Origin</b></td></tr>";
+                    }
 
-			            if( strSpecialServiceCodes.IndexOf("102") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>LIFT GATE REQUIRED:&nbsp;Destination</b></td></tr>";
-		                }
+                    if (strSpecialServiceCodes.IndexOf("102") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>LIFT GATE REQUIRED:&nbsp;Destination</b></td></tr>";
+                    }
 
-			            Response.Write(strServiceText);
-                        break;
-	            case 2 : //2 PalletJackService
-			            strServiceText = "";
-			            if (strSpecialServiceCodes.IndexOf("201")!=-1 && strSpecialServiceCodes.IndexOf("202") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>PALLET JACK REQUIRED:&nbsp;Origin and Destination</b></td></tr>";
-			                Response.Write(strServiceText);
-			                //If both are true then write out the text string and exit the sub.
-                            return;
-                        }
-			            if (strSpecialServiceCodes.IndexOf("201") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>PALLET JACK REQUIRED:&nbsp;Origin</b></td></tr>";
-			            }
-			            if (strSpecialServiceCodes.IndexOf("202")!=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>PALLET JACK REQUIRED:&nbsp;Destination</b></td></tr>";
-			            }
-			            Response.Write(strServiceText);
-                        break;
-	            case 3 : //3 InsideDeliveryService
-			            strServiceText = "";
-			            if (strSpecialServiceCodes.IndexOf("301")!=-1 && strSpecialServiceCodes.IndexOf("302")!=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>INSIDE DELIVERY:&nbsp;Origin and Destination</b></td></tr>";
-			                Response.Write(strServiceText);
-			                //If both are true then write out the text string and exit the sub.
-                            return;
-                        }
-			            if (strSpecialServiceCodes.IndexOf("301") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>INSIDE DELIVERY:&nbsp;Origin</b></td></tr>";
-			            }
-			            if (strSpecialServiceCodes.IndexOf("302") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>INSIDE DELIVERY:&nbsp;Destination</b></td></tr>";
-			            }
-			            Response.Write(strServiceText);
-                        break;
-	            case 4 : //4 SaturdayService
-			            strServiceText = "";
-			            if (strSpecialServiceCodes.IndexOf("401")!=-1 && strSpecialServiceCodes.IndexOf("402") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>SATURDAY SERVICE:&nbsp;Pickup and Delivery</b></td></tr>";
-		                    Response.Write(strServiceText);
-		                    //If both are true then write out the text string and exit the sub.
-                            return;
-	                    }
-			            if (strSpecialServiceCodes.IndexOf("401") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>SATURDAY SERVICE:&nbsp;Pickup</b></td></tr>";
-			            }
-			            if (strSpecialServiceCodes.IndexOf("402") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>SATURDAY SERVICE:&nbsp;Delivery</b></td></tr>";
-			            }
-			            Response.Write(strServiceText);
-                        break;
-	            case 5 : //5 TradeShowLocationService
-			            strServiceText = "";
-			            if (strSpecialServiceCodes.IndexOf("501")!=-1 && strSpecialServiceCodes.IndexOf("502") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>CONVENTION/TRADE SHOW LOCATION:&nbsp;Pickup and Delivery</b></td></tr>";
-			                Response.Write(strServiceText);
-			                //If both are true then write out the text string and exit the sub.
-                            return;
-		                }
-			            if (strSpecialServiceCodes.IndexOf("501") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>CONVENTION/TRADE SHOW LOCATION:&nbsp;Pickup</b></td></tr>";
-			            }
-			            if (strSpecialServiceCodes.IndexOf("502") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>CONVENTION/TRADE SHOW LOCATION:&nbsp;Delivery</b></td></tr>";
-			            }
-			            Response.Write(strServiceText);
-                        break;
-	            case 6 : //6 ResidentialLocatonService
-			            strServiceText = "";
-			            if (strSpecialServiceCodes.IndexOf("601")!=-1 && strSpecialServiceCodes.IndexOf("602") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>RESIDENTIAL LOCATION:&nbsp;Pickup and Delivery</b></td></tr>";
-			                Response.Write(strServiceText);
-			                //If both are true then write out the text string and exit the sub.
-                            return;
-		                }
-			            if (strSpecialServiceCodes.IndexOf("601") !=-1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>RESIDENTIAL LOCATION:&nbsp;Pickup</b></td></tr>";
-			            }
-                        if (strSpecialServiceCodes.IndexOf("602") != -1)
-                        {
-                            strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>RESIDENTIAL LOCATION:&nbsp;Delivery</b></td></tr>";
-			            }
-			            Response.Write(strServiceText);
-                        break;
-	            default : //No Matches
-			            strServiceText = "";
-			            Response.Write(strServiceText);
-                        break;
+                    Response.Write(strServiceText);
+                    break;
+                case 2: //2 PalletJackService
+                    strServiceText = "";
+                    if (strSpecialServiceCodes.IndexOf("201") != -1 && strSpecialServiceCodes.IndexOf("202") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>PALLET JACK REQUIRED:&nbsp;Origin and Destination</b></td></tr>";
+                        Response.Write(strServiceText);
+                        //If both are true then write out the text string and exit the sub.
+                        return;
+                    }
+                    if (strSpecialServiceCodes.IndexOf("201") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>PALLET JACK REQUIRED:&nbsp;Origin</b></td></tr>";
+                    }
+                    if (strSpecialServiceCodes.IndexOf("202") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>PALLET JACK REQUIRED:&nbsp;Destination</b></td></tr>";
+                    }
+                    Response.Write(strServiceText);
+                    break;
+                case 3: //3 InsideDeliveryService
+                    strServiceText = "";
+                    if (strSpecialServiceCodes.IndexOf("301") != -1 && strSpecialServiceCodes.IndexOf("302") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>INSIDE DELIVERY:&nbsp;Origin and Destination</b></td></tr>";
+                        Response.Write(strServiceText);
+                        //If both are true then write out the text string and exit the sub.
+                        return;
+                    }
+                    if (strSpecialServiceCodes.IndexOf("301") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>INSIDE DELIVERY:&nbsp;Origin</b></td></tr>";
+                    }
+                    if (strSpecialServiceCodes.IndexOf("302") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>INSIDE DELIVERY:&nbsp;Destination</b></td></tr>";
+                    }
+                    Response.Write(strServiceText);
+                    break;
+                case 4: //4 SaturdayService
+                    strServiceText = "";
+                    if (strSpecialServiceCodes.IndexOf("401") != -1 && strSpecialServiceCodes.IndexOf("402") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>SATURDAY SERVICE:&nbsp;Pickup and Delivery</b></td></tr>";
+                        Response.Write(strServiceText);
+                        //If both are true then write out the text string and exit the sub.
+                        return;
+                    }
+                    if (strSpecialServiceCodes.IndexOf("401") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>SATURDAY SERVICE:&nbsp;Pickup</b></td></tr>";
+                    }
+                    if (strSpecialServiceCodes.IndexOf("402") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>SATURDAY SERVICE:&nbsp;Delivery</b></td></tr>";
+                    }
+                    Response.Write(strServiceText);
+                    break;
+                case 5: //5 TradeShowLocationService
+                    strServiceText = "";
+                    if (strSpecialServiceCodes.IndexOf("501") != -1 && strSpecialServiceCodes.IndexOf("502") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>CONVENTION/TRADE SHOW LOCATION:&nbsp;Pickup and Delivery</b></td></tr>";
+                        Response.Write(strServiceText);
+                        //If both are true then write out the text string and exit the sub.
+                        return;
+                    }
+                    if (strSpecialServiceCodes.IndexOf("501") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>CONVENTION/TRADE SHOW LOCATION:&nbsp;Pickup</b></td></tr>";
+                    }
+                    if (strSpecialServiceCodes.IndexOf("502") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>CONVENTION/TRADE SHOW LOCATION:&nbsp;Delivery</b></td></tr>";
+                    }
+                    Response.Write(strServiceText);
+                    break;
+                case 6: //6 ResidentialLocatonService
+                    strServiceText = "";
+                    if (strSpecialServiceCodes.IndexOf("601") != -1 && strSpecialServiceCodes.IndexOf("602") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>RESIDENTIAL LOCATION:&nbsp;Pickup and Delivery</b></td></tr>";
+                        Response.Write(strServiceText);
+                        //If both are true then write out the text string and exit the sub.
+                        return;
+                    }
+                    if (strSpecialServiceCodes.IndexOf("601") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>RESIDENTIAL LOCATION:&nbsp;Pickup</b></td></tr>";
+                    }
+                    if (strSpecialServiceCodes.IndexOf("602") != -1)
+                    {
+                        strServiceText = "<tr><td colspan='2' valign='top' align='left' style='padding-top:5px; padding-bottom:5px; color: red; background-color: rgb(239, 255, 111);'><b>RESIDENTIAL LOCATION:&nbsp;Delivery</b></td></tr>";
+                    }
+                    Response.Write(strServiceText);
+                    break;
+                default: //No Matches
+                    strServiceText = "";
+                    Response.Write(strServiceText);
+                    break;
             }
         }
         int iShipmentTotalQty = 0;
@@ -317,11 +317,11 @@ namespace ISCS.Admin
                         dtUser1.Clear();
                         dtUser2.Clear();
                         for (int i = 0; i < 4; i++)
-                        {                            
+                        {
                             dtUser1.ImportRow(dtUser.Rows[i]);
-                        }                        
+                        }
                         for (int j = 4; j < dtUser.Rows.Count; j++)
-                        {                           
+                        {
                             dtUser2.ImportRow(dtUser.Rows[j]);
                         }
                         gridShipmentItems.DataSource = dtUser1;
@@ -373,12 +373,12 @@ namespace ISCS.Admin
                         dtUser1.Clear();
                         dtUser2.Clear();
                         for (int i = 0; i < 4; i++)
-                        {                            
+                        {
                             dtUser1.ImportRow(dtUser.Rows[i]);
                         }
-                       
+
                         for (int j = 4; j < dtUser.Rows.Count; j++)
-                        {                           
+                        {
                             dtUser2.ImportRow(dtUser.Rows[j]);
                         }
                         gridSkidItems.DataSource = dtUser1;
@@ -397,7 +397,7 @@ namespace ISCS.Admin
         }
         int TotPackageQuantity_SI = 0;
         decimal TotWeight_SI = 0;
-        
+
         protected void gridShipmentItems_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -414,7 +414,7 @@ namespace ISCS.Admin
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
-                
+
                 ((Label)e.Row.FindControl("lblPackageQuantity_SITot")).Text = ViewState["ShipmentTotalQty"].ToString();
             }
         }
@@ -430,15 +430,15 @@ namespace ISCS.Admin
                 GridViewRow row = new GridViewRow(0, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 6; i++)
                 {
-                    TableCell cell = new TableCell();                    
+                    TableCell cell = new TableCell();
                     cell.Font.Bold = true;
                     if (i == 5)
                     {
-                        cell.ColumnSpan = 2;                        
+                        cell.ColumnSpan = 2;
                     }
                     else if (i == 2 || i == 3 || i == 4)
                     {
-                        cell.RowSpan = 2;                        
+                        cell.RowSpan = 2;
                         if (i == 4)
                         {
                             cell.Font.Bold = false;
@@ -457,7 +457,7 @@ namespace ISCS.Admin
                 GridViewRow row1 = new GridViewRow(1, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 4; i++)
                 {
-                    TableCell cell = new TableCell();                    
+                    TableCell cell = new TableCell();
                     cell.Font.Bold = true;
                     cell.HorizontalAlign = HorizontalAlign.Center;
                     cell.VerticalAlign = VerticalAlign.Top;
@@ -493,10 +493,10 @@ namespace ISCS.Admin
 
             }
             if (e.Row.RowType == DataControlRowType.Footer)
-            {                
-                
+            {
+
                 ((Label)e.Row.FindControl("lblQTY2Tot")).Text = ViewState["SkidTotalQty"].ToString();
-                
+
                 ((Label)e.Row.FindControl("lblSkidWeightTot")).Text = ViewState["SkidTotalWt"].ToString();
             }
         }

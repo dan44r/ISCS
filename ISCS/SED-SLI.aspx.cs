@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
 
 namespace ISCS
 {
@@ -101,7 +101,7 @@ namespace ISCS
             DataTable dtBOL = PickupRequestBL.FetchSED_SLI(pickupreqid);
             if (dtBOL != null && dtBOL.Rows.Count > 0)
             {
-                
+
                 strShipFromCompany = dtBOL.Rows[0]["ShipFromCompany"].ToString();
                 strDisplayGLSCodFee = dtBOL.Rows[0]["GLSCodFee"].ToString();
                 strGLSBillAddress = dtBOL.Rows[0]["GLSBillAddress"].ToString();
@@ -109,25 +109,25 @@ namespace ISCS
                 strGLSBillCompany = dtBOL.Rows[0]["GLSBillCompany"].ToString();
                 strGLSBillPostalCode = dtBOL.Rows[0]["GLSBillPostalCode"].ToString();
                 strGLSBillState = dtBOL.Rows[0]["GLSBillState"].ToString();
-                strGLSCarrierName = dtBOL.Rows[0]["GLSCarrierName"].ToString();                
-                strGLSTrackingNumber = dtBOL.Rows[0]["GLSTrackingNumber"].ToString();                
-                strShipFromAddress = dtBOL.Rows[0]["ShipFromAddress"].ToString();                
-                strShipFromCity = dtBOL.Rows[0]["ShipFromCity"].ToString();          
+                strGLSCarrierName = dtBOL.Rows[0]["GLSCarrierName"].ToString();
+                strGLSTrackingNumber = dtBOL.Rows[0]["GLSTrackingNumber"].ToString();
+                strShipFromAddress = dtBOL.Rows[0]["ShipFromAddress"].ToString();
+                strShipFromCity = dtBOL.Rows[0]["ShipFromCity"].ToString();
                 strShipFromContact = dtBOL.Rows[0]["ShipFromContact"].ToString();
                 if (dtBOL.Rows[0]["ShipFromDate"] != DBNull.Value)
-                {                    
+                {
                     strShipFromDate = Convert.ToDateTime(dtBOL.Rows[0]["ShipFromDate"]).ToString("MM/dd/yyyy");
                 }
-                strShipFromFax = dtBOL.Rows[0]["ShipFromFax"].ToString();                
-                strShipFromPhone = dtBOL.Rows[0]["ShipFromPhone"].ToString();                
+                strShipFromFax = dtBOL.Rows[0]["ShipFromFax"].ToString();
+                strShipFromPhone = dtBOL.Rows[0]["ShipFromPhone"].ToString();
                 strShipFromPostalCode = dtBOL.Rows[0]["ShipFromPostalCode"].ToString();
-                strShipFromRefNumber = dtBOL.Rows[0]["ShipFromRefNumber"].ToString();                
-                strShipFromState = dtBOL.Rows[0]["ShipFromState"].ToString();                
-                strShipFromCountry = dtBOL.Rows[0]["ShipFromCountry"].ToString();                
+                strShipFromRefNumber = dtBOL.Rows[0]["ShipFromRefNumber"].ToString();
+                strShipFromState = dtBOL.Rows[0]["ShipFromState"].ToString();
+                strShipFromCountry = dtBOL.Rows[0]["ShipFromCountry"].ToString();
                 strExportEIN = dtBOL.Rows[0]["ExportEIN"].ToString();
                 strExportPartyTrans = dtBOL.Rows[0]["ExportPartyTrans"].ToString();
                 strShiptoAddress = dtBOL.Rows[0]["ShipToAddress"].ToString();
-                strShiptoCity = dtBOL.Rows[0]["ShipToCity"].ToString();                
+                strShiptoCity = dtBOL.Rows[0]["ShipToCity"].ToString();
                 strShiptoCountry = dtBOL.Rows[0]["ShipToCountry"].ToString();
                 strShiptoCompany = dtBOL.Rows[0]["ShipToCompany"].ToString();
                 strShipToConsigneeRefNumber = dtBOL.Rows[0]["ShipToConsigneeRefNumber"].ToString();
@@ -156,14 +156,14 @@ namespace ISCS
                 strDocumentsEnclosed = dtBOL.Rows[0]["DocumentsEnclosed"].ToString().ToUpper();
                 if (dtBOL.Rows[0]["GLSKnownShipper"] != DBNull.Value)
                 {
-                    intKnownShipper =Convert.ToInt32( dtBOL.Rows[0]["GLSKnownShipper"].ToString());
+                    intKnownShipper = Convert.ToInt32(dtBOL.Rows[0]["GLSKnownShipper"].ToString());
                 }
                 if (dtBOL.Rows[0]["TransMode"] != DBNull.Value)
                 {
-                    intTransMode = Convert.ToInt32( dtBOL.Rows[0]["TransMode"].ToString());
+                    intTransMode = Convert.ToInt32(dtBOL.Rows[0]["TransMode"].ToString());
                 }
             }
-            DisplayShipmentItems(pickupreqid);            
+            DisplayShipmentItems(pickupreqid);
         }
         protected string DisplayShipmentItems(int pickupreqid)
         {
@@ -187,9 +187,9 @@ namespace ISCS
         {
             string strShipHtml = "";
             DataTable dtUser;
-            dtUser = PickupRequestBL.FetchSkidItems(pickupreqid);            
+            dtUser = PickupRequestBL.FetchSkidItems(pickupreqid);
             return strShipHtml;
-        }        
+        }
 
         string[] arr1 = { "20. SCHEDULE B DESCRIPTION OF COMMODITIES", "25. VIN/PRODUCT NUMBER/VEHICLE TITLE NUMBER", "<b>26. VALUE</b> (USD, omit cents) (selling price or cost if not sold)", "H.M(X)", "<b>COMMODITY DESCRIPTION</b> <br /> Commodities requiring special or additional care or attention in handling or stowing must be so marked and packaged as to ensure safe transportation with ordinary care. <b>See Section 2(e) of NMFC Item 36O</b>", "LTL ONLY" };
         string[] arr2 = { "21. D/F", "22. SCHEDULE B NUMBER", "23. QUANTITY SCHEDULE B UNIT(S)", "<b>24. SHIPPING WEIGHT </b>&nbsp;(Kilos)", "NMFC #", "CLASS" };
@@ -203,15 +203,15 @@ namespace ISCS
                 GridViewRow row = new GridViewRow(0, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 3; i++)
                 {
-                    TableCell cell = new TableCell();                    
+                    TableCell cell = new TableCell();
                     cell.Font.Bold = true;
-                    if (i == 0 )
+                    if (i == 0)
                     {
-                        cell.ColumnSpan = 4;                        
+                        cell.ColumnSpan = 4;
                     }
                     else if (i == 1 || i == 2)
                     {
-                        cell.RowSpan = 2;                        
+                        cell.RowSpan = 2;
                         if (i == 4)
                         {
                             cell.Font.Bold = false;
@@ -230,7 +230,7 @@ namespace ISCS
                 GridViewRow row1 = new GridViewRow(1, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 4; i++)
                 {
-                    TableCell cell = new TableCell();                    
+                    TableCell cell = new TableCell();
                     cell.Font.Bold = true;
                     cell.HorizontalAlign = HorizontalAlign.Center;
                     cell.VerticalAlign = VerticalAlign.Top;
@@ -247,13 +247,13 @@ namespace ISCS
                 ((Label)e.Row.FindControl("lblWeight_SI")).Text = strWeight_SI;
             }
             if (e.Row.RowType == DataControlRowType.Footer)
-            {                
+            {
             }
         }
 
         string[] arr3 = { "14. Schedule B description of Commodities,", "<p align=center><i>(use&nbsp;columns&nbsp;17-19)</i></p>", "<p align=center><b>Shipper's Ref. No.</b>", "<p align=center><b>Ship Date</b><br>", "<b>COMMODITY DESCRIPTION</b> <br /> Commodities requiring special or additional care or attention in handling or stowing must be so marked and packaged as to ensure safe transportation with ordinary care. <b>See Section 2(e) of NMFC Item 36O</b>", "LTL ONLY" };
         string[] arr4 = { "<b>15. Marks, Nos., and kinds of packages.</b><br>", "23. QUANTITY SCHEDULE B UNIT(S)", "<b>24. SHIPPING WEIGHT </b>&nbsp;(Kilos)", "NMFC #", "CLASS" };
-        string[] arr5 = { "<p align=center><b>16. D/F</b></p>", "<p align=center><b>17. Schedule B Number</b></p>", "<p align=center><b>Check Digit</b></p>", "<p align=center><b>18. Units</b></p>", "<p align=center><b>19. Wt (Kilos )</b></p>","<p align=center><b>20. Value (USD, omit cents) (selling price or cost if not sold)</b></p>" };
+        string[] arr5 = { "<p align=center><b>16. D/F</b></p>", "<p align=center><b>17. Schedule B Number</b></p>", "<p align=center><b>Check Digit</b></p>", "<p align=center><b>18. Units</b></p>", "<p align=center><b>19. Wt (Kilos )</b></p>", "<p align=center><b>20. Value (USD, omit cents) (selling price or cost if not sold)</b></p>" };
         int TotPackageQuantity_SI = 0;
         protected double dblTotalDeclaredValue = 0.00;
         protected void gridShipmentItems1_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -264,11 +264,11 @@ namespace ISCS
                 GridViewRow row = new GridViewRow(0, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 4; i++)
                 {
-                    TableCell cell = new TableCell();                    
+                    TableCell cell = new TableCell();
                     cell.Font.Bold = true;
                     if (i == 0)
                     {
-                        cell.ColumnSpan = 3;                        
+                        cell.ColumnSpan = 3;
                     }
                     else if (i == 1 || i == 2 || i == 3)
                     {
@@ -298,11 +298,11 @@ namespace ISCS
                 GridViewRow row1 = new GridViewRow(1, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 1; i++)
                 {
-                    TableCell cell = new TableCell();                    
+                    TableCell cell = new TableCell();
                     cell.Font.Bold = true;
                     if (i == 0)
                     {
-                        cell.ColumnSpan = 3;                        
+                        cell.ColumnSpan = 3;
                     }
                     else
                     {
@@ -318,8 +318,8 @@ namespace ISCS
                 GridViewRow row2 = new GridViewRow(2, 0, DataControlRowType.DataRow, DataControlRowState.Normal);
                 for (int i = 0; i < 6; i++)
                 {
-                    TableCell cell = new TableCell();                    
-                    cell.Font.Bold = true;                    
+                    TableCell cell = new TableCell();
+                    cell.Font.Bold = true;
                     cell.HorizontalAlign = HorizontalAlign.Center;
                     cell.VerticalAlign = VerticalAlign.Top;
                     cell.Text = arr5[i].ToString();
@@ -331,7 +331,7 @@ namespace ISCS
             {
                 double dblDeclaredValue_SI = Convert.ToDouble(DataBinder.Eval(e.Row.DataItem, "DeclaredValue_SI"));
                 dblTotalDeclaredValue = dblTotalDeclaredValue + dblDeclaredValue_SI;
-                
+
                 string strExportScheduleB_SI = "";
                 strExportScheduleB_SI = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "ExportScheduleB_SI"));
                 if (strExportScheduleB_SI != "")
@@ -339,12 +339,12 @@ namespace ISCS
                 string strPackQtyType_SI = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "PackageQuantity_SI")) + "&nbsp;" + Convert.ToString(DataBinder.Eval(e.Row.DataItem, "PackageType_SI"));
                 ((Label)e.Row.FindControl("lblPackQtyType_SI")).Text = strPackQtyType_SI;
                 string strWeight_SI = Convert.ToString(Convert.ToDouble(DataBinder.Eval(e.Row.DataItem, "Weight_SI")) * 0.4536);
-                ((Label)e.Row.FindControl("lblWeight_SI")).Text = strWeight_SI;                
+                ((Label)e.Row.FindControl("lblWeight_SI")).Text = strWeight_SI;
 
             }
             if (e.Row.RowType == DataControlRowType.Footer)
-            {                
-            }            
+            {
+            }
         }
     }
 }

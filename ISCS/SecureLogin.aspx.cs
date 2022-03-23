@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.Security;
-using BusinessLogicLayer;
-using EntityLayer;
 
 
 namespace ISCS
@@ -14,16 +14,16 @@ namespace ISCS
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnAuthenticate_Click(object sender, EventArgs e)
         {
-            string userName = txtEmail.Text, password = txtPassword.Text.Trim();            
-            Users objUsers = new Users();            
+            string userName = txtEmail.Text, password = txtPassword.Text.Trim();
+            Users objUsers = new Users();
             DataTable dtuser = UserBL.GetUserByUserNamePassword(userName, password);
 
-            
+
             if (dtuser.Rows.Count <= 0)
             {
                 lblError.Text = "No Such valid user present.";
@@ -53,8 +53,8 @@ namespace ISCS
             tags.Add("QCUserId", Convert.ToString(dtuser.Rows[0]["UserId"]));
             tags.Add("TestCookie", "test");
             FormsAuthenticationTicket tckt = CF.Web.Security.CFFormAuthenticationModule.CreateAuthenticationCookie(objUsers, tags, true, true);
-            string[] userData = tckt.UserData.Split(',');            
-            Session["cacheName"] = dtuser.Rows[0]["FirstName"].ToString() + " " + dtuser.Rows[0]["LastName"].ToString();           
+            string[] userData = tckt.UserData.Split(',');
+            Session["cacheName"] = dtuser.Rows[0]["FirstName"].ToString() + " " + dtuser.Rows[0]["LastName"].ToString();
             Session["cacheUserId"] = dtuser.Rows[0]["UserId"].ToString();
             Session["cacheUserRole"] = Convert.ToString(dtuser.Rows[0]["UserTypeId"]);
             Session["cacheUserCode"] = dtuser.Rows[0]["UserCode"].ToString();
@@ -63,7 +63,7 @@ namespace ISCS
             if (string.IsNullOrEmpty(url) || url == "/")
                 url = ResolveUrl("~/Admin/Home.aspx");
 
-           Response.Redirect(url);
+            Response.Redirect(url);
         }
 
         #endregion

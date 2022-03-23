@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace EntityLayer
+﻿namespace EntityLayer
 {
     public class RegistrationRequest
     {
@@ -12,5 +7,5 @@ namespace EntityLayer
         public string ClientRefNum { get; set; }
         public string Phone { get; set; }
         public string EmailAddress { get; set; }
-    } 
+    }
 }

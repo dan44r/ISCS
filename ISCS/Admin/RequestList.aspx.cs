@@ -1,16 +1,16 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
 
 namespace ISCS.Admin
 {
     public partial class RequestList : System.Web.UI.Page
     {
         protected string strHeading = "";
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             lblMsg.Visible = false;
@@ -64,13 +64,13 @@ namespace ISCS.Admin
                 gridAll.Visible = false;
                 gridPending.Visible = false;
             }
-            
+
         }
         protected void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            ImageButton btnSender = (ImageButton)sender;            
-            int stat = PickupRequestBL.DeletePickupRequest(Convert.ToInt32(btnSender.CommandArgument));            
-            if (stat >0)
+            ImageButton btnSender = (ImageButton)sender;
+            int stat = PickupRequestBL.DeletePickupRequest(Convert.ToInt32(btnSender.CommandArgument));
+            if (stat > 0)
             {
                 lblMsg.Visible = true;
                 lblMsg.Text = "The PickupRequest has been deleted Successfully.";
@@ -89,20 +89,20 @@ namespace ISCS.Admin
             string reqType = ((Label)btnSender.NamingContainer.FindControl("lblRequestType")).Text;
             string strReqIDEncode = SecurityUtils.UrlEncode(Convert.ToString(btnSender.CommandArgument));
             if (reqType == "2")
-            {                
+            {
                 Response.Redirect("AddPickUpRequestIntl.aspx?stat=p&id=" + strReqIDEncode);
             }
             else
-            {                
+            {
                 Response.Redirect("AddPickupRequest.aspx?stat=p&id=" + strReqIDEncode);
-            }            
+            }
         }
         protected void btnEditUserNP_Click(object sender, EventArgs e)
         {
             ImageButton btnSender = (ImageButton)sender;
             hidFUserid.Value = btnSender.CommandArgument;
             string reqType = ((Label)btnSender.NamingContainer.FindControl("lblRequestTypeNP")).Text;
-            string strReqIDEncode = SecurityUtils.UrlEncode(Convert.ToString(btnSender.CommandArgument));            
+            string strReqIDEncode = SecurityUtils.UrlEncode(Convert.ToString(btnSender.CommandArgument));
             if (reqType == "2")
             {
                 Response.Redirect("AddPickUpRequestIntl.aspx?stat=n&id=" + strReqIDEncode);
@@ -111,7 +111,7 @@ namespace ISCS.Admin
             {
                 Response.Redirect("AddPickupRequest.aspx?stat=n&id=" + strReqIDEncode);
             }
-        }        
+        }
 
         protected void gridNonPending_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -181,7 +181,7 @@ namespace ISCS.Admin
         protected void gridNonPending_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
-            {              
+            {
                 string strShipDate = ((Label)e.Row.FindControl("lblShipDate")).Text;
                 ((Label)e.Row.FindControl("lblShipFromDate")).Text = Convert.ToDateTime(strShipDate).ToString("MM/dd/yyyy");
                 string strRequestTypeNP = ((Label)e.Row.FindControl("lblRequestTypeNP")).Text;
@@ -192,19 +192,19 @@ namespace ISCS.Admin
                 string strTransMode = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "TransMode"));
                 string strTransModeName = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "TransModeName"));
                 string strStatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "Status"));
-                string strPickupRequestId=Convert.ToString(DataBinder.Eval(e.Row.DataItem, "PickupRequestId"));
+                string strPickupRequestId = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "PickupRequestId"));
                 if (strTransMode == "1" || strTransMode == "0")
-                {                    
+                {
                     string strReqIDEncode = SecurityUtils.UrlEncode(Convert.ToString(strPickupRequestId));
                     ((System.Web.UI.HtmlControls.HtmlAnchor)e.Row.FindControl("ancBill")).Attributes.Add("onclick", "window.open('BillOfLading_Vics.aspx?PickupRequestId=" + strReqIDEncode + "','_blank');");
                 }
                 if (strTransMode == "2")
-                {                    
+                {
                     string strReqIDEncode = SecurityUtils.UrlEncode(Convert.ToString(strPickupRequestId));
                     ((System.Web.UI.HtmlControls.HtmlAnchor)e.Row.FindControl("ancBill")).Attributes.Add("onclick", "window.open('AirWaybill.aspx?PickupRequestId=" + strReqIDEncode + "','_blank');");
                 }
                 if (strTransMode == "3" || strTransMode == "4")
-                {                    
+                {
                     string strReqIDEncode = SecurityUtils.UrlEncode(Convert.ToString(strPickupRequestId));
                     ((System.Web.UI.HtmlControls.HtmlAnchor)e.Row.FindControl("ancBill")).Attributes.Add("onclick", "window.open('SED-SLI.aspx?PickupRequestId=" + strReqIDEncode + "','_blank');");
                 }
@@ -302,13 +302,13 @@ namespace ISCS.Admin
                 if (strRequestTypeP == "2")
                 {
                     e.Row.BackColor = System.Drawing.Color.FromName("#E8FFE9");
-                }                
+                }
                 string strTransModeName = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "TransModeName"));
                 string strStatus = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "Status"));
-                
+
                 if (strTransModeName.Trim() != "")
                 { e.Row.ToolTip = strStatus.Trim() + " - " + strTransModeName.Trim(); }
-                else if(strTransModeName.Trim() == "")
+                else if (strTransModeName.Trim() == "")
                 { e.Row.ToolTip = strStatus.Trim(); }
 
                 string WarehouseTypeFlag = ((Label)e.Row.FindControl("lblWarehouseTypeFlag")).Text;
@@ -322,7 +322,7 @@ namespace ISCS.Admin
                 else if (WarehouseTypeFlag == "3")
                     ((Label)e.Row.FindControl("lblWarehouseType")).Text = "From Warehouse To Warehouse &nbsp;";
 
-                
+
                 string strLocked = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "Locked"));
                 string strLockedUser = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "LockedUser"));
                 if (strLocked != "" && strLocked != "0")
@@ -404,11 +404,11 @@ namespace ISCS.Admin
         protected void gridAll_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
-            {                
+            {
                 string strShipDate = ((Label)e.Row.FindControl("lblShipDate")).Text;
-                ((Label)e.Row.FindControl("lblShipFromDate")).Text = Convert.ToDateTime(strShipDate).ToString("MM/dd/yyyy");                
+                ((Label)e.Row.FindControl("lblShipFromDate")).Text = Convert.ToDateTime(strShipDate).ToString("MM/dd/yyyy");
                 e.Row.Attributes.Add("onmouseover", "document.getElementById('" + e.Row.ClientID + "').style.backgroundColor = '#ffffda'; document.getElementById('" + e.Row.ClientID + "').style.cursor = 'pointer';");
-                
+
 
                 string strPickReqID = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "PickupRequestId"));
                 string strReqIDEncode = SecurityUtils.UrlEncode(Convert.ToString(strPickReqID));
@@ -435,11 +435,11 @@ namespace ISCS.Admin
                 { e.Row.ToolTip = strStatus.Trim(); }
 
                 if (strStatus.ToUpper() == "PND")
-                {                    
+                {
                     e.Row.Attributes.Add("onclick", "location.href='" + strPageName + "?stat=p&id=" + strReqIDEncode + "';");
                 }
                 else
-                {                    
+                {
                     e.Row.Attributes.Add("onclick", "location.href='" + strPageName + "?stat=n&id=" + strReqIDEncode + "';");
                 }
             }

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -17,9 +17,9 @@ namespace ISCS.Admin
             }
         }
         protected void BindGrid()
-        {            
+        {
             DataSet dt;
-            dt = SpecialServicesBL.FetchAllSpecialServices();      
+            dt = SpecialServicesBL.FetchAllSpecialServices();
             DataView dv = new DataView();
             dv.Table = dt.Tables[0];
             dv.Sort = ViewState["SortOrder"].ToString();
@@ -46,7 +46,7 @@ namespace ISCS.Admin
                     ViewState["SortOrder"] = "SpecialServiceName desc";
                 }
                 BindGrid();
-            }           
+            }
         }
     }
 }

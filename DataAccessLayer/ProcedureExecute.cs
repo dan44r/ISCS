@@ -1,16 +1,7 @@
 using System;
-using System.Data;
 using System.Collections;
-using System.Configuration;
-using System.Web;
+using System.Data;
 using System.Data.SqlClient;
-using System.Xml;
-using System.IO;
-using System.Text;
-using System.Security;
-using System.Threading;
-using System.Net;
-using System.Diagnostics;
 
 namespace DataAccessLayer
 {
@@ -67,7 +58,7 @@ namespace DataAccessLayer
                 }
                 oCmd.Dispose();
             }
-                        
+
             return dt;
         }
         #endregion
@@ -134,17 +125,17 @@ namespace DataAccessLayer
 
             //try
             //{
-                try
+            try
+            {
+                intRowsAffected = oCmd.ExecuteNonQuery();
+            }
+            catch (SqlException SqlEx)
+            {
+                if (SqlEx.Number == 547)
                 {
-                    intRowsAffected = oCmd.ExecuteNonQuery();
+                    intRowsAffected = -547;
                 }
-                catch (SqlException SqlEx)
-                {
-                    if (SqlEx.Number == 547)
-                    {
-                        intRowsAffected = -547;
-                    }
-                }
+            }
             //}
             //catch(Exception ex)
             //{                
@@ -492,7 +483,7 @@ namespace DataAccessLayer
 
             SqlParameter oPara = new SqlParameter(Name, SqlDbType.Xml);
             oPara.Direction = GetParaType(Direction);
-            oPara.Value = oValue;            
+            oPara.Value = oValue;
             this.oParameters.Add(oPara);
         }
         #endregion
@@ -630,9 +621,9 @@ namespace DataAccessLayer
         DataTable _BaseTable;
         int _PageSize = 0;
         int _CurrentPageIndex = 0;
-        int _PageCount;        
+        int _PageCount;
 
-        # region Constructors
+        #region Constructors
 
         public CustomPager(DataTable TableToPage)
         {
@@ -660,7 +651,7 @@ namespace DataAccessLayer
 
         public int PageSize // Also sets page count
         {
-            get 
+            get
             {
                 return _PageSize;
             }
@@ -668,7 +659,7 @@ namespace DataAccessLayer
             {
                 _PageSize = value;
                 double dblPgCnt = Convert.ToDouble(_BaseTable.Rows.Count) / Convert.ToDouble(_PageSize);
-                if(dblPgCnt > Convert.ToDouble(Convert.ToInt32(dblPgCnt)))
+                if (dblPgCnt > Convert.ToDouble(Convert.ToInt32(dblPgCnt)))
                     _PageCount = (_BaseTable.Rows.Count / _PageSize) + 1;
                 else
                     _PageCount = (_BaseTable.Rows.Count / _PageSize);
@@ -682,12 +673,12 @@ namespace DataAccessLayer
         public DataTable GetPagedTable(int CurrentPageIndex)
         {
             DataTable dtPaged;
-            if(!(CurrentPageIndex < _PageCount))
+            if (!(CurrentPageIndex < _PageCount))
                 CurrentPageIndex = 0;
             dtPaged = _BaseTable.Clone();
-            
+
             int StartPoint = _PageSize * CurrentPageIndex;
-            int EndPoint= StartPoint + PageSize;
+            int EndPoint = StartPoint + PageSize;
             for (int cntRow = StartPoint; cntRow < EndPoint; cntRow++)
             {
                 dtPaged.Rows.Add(_BaseTable.Rows[cntRow]);

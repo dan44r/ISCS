@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace CF.Web.Security
 {
     public interface IUser
@@ -16,7 +12,7 @@ namespace CF.Web.Security
             get;
         }
 
-       
+
 
         string FirstName
         {

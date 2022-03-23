@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace EntityLayer
 {
-   public  class ShipmentItemsEL
+    public class ShipmentItemsEL
     {
         public int ShipmentItemId { get; set; }
         public int SkidId_SI { get; set; }

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -28,31 +28,31 @@ namespace ISCS.Admin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            int isExist=0;
-            Boolean stat=false;
+            int isExist = 0;
+            Boolean stat = false;
             if (ViewState["PTypeid"] == null)
             {
                 stat = PackageTypeBL.AddPackageType(txtPackageType.Text.ToString().Trim(), ref isExist);
-               
+
             }
             else
             {
                 stat = PackageTypeBL.UpdatePackageType(Convert.ToInt32(ViewState["PTypeid"].ToString()), txtPackageType.Text.ToString().Trim(), ref isExist);
             }
-           
-         if (isExist > 0)
-         {
-             lblMsg.Visible = true;
-             lblMsg.Text = "This package type is already exists.";
 
-         }
-         if (stat == true)
-         {
-             lblMsg.Visible = true;
-             lblMsg.Text = "Package type has been added successfully";
+            if (isExist > 0)
+            {
+                lblMsg.Visible = true;
+                lblMsg.Text = "This package type is already exists.";
 
-         }
-           
+            }
+            if (stat == true)
+            {
+                lblMsg.Visible = true;
+                lblMsg.Text = "Package type has been added successfully";
+
+            }
+
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

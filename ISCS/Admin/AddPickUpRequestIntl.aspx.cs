@@ -1,13 +1,13 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using EntityLayer;
+using System;
 using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
-using EntityLayer;
 
 namespace ISCS.Admin
 {
@@ -21,31 +21,31 @@ namespace ISCS.Admin
             if (Session["cacheUserCode"] == null)
             {
                 Response.Redirect(ResolveUrl("~/SecureLogin.aspx"));
-            }            
+            }
             if (!IsPostBack)
             {
                 lblSkidCount.Text = "0";
                 ViewState["shppedwt"] = "0";
-                ViewState["shipPiece"] = "0";         
+                ViewState["shipPiece"] = "0";
                 btnContinue.Visible = false;
                 btnAccept.Visible = false;
 
                 //Checking whether user is admin/superadmin or other type of user
                 if (Session["cacheUserCode"].ToString() == "1000" || Session["cacheUserCode"].ToString() == "7000")
                 {
-                    lnkWarehouseDelivLoc.Visible = true;                    
+                    lnkWarehouseDelivLoc.Visible = true;
                 }
                 else
                 {
                     lnkWarehouseDelivLoc.Visible = false;
                     lblWAreHoseLocationId.Attributes.Add("Style", "display: none");
-                    lblWAreHoseLocationIdText.Attributes.Add("Style", "display: none");                    
+                    lblWAreHoseLocationIdText.Attributes.Add("Style", "display: none");
                 }
                 drpBillToCompany.Attributes.Add("onchange", "changeaddress(this)");
                 BindControls();
                 //Checking whether new request or edit request(if "id" exists then request is editing)
                 if (Request.QueryString["id"] == null)
-                {                    
+                {
                     txtBillToAddress.Text = "900 Rt. 134, Mailbox 535";
                     txtBillToCity.Text = "S. Dennis";
                     txtBillToState.Text = "Massachusetts";
@@ -126,10 +126,10 @@ namespace ISCS.Admin
                         {
                             btnAccept.Visible = false;
                         }
-                    }     
-                    string strReqIDDecode = SecurityUtils.UrlDecode(Convert.ToString(Request.QueryString["id"]));                    
+                    }
+                    string strReqIDDecode = SecurityUtils.UrlDecode(Convert.ToString(Request.QueryString["id"]));
                     ViewState["PickupReuestId"] = strReqIDDecode;
-                    btnSave.Visible = false;                    
+                    btnSave.Visible = false;
                     FetchShipments();
                     FetchSkids();
                     //new skid id coming from View or Ship Warehouse Items
@@ -150,7 +150,7 @@ namespace ISCS.Admin
                             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "skidpopwh", "Openskidpopwh(" + ViewState["PickupReuestId"].ToString() + "," + Request.QueryString["skid"].ToString() + ");", true);
                         }
                     }
-                }                
+                }
             }
             //if (Session["cacheUserCode"].ToString() == "1000" || Session["cacheUserCode"].ToString() == "7000")
             //{
@@ -182,10 +182,10 @@ namespace ISCS.Admin
             rbInternAir.Attributes.Add("onclick", "EnableModeOfTransport('rbInternAir');");
             rbInternOcean.Attributes.Add("onclick", "EnableModeOfTransport('rbInternOcean');");
 
-            
+
             if (drpBillToCompany.SelectedItem.Text.Trim().ToLower().IndexOf("3pl") != -1)
             {
-               
+
                 txtBillToAddress.Text = "900 Route 134, Ste 2-17";
                 txtBillToCity.Text = "S. Dennis";
                 txtBillToState.Text = "Massachusetts";
@@ -217,14 +217,14 @@ namespace ISCS.Admin
             drpFromState.DataTextField = "Name";
             drpFromState.DataBind();
             ListItem lstItem = new ListItem("--Select--", "0");
-            drpFromState.Items.Insert(0, lstItem);            
+            drpFromState.Items.Insert(0, lstItem);
 
             DataSet dsCountries = CountriesBL.FetchAllCountries();
             drpFromCountry.DataSource = dsCountries.Tables[0];
             //drpFromCountry.DataValueField = "SelectedIndex";
             drpFromCountry.DataValueField = "CountryId";
             drpFromCountry.DataTextField = "Name";
-            drpFromCountry.DataBind();            
+            drpFromCountry.DataBind();
             drpFromCountry.Items.Insert(0, lstItem);
             for (int i = 0; i < drpFromCountry.Items.Count; i++)
             {
@@ -263,7 +263,7 @@ namespace ISCS.Admin
                     drpCountry.ClearSelection();
                     drpCountry.Items[i].Selected = true;
                 }
-            }            
+            }
 
             drpReadyTime.Items.Add(new ListItem("--Select--", "0"));
             drpLatestPickup.Items.Add(new ListItem("--Select--", "0"));
@@ -295,7 +295,7 @@ namespace ISCS.Admin
             drpAccountCode.DataValueField = "Id";
             drpAccountCode.DataBind();
             drpAccountCode.Items.Insert(0, new ListItem("--Select--", "0"));
-            
+
             drpInternAirTypeService1.Items.Add(new ListItem("--Select--", "0"));
             drpInternAirTypeService1.Items.Add(new ListItem("Economy", "Economy"));
             drpInternAirTypeService1.Items.Add(new ListItem("Expedited", "Expedited"));
@@ -319,13 +319,13 @@ namespace ISCS.Admin
             drpInternOceanTypeService2.Items.Add(new ListItem("DTP (Door to Port)", "DTP"));
             drpInternOceanTypeService2.Items.Add(new ListItem("PTP (Port to Port)", "PTP"));
             drpInternOceanTypeService2.Items.Add(new ListItem("ATD (Port to Door)", "PTD"));
-           
+
             drpPaymentMethod.Items.Add("Other");
             drpPaymentMethod.Items.Add("Prepaid");
             drpPaymentMethod.Items.Add("Collect");
             drpPaymentMethod.Items.Add("Collect");
 
-            
+
             drpBillToCompany.Items.Add("3PL Integration");
             //drpBillToCompany.Items.Add("QWE Logistics, Inc.");
             drpBillToCompany.Items.Add("Quad Express");
@@ -334,7 +334,7 @@ namespace ISCS.Admin
 
         #region protected void FetchAllValues(string strRequestId)
         protected void FetchAllValues(string strRequestId)
-        {            
+        {
             int intPickupreqid = Convert.ToInt32(strRequestId);
             DataSet ds = PickupRequestBL.FetchSinglePickupRequest(intPickupreqid);
 
@@ -419,7 +419,7 @@ namespace ISCS.Admin
                     {
                         chkPartyTransaction.Checked = true;
                     }
-                }                
+                }
 
                 if (ds.Tables[0].Rows[0].IsNull("ShipToLocationId") == false)
                 {
@@ -452,7 +452,7 @@ namespace ISCS.Admin
 
                 txtToContact.Text = ds.Tables[0].Rows[0]["ShipToContact"].ToString();
                 txtToPhone.Text = ds.Tables[0].Rows[0]["ShipToPhone"].ToString();
-                txtToFax.Text = ds.Tables[0].Rows[0]["ShipToFax"].ToString();                
+                txtToFax.Text = ds.Tables[0].Rows[0]["ShipToFax"].ToString();
                 txtDeliveryDate.Text = IsDatetime(ds.Tables[0].Rows[0]["ShipToDate"].ToString()).ToString("d");
                 txtIntermediateConsignee.Text = ds.Tables[0].Rows[0]["ExportIntermediateConsignee"].ToString();
                 txtContactName.Text = ds.Tables[0].Rows[0]["ExportIntermediateContact"].ToString();
@@ -476,7 +476,7 @@ namespace ISCS.Admin
                         }
                     }
                 }
-                
+
                 if (ds.Tables[0].Rows[0].IsNull("TransMode") == false)
                 {
                     if (Convert.ToInt32(ds.Tables[0].Rows[0]["TransMode"]) == 3)
@@ -562,7 +562,7 @@ namespace ISCS.Admin
 
                 if (ds.Tables[0].Rows[0].IsNull("SpecialServiceCodes") == false && ds.Tables[0].Rows[0]["SpecialServiceCodes"].ToString() != "")
                 {
-                    string[] arrTsService = null;                    
+                    string[] arrTsService = null;
                     arrTsService = ds.Tables[0].Rows[0]["SpecialServiceCodes"].ToString().Split('|');
                     if (arrTsService.Length > 0)
                     {
@@ -879,7 +879,7 @@ namespace ISCS.Admin
                             drpBillToCompany.ClearSelection();
                             drpBillToCompany.Items[i].Selected = true;
                         }
-                    }                    
+                    }
                 }
 
                 if (ds.Tables[0].Rows[0].IsNull("GLSBillAddress") == false)
@@ -895,7 +895,7 @@ namespace ISCS.Admin
                 if (ds.Tables[0].Rows[0].IsNull("GLSBillStateName") == false && ds.Tables[0].Rows[0]["GLSBillStateName"].ToString() != "" && ds.Tables[0].Rows[0]["GLSBillStateName"].ToString() != "0")
                 {
                     txtBillToState.Text = ds.Tables[0].Rows[0]["GLSBillStateName"].ToString();
-                }                
+                }
 
                 if (ds.Tables[0].Rows[0].IsNull("GLSBillPostalCode") == false)
                 {
@@ -904,7 +904,7 @@ namespace ISCS.Admin
                 if (ds.Tables[0].Rows[0].IsNull("GLSBillCountryName") == false && ds.Tables[0].Rows[0]["GLSBillCountryName"].ToString() != "" && ds.Tables[0].Rows[0]["GLSBillCountryName"].ToString() != "0")
                 {
                     txtBillToCountry.Text = ds.Tables[0].Rows[0]["GLSBillCountryName"].ToString();
-                }                
+                }
 
                 if (ds.Tables[0].Rows[0].IsNull("GLSNotes") == false)
                 {
@@ -918,7 +918,7 @@ namespace ISCS.Admin
         protected void FetchShipments()
         {
             if (ViewState["PickupReuestId"] != null)
-            {                
+            {
                 DataSet ds = ShipmentItemsBL.FetchShipmentUnit(IsInteger(ViewState["PickupReuestId"].ToString()));
                 gridShipments.DataSource = ds;
                 gridShipments.DataBind();
@@ -952,7 +952,7 @@ namespace ISCS.Admin
         protected void FetchSkids()
         {
             if (ViewState["PickupReuestId"] != null)
-            {                
+            {
                 DataSet ds = HandlingUnitBL.FetchHandlingUnit(IsInteger(ViewState["PickupReuestId"].ToString()), 1);
                 ViewState["cubicweight"] = null;
                 int cubicwt = 0;
@@ -1039,8 +1039,8 @@ namespace ISCS.Admin
         protected void btnContinue_Click(object sender, EventArgs e)
         {
             if (CommonBL.isDate(txtPickUpDate.Text.ToString().Trim()) == true && CommonBL.isDate(txtDeliveryDate.Text.ToString().Trim()) == true)
-            {                
-                PickupRequestEL objEL = new PickupRequestEL();                
+            {
+                PickupRequestEL objEL = new PickupRequestEL();
                 objEL.PickupRequestId = IsInteger(ViewState["PickupReuestId"].ToString());
                 objEL.ShipFromCompany = txtShipFromCompany.Text.ToString().Trim();
                 objEL.ShipFromRefNumber = txtShipperRefNo.Text.ToString().Trim();
@@ -1087,7 +1087,7 @@ namespace ISCS.Admin
                 }
 
                 objEL.ExportEIN = txtExporterEIN.Text.ToString().Trim();
-                
+
                 if (chkPartyTransaction.Checked == true)
                 {
                     objEL.ExportPartyTrans = 1;
@@ -1112,7 +1112,7 @@ namespace ISCS.Admin
                 objEL.ShipToCompany = txtShipToCompany.Text.ToString().Trim().Replace("–", "-");
                 objEL.ShipToConsigneeRefNumber = txtConsigneeRefNo.Text.ToString().Trim();
                 objEL.ShipToAddress = txtToAddress.Text.ToString().Trim();
-                objEL.ShipToCity = txtToCity.Text.ToString().Trim();                
+                objEL.ShipToCity = txtToCity.Text.ToString().Trim();
                 objEL.ShipToPostalCode = txtToPostalCode.Text.ToString().Trim();
                 if (drpToCountry.SelectedIndex > 0)
                 {
@@ -1124,7 +1124,7 @@ namespace ISCS.Admin
                 }
                 objEL.ShipToContact = txtToContact.Text.ToString().Trim();
                 objEL.ShipToPhone = txtToPhone.Text.ToString().Trim();
-                objEL.ShipToFax = txtToFax.Text.ToString().Trim();                
+                objEL.ShipToFax = txtToFax.Text.ToString().Trim();
                 objEL.ShipToDate = Convert.ToDateTime(txtDeliveryDate.Text.ToString().Trim());
                 if (rbInsuranceRequired.Items[0].Selected == true)
                 {
@@ -1137,11 +1137,11 @@ namespace ISCS.Admin
                 if (txtInsuredValue.Text.ToString() != "")
                 {
                     objEL.InsuredValue = IsDecimal(txtInsuredValue.Text.ToString().Trim());
-                }                
-                objEL.UserId = IsInteger(Convert.ToString(Session["cacheUserId"]));                
+                }
+                objEL.UserId = IsInteger(Convert.ToString(Session["cacheUserId"]));
                 objEL.StatusCode = "SAME";
                 if (HidWarehouseid.Value != null && HidWarehouseid.Value != "" && HidWarehouseid.Value != "0")
-                {                    
+                {
                     objEL.ShipToLocationId = IsInteger(HidWarehouseid.Value);
                     objEL.PickupRequestTypeWarehouse = 1;
                     lblWAreHoseLocationId.Text = HidWarehouseid.Value;
@@ -1154,7 +1154,7 @@ namespace ISCS.Admin
                 }
 
                 objEL.PickupRequestType = 2;
-                
+
                 //new                
 
                 objEL.WeightType = "lbs";
@@ -1177,7 +1177,7 @@ namespace ISCS.Admin
                     objEL.TransMode = 0;
                     objEL.TransModeName = rbISCSAdvantage.Text;
                 }
-               
+
                 string strSServices = "";
                 for (int i = 0; i < chkLLiftGate.Items.Count; i++)
                 {
@@ -1275,7 +1275,7 @@ namespace ISCS.Admin
                 objEL.DocumentsEnclosed = txtareaDocumentEnclosed.Value;
                 objEL.GLSTrackingNumber = "";
                 objEL.GLSAccountId = Convert.ToInt32(drpAccountCode.SelectedValue);
-                objEL.GLSCarrierName = txtPickupCarrier.Text.ToString().Trim();                
+                objEL.GLSCarrierName = txtPickupCarrier.Text.ToString().Trim();
                 objEL.GLSShippedWeight = IsDecimal(txtShippedWeight.Text.ToString().Trim());
                 objEL.ExportLoadingPort = txtPortAirExport.Text.ToString().Trim();
                 if (rblistContainerized.Items[0].Selected == true)
@@ -1285,36 +1285,36 @@ namespace ISCS.Admin
                 else
                 {
                     objEL.ExportContanerized = 1;
-                }                
-                objEL.GLSCubicWeight = Convert.ToInt32(ViewState["cubicweight"]);                
+                }
+                objEL.GLSCubicWeight = Convert.ToInt32(ViewState["cubicweight"]);
                 objEL.GLSInsured = IsInteger(rblInsured.SelectedItem.Value);
-                objEL.GLSNotes = txtareaNotes.Value;                
-                objEL.GLSBuyRateTransportCharge = IsDecimal(txtTransportCost1.Text.ToString().Trim());                
-                objEL.GLSBuyRateAccessorialCharge = IsDecimal(txtAccessorialCost1.Text.ToString().Trim());                
-                objEL.GLSBuyRateFuelCharge = IsDecimal(txtFuelSurcharge1.Text.ToString().Trim());                
-                objEL.GLSBuyRateInsuraceCharge = IsDecimal(txtInsurance1.Text.ToString().Trim());                
-                objEL.GLSBuyRateCodFee = IsDecimal(txtCodFee1.Text.ToString().Trim());                
-                objEL.GLSSellRateTransportCharge = IsDecimal(txtTransport.Text.ToString().Trim());                
-                objEL.GLSSellRateAccessorialCharge = IsDecimal(txtAccessorial.Text.ToString().Trim());                
-                objEL.GLSSellRateFuelCharge = IsDecimal(txtFuelSurcharge.Text.ToString().Trim());                
-                objEL.GLSSellRateInsuraceCharge = IsDecimal(txtInsurance.Text.ToString().Trim());                
+                objEL.GLSNotes = txtareaNotes.Value;
+                objEL.GLSBuyRateTransportCharge = IsDecimal(txtTransportCost1.Text.ToString().Trim());
+                objEL.GLSBuyRateAccessorialCharge = IsDecimal(txtAccessorialCost1.Text.ToString().Trim());
+                objEL.GLSBuyRateFuelCharge = IsDecimal(txtFuelSurcharge1.Text.ToString().Trim());
+                objEL.GLSBuyRateInsuraceCharge = IsDecimal(txtInsurance1.Text.ToString().Trim());
+                objEL.GLSBuyRateCodFee = IsDecimal(txtCodFee1.Text.ToString().Trim());
+                objEL.GLSSellRateTransportCharge = IsDecimal(txtTransport.Text.ToString().Trim());
+                objEL.GLSSellRateAccessorialCharge = IsDecimal(txtAccessorial.Text.ToString().Trim());
+                objEL.GLSSellRateFuelCharge = IsDecimal(txtFuelSurcharge.Text.ToString().Trim());
+                objEL.GLSSellRateInsuraceCharge = IsDecimal(txtInsurance.Text.ToString().Trim());
                 objEL.GLSSellRateCodFee = IsDecimal(txtCodFee.Text.ToString().Trim());
                 objEL.GLSCarrierNameInterm = txtIntermediateCarrier.Text.ToString().Trim();
                 objEL.GLSCarrierNameDelivery = txtDeliveryCarrier.Text.ToString().Trim();
-                objEL.GLSCarrierNameOther = txtOtherCarrier.Text.ToString().Trim();                
-                objEL.GLSBuyRateTransportChargeInterm = IsDecimal(txtTransportCost2.Text.ToString().Trim());                
-                objEL.GLSBuyRateTransportChargeDelivery = IsDecimal(txtTransportCost3.Text.ToString().Trim());                
-                objEL.GLSBuyRateTransportChargeOther = IsDecimal(txtTransportCost4.Text.ToString().Trim());                
-                objEL.GLSBuyRateAccessorialChargeInterm = IsDecimal(txtAccessorialCost2.Text.ToString().Trim());                
-                objEL.GLSBuyRateAccessorialChargeDelivery = IsDecimal(txtAccessorialCost3.Text.ToString().Trim());                
-                objEL.GLSBuyRateAccessorialChargeOther = IsDecimal(txtAccessorialCost4.Text.ToString().Trim());                
-                objEL.GLSBuyRateFuelChargeInterm = IsDecimal(txtFuelSurcharge1.Text.ToString().Trim());                
-                objEL.GLSBuyRateFuelChargeDelivery = IsDecimal(txtFuelSurcharge2.Text.ToString().Trim());                
-                objEL.GLSBuyRateFuelChargeOther = IsDecimal(txtFuelSurcharge3.Text.ToString().Trim());                
+                objEL.GLSCarrierNameOther = txtOtherCarrier.Text.ToString().Trim();
+                objEL.GLSBuyRateTransportChargeInterm = IsDecimal(txtTransportCost2.Text.ToString().Trim());
+                objEL.GLSBuyRateTransportChargeDelivery = IsDecimal(txtTransportCost3.Text.ToString().Trim());
+                objEL.GLSBuyRateTransportChargeOther = IsDecimal(txtTransportCost4.Text.ToString().Trim());
+                objEL.GLSBuyRateAccessorialChargeInterm = IsDecimal(txtAccessorialCost2.Text.ToString().Trim());
+                objEL.GLSBuyRateAccessorialChargeDelivery = IsDecimal(txtAccessorialCost3.Text.ToString().Trim());
+                objEL.GLSBuyRateAccessorialChargeOther = IsDecimal(txtAccessorialCost4.Text.ToString().Trim());
+                objEL.GLSBuyRateFuelChargeInterm = IsDecimal(txtFuelSurcharge1.Text.ToString().Trim());
+                objEL.GLSBuyRateFuelChargeDelivery = IsDecimal(txtFuelSurcharge2.Text.ToString().Trim());
+                objEL.GLSBuyRateFuelChargeOther = IsDecimal(txtFuelSurcharge3.Text.ToString().Trim());
                 objEL.GLSTotalBuyRate = IsDecimal(txtTransportCost1.Text.ToString().Trim()) + IsDecimal(txtTransportCost2.Text.ToString().Trim()) + IsDecimal(txtTransportCost3.Text.ToString().Trim()) + IsDecimal(txtTransportCost4.Text.ToString().Trim()) + IsDecimal(txtAccessorialCost1.Text.ToString().Trim())
                     + IsDecimal(txtAccessorialCost2.Text.ToString().Trim()) + IsDecimal(txtAccessorialCost3.Text.ToString().Trim()) + IsDecimal(txtAccessorialCost4.Text.ToString().Trim()) + IsDecimal(txtFuelSurcharge1.Text.ToString().Trim()) + IsDecimal(txtFuelSurcharge2.Text.ToString().Trim()) +
                     IsDecimal(txtFuelSurcharge3.Text.ToString().Trim()) + IsDecimal(txtFuelSurcharge4.Text.ToString().Trim()) + IsDecimal(txtInsurance1.Text.ToString().Trim()) + IsDecimal(txtCodFee1.Text.ToString().Trim()) + IsDecimal(txtBuyBrokerage.Text.ToString().Trim()) + IsDecimal(txtBuyDuty.Text.ToString().Trim());
-                
+
                 objEL.GLSTotalSellRate = IsDecimal(txtTransport.Text.ToString().Trim()) + IsDecimal(txtAccessorial.Text.ToString().Trim()) + IsDecimal(txtFuelSurcharge.Text.ToString().Trim()) + IsDecimal(txtInsurance.Text.ToString().Trim()) + IsDecimal(txtCodFee.Text.ToString().Trim()) + IsDecimal(txtSellBrokerage.Text.ToString().Trim()) + IsDecimal(txtSellDuty.Text.ToString().Trim());
                 if (chkShipmentInfo.Items[0].Selected == true)
                 {
@@ -1329,13 +1329,13 @@ namespace ISCS.Admin
                 objEL.GLSBuyRateDuty = IsDecimal(txtBuyDuty.Text.ToString().Trim());
                 objEL.GLSSellRateDuty = IsDecimal(txtSellDuty.Text.ToString().Trim());
                 objEL.GLSPaymentMethod = drpPaymentMethod.SelectedItem.Text;
-                objEL.GLSCertifiedCheck = rbCertifiedCheck.SelectedItem.Text;                
+                objEL.GLSCertifiedCheck = rbCertifiedCheck.SelectedItem.Text;
                 objEL.GLSBillCompany = drpBillToCompany.SelectedItem.Text;
                 objEL.GLSBillAddress = txtBillToAddress.Text.ToString().Trim();
-                objEL.GLSBillCity = txtBillToCity.Text.ToString().Trim();                
+                objEL.GLSBillCity = txtBillToCity.Text.ToString().Trim();
                 objEL.BillToStateName = txtBillToState.Text.ToString().Trim();
-                objEL.GLSBillPostalCode = txtBillToZip.Text.ToString().Trim();                
-                objEL.BillToCountryName = txtBillToCountry.Text.ToString().Trim();                
+                objEL.GLSBillPostalCode = txtBillToZip.Text.ToString().Trim();
+                objEL.BillToCountryName = txtBillToCountry.Text.ToString().Trim();
                 objEL.Margin = IsDecimal(txtMargin.Text.ToString().Trim());
                 objEL.SkeletonRecord = 0;
                 //Checking whether request is pending or non-pending
@@ -1358,25 +1358,25 @@ namespace ISCS.Admin
                 EntityLayer.Carriers objCarrierEl = new EntityLayer.Carriers();
                 objCarrierEl.UserId = IsInteger(Convert.ToString(Session["cacheUserId"]));
 
-                if (CheckBoxList8.Items[0].Selected == true && txtPickupCarrier.Text.ToString().Trim()!="")
+                if (CheckBoxList8.Items[0].Selected == true && txtPickupCarrier.Text.ToString().Trim() != "")
                 {
                     objCarrierEl.CarrierName = txtPickupCarrier.Text.ToString().Trim();
                     CarriersBL.InsertCarrier(objCarrierEl);
                 }
 
-                if (CheckBoxList9.Items[0].Selected == true && txtIntermediateCarrier.Text.ToString().Trim()!="")
+                if (CheckBoxList9.Items[0].Selected == true && txtIntermediateCarrier.Text.ToString().Trim() != "")
                 {
                     objCarrierEl.CarrierName = txtIntermediateCarrier.Text.ToString().Trim();
                     CarriersBL.InsertCarrier(objCarrierEl);
                 }
 
-                if (CheckBoxList10.Items[0].Selected == true && txtDeliveryCarrier.Text.ToString().Trim()!="")
+                if (CheckBoxList10.Items[0].Selected == true && txtDeliveryCarrier.Text.ToString().Trim() != "")
                 {
                     objCarrierEl.CarrierName = txtDeliveryCarrier.Text.ToString().Trim();
                     CarriersBL.InsertCarrier(objCarrierEl);
                 }
 
-                if (CheckBoxList11.Items[0].Selected == true && txtOtherCarrier.Text.ToString().Trim()!="")
+                if (CheckBoxList11.Items[0].Selected == true && txtOtherCarrier.Text.ToString().Trim() != "")
                 {
                     objCarrierEl.CarrierName = txtOtherCarrier.Text.ToString().Trim();
                     CarriersBL.InsertCarrier(objCarrierEl);
@@ -1412,7 +1412,7 @@ namespace ISCS.Admin
                     objUserLocationEL.CompanyName = txtShipToCompany.Text.ToString().Trim().Replace("–", "-");
                     objUserLocationEL.Address = txtToAddress.Text.ToString().Trim();
                     objUserLocationEL.City = txtToCity.Text.ToString().Trim();
-                    
+
                     objUserLocationEL.PostalCode = txtToPostalCode.Text.ToString().Trim();
                     if (drpToCountry.SelectedIndex > 0)
                     {
@@ -1421,7 +1421,7 @@ namespace ISCS.Admin
                     objUserLocationEL.ContactName = txtToContact.Text.ToString().Trim();
                     objUserLocationEL.ContactPhone = txtToPhone.Text.ToString().Trim();
                     objUserLocationEL.ContactFax = txtToFax.Text.ToString().Trim();
-                    
+
                     Boolean statUL = UserLocationBL.AddLocation(objUserLocationEL);
                 }
                 // Add Userlocation for future use
@@ -1430,8 +1430,8 @@ namespace ISCS.Admin
                 if (stat == true)
                 {
                     LockPickupRequest(IsInteger(ViewState["PickupReuestId"].ToString()), IsInteger(Convert.ToString(Session["cacheUserId"])), false);
-                    
-                    DataSet dsPickupRequest = PickupRequestBL.FetchAllPickupRequest(IsInteger(ViewState["PickupReuestId"].ToString()));                    
+
+                    DataSet dsPickupRequest = PickupRequestBL.FetchAllPickupRequest(IsInteger(ViewState["PickupReuestId"].ToString()));
                     string strtracking_no = Convert.ToString(dsPickupRequest.Tables[0].Rows[0]["GLSTrackingNumber"]);
                     if (strtracking_no.Trim() == "")
                     {
@@ -1439,17 +1439,17 @@ namespace ISCS.Admin
                         //AdminEmailNewRequest(ConfigurationManager.AppSettings["AdminEmail"].Trim());
                     }
                     if (Request.QueryString["stat"] != null && Request.QueryString["stat"].ToString().Trim().ToUpper() == "N")
-                    {                        
+                    {
                         Response.Write("<script language='javascript'>alert('Record saved successfully');location.href='RequestList.aspx?RequestType=NonPending';</script>");
                     }
                     else if (Request.QueryString["stat"] != null && Request.QueryString["stat"].ToString().Trim().ToUpper() == "P")
-                    {                        
+                    {
                         Response.Write("<script language='javascript'>alert('Record saved successfully');location.href='RequestList.aspx?RequestType=Pending';</script>");
                     }
                     else
-                    {                        
+                    {
                         Response.Write("<script language='javascript'>alert('Record saved successfully');location.href='AddPickUpRequestIntl.aspx';</script>");
-                    }                    
+                    }
                 }
             }
             else
@@ -1465,7 +1465,7 @@ namespace ISCS.Admin
         {
             if (CommonBL.isDate(txtPickUpDate.Text.ToString().Trim()) == true && CommonBL.isDate(txtDeliveryDate.Text.ToString().Trim()) == true)
             {
-                PickupRequestEL objEL = new PickupRequestEL();                
+                PickupRequestEL objEL = new PickupRequestEL();
                 objEL.PickupRequestId = IsInteger(ViewState["PickupReuestId"].ToString());
                 objEL.ShipFromCompany = txtShipFromCompany.Text.ToString().Trim();
                 objEL.ShipFromRefNumber = txtShipperRefNo.Text.ToString().Trim();
@@ -1537,7 +1537,7 @@ namespace ISCS.Admin
                 objEL.ShipToCompany = txtShipToCompany.Text.ToString().Trim().Replace("–", "-");
                 objEL.ShipToConsigneeRefNumber = txtConsigneeRefNo.Text.ToString().Trim();
                 objEL.ShipToAddress = txtToAddress.Text.ToString().Trim();
-                objEL.ShipToCity = txtToCity.Text.ToString().Trim();                
+                objEL.ShipToCity = txtToCity.Text.ToString().Trim();
                 objEL.ShipToPostalCode = txtToPostalCode.Text.ToString().Trim();
                 if (drpToCountry.SelectedIndex > 0)
                 {
@@ -1549,7 +1549,7 @@ namespace ISCS.Admin
                 }
                 objEL.ShipToContact = txtToContact.Text.ToString().Trim();
                 objEL.ShipToPhone = txtToPhone.Text.ToString().Trim();
-                objEL.ShipToFax = txtToFax.Text.ToString().Trim();                
+                objEL.ShipToFax = txtToFax.Text.ToString().Trim();
                 objEL.ShipToDate = Convert.ToDateTime(txtDeliveryDate.Text.ToString().Trim());
                 if (rbInsuranceRequired.Items[0].Selected == true)
                 {
@@ -1562,12 +1562,12 @@ namespace ISCS.Admin
                 if (txtInsuredValue.Text.ToString() != "")
                 {
                     objEL.InsuredValue = IsDecimal(txtInsuredValue.Text.ToString().Trim());
-                }                
+                }
                 objEL.UserId = IsInteger(Convert.ToString(Session["cacheUserId"]));
                 objEL.StatusCode = "SUP";
                 //Checking whether destination location is warehouse.The hidden field holds the id of the destination warehouse
                 if (HidWarehouseid.Value != null && HidWarehouseid.Value != "" && HidWarehouseid.Value != "0")
-                {                    
+                {
                     objEL.ShipToLocationId = IsInteger(HidWarehouseid.Value);
                     objEL.PickupRequestTypeWarehouse = 1;
                     lblWAreHoseLocationId.Text = HidWarehouseid.Value;
@@ -1603,7 +1603,7 @@ namespace ISCS.Admin
                     objEL.TransMode = 0;
                     objEL.TransModeName = rbISCSAdvantage.Text;
                 }
-                
+
                 string strSServices = "";
                 for (int i = 0; i < chkLLiftGate.Items.Count; i++)
                 {
@@ -1710,10 +1710,10 @@ namespace ISCS.Admin
                 else
                 {
                     objEL.ExportContanerized = 1;
-                }                
-                objEL.GLSShippedWeight = IsInteger(txtShippedWeight.Text.ToString().Trim());                
+                }
+                objEL.GLSShippedWeight = IsInteger(txtShippedWeight.Text.ToString().Trim());
                 objEL.GLSInsured = IsInteger(rblInsured.SelectedItem.Value);
-                objEL.GLSNotes = txtareaNotes.Value;                
+                objEL.GLSNotes = txtareaNotes.Value;
 
                 objEL.GLSBuyRateTransportCharge = IsDecimal(txtTransportCost1.Text.ToString().Trim());
                 objEL.GLSBuyRateAccessorialCharge = IsDecimal(txtAccessorialCost1.Text.ToString().Trim());
@@ -1728,7 +1728,7 @@ namespace ISCS.Admin
 
                 objEL.GLSCarrierNameInterm = txtIntermediateCarrier.Text.ToString().Trim();
                 objEL.GLSCarrierNameDelivery = txtDeliveryCarrier.Text.ToString().Trim();
-                objEL.GLSCarrierNameOther = txtOtherCarrier.Text.ToString().Trim();                
+                objEL.GLSCarrierNameOther = txtOtherCarrier.Text.ToString().Trim();
 
                 objEL.GLSBuyRateTransportChargeInterm = IsDecimal(txtTransportCost2.Text.ToString().Trim());
                 objEL.GLSBuyRateTransportChargeDelivery = IsDecimal(txtTransportCost3.Text.ToString().Trim());
@@ -1739,11 +1739,11 @@ namespace ISCS.Admin
                 objEL.GLSBuyRateFuelChargeInterm = IsDecimal(txtFuelSurcharge1.Text.ToString().Trim());
                 objEL.GLSBuyRateFuelChargeDelivery = IsDecimal(txtFuelSurcharge2.Text.ToString().Trim());
                 objEL.GLSBuyRateFuelChargeOther = IsDecimal(txtFuelSurcharge3.Text.ToString().Trim());
-                
+
                 objEL.GLSTotalBuyRate = IsDecimal(txtTransportCost1.Text.ToString().Trim()) + IsDecimal(txtTransportCost2.Text.ToString().Trim()) + IsDecimal(txtTransportCost3.Text.ToString().Trim()) + IsDecimal(txtTransportCost4.Text.ToString().Trim()) + IsDecimal(txtAccessorialCost1.Text.ToString().Trim())
                     + IsDecimal(txtAccessorialCost2.Text.ToString().Trim()) + IsDecimal(txtAccessorialCost3.Text.ToString().Trim()) + IsDecimal(txtAccessorialCost4.Text.ToString().Trim()) + IsDecimal(txtFuelSurcharge1.Text.ToString().Trim()) + IsDecimal(txtFuelSurcharge2.Text.ToString().Trim()) +
                     IsDecimal(txtFuelSurcharge3.Text.ToString().Trim()) + IsDecimal(txtFuelSurcharge4.Text.ToString().Trim()) + IsDecimal(txtInsurance1.Text.ToString().Trim()) + IsDecimal(txtCodFee1.Text.ToString().Trim()) + IsDecimal(txtBuyBrokerage.Text.ToString().Trim()) + IsDecimal(txtBuyDuty.Text.ToString().Trim());
-               
+
                 objEL.GLSTotalSellRate = IsDecimal(txtTransport.Text.ToString().Trim()) + IsDecimal(txtAccessorial.Text.ToString().Trim()) + IsDecimal(txtFuelSurcharge.Text.ToString().Trim()) + IsDecimal(txtInsurance.Text.ToString().Trim()) + IsDecimal(txtCodFee.Text.ToString().Trim()) + IsDecimal(txtSellBrokerage.Text.ToString().Trim()) + IsDecimal(txtSellDuty.Text.ToString().Trim());
 
                 if (chkShipmentInfo.Items[0].Selected == true)
@@ -1759,13 +1759,13 @@ namespace ISCS.Admin
                 objEL.GLSBuyRateDuty = IsDecimal(txtBuyDuty.Text.ToString().Trim());
                 objEL.GLSSellRateDuty = IsDecimal(txtSellDuty.Text.ToString().Trim());
                 objEL.GLSPaymentMethod = drpPaymentMethod.SelectedItem.Text;
-                objEL.GLSCertifiedCheck = rbCertifiedCheck.SelectedItem.Text;                
+                objEL.GLSCertifiedCheck = rbCertifiedCheck.SelectedItem.Text;
                 objEL.GLSBillCompany = drpBillToCompany.SelectedItem.Text;
                 objEL.GLSBillAddress = txtBillToAddress.Text.ToString().Trim();
-                objEL.GLSBillCity = txtBillToCity.Text.ToString().Trim();                
-                objEL.GLSBillPostalCode = txtBillToZip.Text.ToString().Trim();                
+                objEL.GLSBillCity = txtBillToCity.Text.ToString().Trim();
+                objEL.GLSBillPostalCode = txtBillToZip.Text.ToString().Trim();
                 objEL.BillToStateName = txtBillToState.Text.ToString().Trim();
-                objEL.BillToCountryName = txtBillToCountry.Text.ToString().Trim();                
+                objEL.BillToCountryName = txtBillToCountry.Text.ToString().Trim();
                 objEL.Margin = IsDecimal(txtMargin.Text.ToString().Trim());
                 objEL.SkeletonRecord = 0;
                 objEL.WarehouseFlag = 1;
@@ -1826,7 +1826,7 @@ namespace ISCS.Admin
                     objUserLocationEL.UserId = IsInteger(Convert.ToString(Session["cacheUserId"]));
                     objUserLocationEL.CompanyName = txtShipToCompany.Text.ToString().Trim().Replace("–", "-");
                     objUserLocationEL.Address = txtToAddress.Text.ToString().Trim();
-                    objUserLocationEL.City = txtToCity.Text.ToString().Trim();                    
+                    objUserLocationEL.City = txtToCity.Text.ToString().Trim();
                     objUserLocationEL.PostalCode = txtToPostalCode.Text.ToString().Trim();
                     if (drpToCountry.SelectedIndex > 0)
                     {
@@ -1834,7 +1834,7 @@ namespace ISCS.Admin
                     }
                     objUserLocationEL.ContactName = txtToContact.Text.ToString().Trim();
                     objUserLocationEL.ContactPhone = txtToPhone.Text.ToString().Trim();
-                    objUserLocationEL.ContactFax = txtToFax.Text.ToString().Trim();                    
+                    objUserLocationEL.ContactFax = txtToFax.Text.ToString().Trim();
                     Boolean statUL = UserLocationBL.AddLocation(objUserLocationEL);
                 }
                 // Add Userlocation for future use
@@ -1880,7 +1880,7 @@ namespace ISCS.Admin
                 objTBillsEL.GLSCarrierNameOther = Convert.ToString(dsPickupRequest.Tables[0].Rows[0]["GLSCarrierNameOther"]);
 
                 // TBills Business Logic Layer
-                Boolean statBills = TBillsBL.AddNewTbills(objTBillsEL);                
+                Boolean statBills = TBillsBL.AddNewTbills(objTBillsEL);
 
                 if (stat == true)
                 {
@@ -1926,7 +1926,7 @@ namespace ISCS.Admin
                         AddVendor2QuickBook(objTBillsEL.tracking_no); //Commented on 25.04.2012 Client Request(Disable QB)
                     }
                     AddCustomer2QuickBook(objTBillsEL.tracking_no); //Commented on 25.04.2012 Client Request(Disable QB)
-                    Response.Write("<script language='javascript'>alert('The request has been accepted');location.href='AddPickUpRequestIntl.aspx';</script>");                    
+                    Response.Write("<script language='javascript'>alert('The request has been accepted');location.href='AddPickUpRequestIntl.aspx';</script>");
                 }
                 else
                 {
@@ -1955,7 +1955,7 @@ namespace ISCS.Admin
         protected void btnSave_Click(object sender, EventArgs e)
         {
             if (CommonBL.isDate(txtPickUpDate.Text.ToString().Trim()) == true && CommonBL.isDate(txtDeliveryDate.Text.ToString().Trim()) == true)
-            {                
+            {
                 PickupRequestEL objEL = new PickupRequestEL();
                 objEL.ShipFromCompany = txtShipFromCompany.Text.ToString().Trim();
                 objEL.ShipFromRefNumber = txtShipperRefNo.Text.ToString().Trim();
@@ -1977,7 +1977,7 @@ namespace ISCS.Admin
                 else
                 {
                     objEL.ShipFromCountry = "";
-                }                
+                }
                 objEL.ShipFromContact = txtFromContact.Text.ToString().Trim();
                 objEL.ShipFromPhone = txtFromPhone.Text.ToString().Trim();
                 objEL.ShipFromFax = txtFromFax.Text.ToString().Trim();
@@ -2002,7 +2002,7 @@ namespace ISCS.Admin
                 }
 
                 objEL.ExportEIN = txtExporterEIN.Text.ToString().Trim();
-                if(chkPartyTransaction.Checked==true)
+                if (chkPartyTransaction.Checked == true)
                 {
                     objEL.ExportPartyTrans = 1;
                 }
@@ -2026,7 +2026,7 @@ namespace ISCS.Admin
                 objEL.ShipToCompany = txtShipToCompany.Text.ToString().Trim().Replace("–", "-");
                 objEL.ShipToConsigneeRefNumber = txtConsigneeRefNo.Text.ToString().Trim();
                 objEL.ShipToAddress = txtToAddress.Text.ToString().Trim();
-                objEL.ShipToCity = txtToCity.Text.ToString().Trim();                
+                objEL.ShipToCity = txtToCity.Text.ToString().Trim();
                 objEL.ShipToPostalCode = txtToPostalCode.Text.ToString().Trim();
                 if (drpToCountry.SelectedIndex > 0)
                 {
@@ -2038,7 +2038,7 @@ namespace ISCS.Admin
                 }
                 objEL.ShipToContact = txtToContact.Text.ToString().Trim();
                 objEL.ShipToPhone = txtToPhone.Text.ToString().Trim();
-                objEL.ShipToFax = txtToFax.Text.ToString().Trim();                
+                objEL.ShipToFax = txtToFax.Text.ToString().Trim();
                 objEL.ShipToDate = Convert.ToDateTime(txtDeliveryDate.Text.ToString().Trim());
                 if (rbInsuranceRequired.Items[0].Selected == true)
                 {
@@ -2051,12 +2051,12 @@ namespace ISCS.Admin
                 if (txtInsuredValue.Text.ToString() != "")
                 {
                     objEL.InsuredValue = IsDecimal(txtInsuredValue.Text.ToString().Trim());
-                }                
-                
+                }
+
                 objEL.UserId = IsInteger(Convert.ToString(Session["cacheUserId"]));
                 objEL.StatusCode = "PND";
                 if (HidWarehouseid.Value != null && HidWarehouseid.Value != "" && HidWarehouseid.Value != "0")
-                {                    
+                {
                     objEL.ShipToLocationId = IsInteger(HidWarehouseid.Value);
                     objEL.PickupRequestTypeWarehouse = 1;
                     lblWAreHoseLocationId.Text = HidWarehouseid.Value;
@@ -2103,7 +2103,7 @@ namespace ISCS.Admin
                     objUserLocationEL.UserId = IsInteger(Convert.ToString(Session["cacheUserId"]));
                     objUserLocationEL.CompanyName = txtShipToCompany.Text.ToString().Trim().Replace("–", "-");
                     objUserLocationEL.Address = txtToAddress.Text.ToString().Trim();
-                    objUserLocationEL.City = txtToCity.Text.ToString().Trim();                    
+                    objUserLocationEL.City = txtToCity.Text.ToString().Trim();
                     objUserLocationEL.PostalCode = txtToPostalCode.Text.ToString().Trim();
                     if (drpToCountry.SelectedIndex > 0)
                     {
@@ -2127,8 +2127,8 @@ namespace ISCS.Admin
                 // Add Userlocation for future use
 
                 Boolean stat = PickupRequestBL.AddPickupRequest(objEL);
-                ViewState["PickupReuestId"] = objEL.PickupRequestId;         
-                DataSet dsPickupRequest = PickupRequestBL.FetchAllPickupRequest(IsInteger(ViewState["PickupReuestId"].ToString()));                    
+                ViewState["PickupReuestId"] = objEL.PickupRequestId;
+                DataSet dsPickupRequest = PickupRequestBL.FetchAllPickupRequest(IsInteger(ViewState["PickupReuestId"].ToString()));
                 string strtracking_no = Convert.ToString(dsPickupRequest.Tables[0].Rows[0]["GLSTrackingNumber"]);
                 if (strtracking_no.Trim() == "")
                 {
@@ -2138,7 +2138,7 @@ namespace ISCS.Admin
                 btnSave.Visible = false;
                 btnHUnit.Visible = true;
                 tblRequestedService.Visible = true;
-                tabInsuranceRequired.Visible =true;              
+                tabInsuranceRequired.Visible = true;
                 tblSpecialServices.Visible = true;
                 btnContinue.Visible = true;
                 cvalidSkids.Enabled = true;
@@ -2187,7 +2187,7 @@ namespace ISCS.Admin
         #region protected void btnEditHandlingUnit_Click(object sender, EventArgs e)
         protected void btnEditHandlingUnit_Click(object sender, EventArgs e)
         {
-            ImageButton btnSender = (ImageButton)sender;            
+            ImageButton btnSender = (ImageButton)sender;
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "hupop", "OpenHupop(" + btnSender.CommandArgument + ");", true);
         }
         #endregion
@@ -2195,7 +2195,7 @@ namespace ISCS.Admin
         #region protected void btnAddShipmentItems_Click(object sender, EventArgs e)
         protected void btnAddShipmentItems_Click(object sender, EventArgs e)
         {
-            ImageButton btnSender = (ImageButton)sender;            
+            ImageButton btnSender = (ImageButton)sender;
             string strPickReqId = ((Label)btnSender.NamingContainer.FindControl("lblPickReqidHU")).Text;
             if (Request.QueryString["ChooseWHlist"] != null)
             {
@@ -2236,7 +2236,7 @@ namespace ISCS.Admin
         #region protected void btnDeleteShipment_Click(object sender, EventArgs e)
         protected void btnDeleteShipment_Click(object sender, EventArgs e)
         {
-            ImageButton btnSender = (ImageButton)sender;            
+            ImageButton btnSender = (ImageButton)sender;
             Boolean stat = ShipmentItemsBL.DeleteShipment(IsInteger(btnSender.CommandArgument));
             if (stat == true)
             {
@@ -2274,7 +2274,7 @@ namespace ISCS.Admin
                 {
                     ishppedwt = ishppedwt + Convert.ToInt32(((Label)e.Row.FindControl("lblWeight")).Text.ToString());
                 }
-                string skidid= ((ImageButton)e.Row.FindControl("btnEditSkids")).CommandArgument;
+                string skidid = ((ImageButton)e.Row.FindControl("btnEditSkids")).CommandArgument;
                 string trackingno = ((Label)e.Row.FindControl("lblTrackingNo")).Text;
                 string unitid = "";
                 if (Convert.ToInt32(skidid) > 99)
@@ -2365,7 +2365,7 @@ namespace ISCS.Admin
                 }
                 txtFromContact.Text = ds.Tables[0].Rows[0]["ShipToContact"].ToString();
                 txtFromPhone.Text = ds.Tables[0].Rows[0]["ShipToPhone"].ToString();
-                txtFromFax.Text = ds.Tables[0].Rows[0]["ShipToFax"].ToString();                
+                txtFromFax.Text = ds.Tables[0].Rows[0]["ShipToFax"].ToString();
                 if (ds.Tables[0].Rows[0].IsNull("GLSBillCompany") == false && ds.Tables[0].Rows[0]["GLSBillCompany"].ToString() != "")
                 {
                     for (int i = 0; i < drpBillToCompany.Items.Count; i++)
@@ -2380,12 +2380,12 @@ namespace ISCS.Admin
                 txtBillToCity.Text = ds.Tables[0].Rows[0]["GLSBillCity"].ToString();
                 txtBillToState.Text = ds.Tables[0].Rows[0]["GLSBillStateName"].ToString();
                 txtBillToZip.Text = ds.Tables[0].Rows[0]["GLSBillPostalCode"].ToString();
-                txtBillToCountry.Text = ds.Tables[0].Rows[0]["GLSBillCountryName"].ToString();                
+                txtBillToCountry.Text = ds.Tables[0].Rows[0]["GLSBillCountryName"].ToString();
             }
 
             ds = null;
             if (Request.QueryString["id"] != null)
-            {                
+            {
                 ds = PickupRequestBL.FetchSinglePickupRequest(Convert.ToInt32(ViewState["PickupReuestId"].ToString()));
                 if (ds != null && ds.Tables[0].Rows.Count > 0)
                 {
@@ -2421,7 +2421,7 @@ namespace ISCS.Admin
             txtFromPostalCode.ReadOnly = true;
             txtFromContact.ReadOnly = true;
             txtFromPhone.ReadOnly = true;
-            txtFromFax.ReadOnly = true;            
+            txtFromFax.ReadOnly = true;
         }
         #endregion
 
@@ -2431,7 +2431,7 @@ namespace ISCS.Admin
         {
             StringBuilder sbMailBody = new StringBuilder();
             sbMailBody.Append("<table><tr><td>Below is a summary of items updated for shipping request along with ");
-            sbMailBody.Append("anticipated delivery date.</td></tr> ");            
+            sbMailBody.Append("anticipated delivery date.</td></tr> ");
             sbMailBody.Append("<tr><td><b>Estimated arrival Date:</b>" + txtDeliveryDate.Text.ToString().Trim() + "</td></tr>");
             sbMailBody.Append("<tr><td><table border='1' cellspacing='3' cellpadding='3'><tr><td>Unit Id</td>");
             sbMailBody.Append("<td>Pkg Type</td><td>L</td><td>W</td>");
@@ -2470,17 +2470,17 @@ namespace ISCS.Admin
             sbMailBody.Append("number in the provided tracking window. If you have any questions, please contact us at :</td></tr> ");
             sbMailBody.Append("<tr><td>3PL Integration, LLC<br />");
             sbMailBody.Append("900 Route 134, Ste 2-17<br />");
-            sbMailBody.Append("S. Dennis, MA 02660</td></tr>");            
+            sbMailBody.Append("S. Dennis, MA 02660</td></tr>");
             //sbMailBody.Append("<tr><td>Tel: 508.444.0332, Fax: 508.385.6836<br />Email: admin@impact-scs.com</td></tr>");
             sbMailBody.Append("<tr><td>Tel: 508.210.2164, Fax: 508.210.2158<br />Email: ops@3plintegration.com</td></tr>");
             sbMailBody.Append("<tr><td><b>3PL Integration Tracking Number:</b>" + TrackingNo + "</td></tr>");
             sbMailBody.Append("<tr><td><b>Estimated arrival Date:</b>" + txtDeliveryDate.Text.ToString().Trim() + "</td></tr>");
             sbMailBody.Append("<tr><td><table border='1' cellspacing='3' cellpadding='3'><tr><td>Unit Id</td>");
             sbMailBody.Append("<td>Pkg Type</td><td>L</td><td>W</td>");
-            sbMailBody.Append("<td>H</td><td>Weight</td></tr>");           
-           
+            sbMailBody.Append("<td>H</td><td>Weight</td></tr>");
+
             for (int i = 0; i < gridHandlingUnits.Rows.Count; i++)
-            {                
+            {
                 sbMailBody.Append("<tr><td>");
                 sbMailBody.Append(((Label)gridHandlingUnits.Rows[i].FindControl("lblUnitId")).Text);
                 sbMailBody.Append("</td><td>");
@@ -2493,7 +2493,7 @@ namespace ISCS.Admin
                 sbMailBody.Append(((Label)gridHandlingUnits.Rows[i].FindControl("lblHeight")).Text);
                 sbMailBody.Append("</td><td>");
                 sbMailBody.Append(((Label)gridHandlingUnits.Rows[i].FindControl("lblWeight")).Text);
-                sbMailBody.Append("</td></tr>");                
+                sbMailBody.Append("</td></tr>");
             }
             sbMailBody.Append("</table></td></tr></table>");
             //CommonBL.sendMailInHtmlFormat("admin@impact-scs.com", strToMail, "Pending Warehouse Receipt", sbMailBody.ToString());
@@ -2516,7 +2516,7 @@ namespace ISCS.Admin
             sbMailBody.Append("Should you have any questions,please contact us at:</td></tr>");
             sbMailBody.Append("<tr><td>3PL Integration, LLC<br />");
             sbMailBody.Append("900 Route 134, Ste 2-17<br />");
-            sbMailBody.Append("S. Dennis, MA 02660</td></tr>");            
+            sbMailBody.Append("S. Dennis, MA 02660</td></tr>");
             //sbMailBody.Append("<tr><td>Tel: 508.444.0332, Fax: 508.385.6836<br />Email: admin@impact-scs.com<br /></td></tr>");
             sbMailBody.Append("<tr><td>Tel: 508.210.2164, Fax: 508.210.2158<br />Email: ops@3plintegration.com<br /></td></tr>");
             string strTrackingNo = "";
@@ -2551,12 +2551,12 @@ namespace ISCS.Admin
             sbMailBody.Append("<b>Estimated Pickup Time:</b>" + drpLatestPickup.SelectedItem.Text + "<br />");
             sbMailBody.Append("<b>Pickup Carrier:</b>" + txtPickupCarrier.Text.ToString().Trim() + "<br />");
             sbMailBody.Append("<b>Requested Delivery Date:</b>" + txtDeliveryDate.Text.ToString().Trim() + "<br /></td></tr>");
-            sbMailBody.Append("<tr><td>Special Instructions:" + txtareaSpecialInTructions.Value.ToString().Trim() + "</td></tr>");            
+            sbMailBody.Append("<tr><td>Special Instructions:" + txtareaSpecialInTructions.Value.ToString().Trim() + "</td></tr>");
             sbMailBody.Append("<tr><td align='center'><b>Pick List</b></td></tr>");
-            
+
             int totalWeight = 0;
             if (Request.QueryString["skid"] != null)
-            {               
+            {
                 if (ds != null)
                 {
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -2599,7 +2599,7 @@ namespace ISCS.Admin
                         sbMailBody.Append("<td><b>Location</b></td><td><b>Weight</b></td></tr>");
 
                         sbMailBody.Append("<tr><td>");
-                        
+
                         sbMailBody.Append(ds.Tables[0].Rows[i]["PackageQuantity_SI"].ToString());
                         sbMailBody.Append("</td><td>");
                         sbMailBody.Append(ds.Tables[0].Rows[i]["PackageType_SI"].ToString());
@@ -2674,7 +2674,7 @@ namespace ISCS.Admin
                                 sbMailBody.Append("<td><b>Location</b></td><td><b>Weight</b></td></tr>");
 
                                 sbMailBody.Append("<tr><td>");
-                                
+
                                 sbMailBody.Append(ds.Tables[0].Rows[j]["PackageQuantity_SI"].ToString());
                                 sbMailBody.Append("</td><td>");
                                 //sbMailBody.Append(ds.Tables[0].Rows[i]["PackageType_SI"].ToString());
@@ -2712,7 +2712,7 @@ namespace ISCS.Admin
         //Mail goes to corresponding mail id of a request
         protected void RequestAcceptByISCS(string strTrackingNo, string strToMail, string InitiatorEmail, decimal dGLSTotalSellRate, int iGLSAccountId, int InitiatorUserTypeID)
         {
-            StringBuilder sbMailBody = new StringBuilder();            
+            StringBuilder sbMailBody = new StringBuilder();
             sbMailBody.Append("<table><tr><td>Your Pickup request of " + ViewState["shipPiece"].ToString() + " pieces @ " + ViewState["shppedwt"].ToString() + " lbs going from:");
             sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>" + txtShipFromCompany.Text.ToString().Trim());
@@ -2732,7 +2732,7 @@ namespace ISCS.Admin
             sbMailBody.Append("<tr><td>" + txtToAddress.Text.ToString().Trim());
             sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>" + txtToCity.Text.ToString().Trim());
-            sbMailBody.Append("</td></tr>");            
+            sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>" + txtToPostalCode.Text.ToString().Trim());
             sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>" + drpToCountry.SelectedItem.Text);
@@ -2744,7 +2744,7 @@ namespace ISCS.Admin
             {
                 for (int i = 0; i < dsCompareAccountCodes.Tables[0].Rows.Count; i++)
                 {
-                    ShipperAccountCodeId=IsInteger(Convert.ToString(dsCompareAccountCodes.Tables[0].Rows[0]["AccountCodeId"]));
+                    ShipperAccountCodeId = IsInteger(Convert.ToString(dsCompareAccountCodes.Tables[0].Rows[0]["AccountCodeId"]));
                     if (ShipperAccountCodeId == iGLSAccountId)
                     {
                         break;
@@ -2788,7 +2788,7 @@ namespace ISCS.Admin
             sbMailBody.Append("<tr><td>" + txtToAddress.Text.ToString().Trim());
             sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>" + txtToCity.Text.ToString().Trim());
-            sbMailBody.Append("</td></tr>");            
+            sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>" + txtToPostalCode.Text.ToString().Trim());
             sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>" + drpToCountry.SelectedItem.Text);
@@ -2808,7 +2808,7 @@ namespace ISCS.Admin
                 //sbMailBody.Append("<tr><td>Service Level: Impact Preferred");
                 sbMailBody.Append("<tr><td>Service Level: 3PL Preferred");
             }
-            sbMailBody.Append("</td></tr>");            
+            sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td><br />Special Instructions: " + txtareaSpecialInTructions.Value.ToString().Trim());
             sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td><br />The Carrier for this shipment will be: " + txtPickupCarrier.Text.ToString().Trim());
@@ -2820,7 +2820,7 @@ namespace ISCS.Admin
             sbMailBody.Append("<tr><td>THESE DOCUMENTS MUST ACCOMPANY THE SHIPMENT AND BE PRESENTED TO THE DRIVER AT PICK UP TO ENSURE PROPER 3RD PARTY BILLING.");
             sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>NOTE: you must be logged into the system first for the links to work ");
-            sbMailBody.Append("</td></tr>");           
+            sbMailBody.Append("</td></tr>");
             string strUrlBill = strMainURL + "/Admin/BillOfLading_Vics.aspx?PickupRequestId=" + SecurityUtils.UrlEncode(ViewState["PickupReuestId"].ToString());
             sbMailBody.Append("<tr><td><a href='" + strUrlBill + "'>Shipment Bill</a>");
             sbMailBody.Append("</td></tr>");
@@ -2874,7 +2874,7 @@ namespace ISCS.Admin
         protected void AdminEmailNewRequest(string strToMail)
         {
             StringBuilder sbMailBody = new StringBuilder();
-            DataSet dsPR = PickupRequestBL.FetchSinglePickupRequest(Convert.ToInt32(Convert.ToString(ViewState["PickupReuestId"])));            
+            DataSet dsPR = PickupRequestBL.FetchSinglePickupRequest(Convert.ToInt32(Convert.ToString(ViewState["PickupReuestId"])));
             sbMailBody.Append("<table><tr><td>" + txtShipFromCompany.Text.ToString().Trim() + " has submitted a pick up request on " + Convert.ToString(Convert.ToDateTime(dsPR.Tables[0].Rows[0]["DateCreated"].ToString()).ToString("MM/dd/yyyy hh:mm:ss")));
             sbMailBody.Append("</td></tr>");
             sbMailBody.Append("<tr><td>User Email Address: " + txtFromEmail.Text.ToString().Trim());
@@ -3010,7 +3010,7 @@ namespace ISCS.Admin
             if (IsInteger(hdCarrierID.Value) > 0 || txtPickupCarrier.Text.Trim() != "" || IsDouble(txtTransportCost1.Text) > 0.00 || IsDouble(txtAccessorialCost1.Text) > 0.00 || IsDouble(txtFuelSurcharge1.Text) > 0.00)
             {
                 //string strRes = QuickBookBL.VendorADD(IsInteger(hdCarrierID.Value));
-                string strRes = PrepareVendorAddXML(IsInteger(hdCarrierID.Value),"");
+                string strRes = PrepareVendorAddXML(IsInteger(hdCarrierID.Value), "");
                 if (txtPickupCarrier.Text.Trim() != "")
                 {
                     oQuickBookEL.VendorName = txtPickupCarrier.Text.Trim();
@@ -3018,9 +3018,9 @@ namespace ISCS.Admin
                 oQuickBookEL.VendorTransportAmt1 = IsDouble(txtTransportCost1.Text);
                 oQuickBookEL.VendorAccessorialAmt1 = IsDouble(txtAccessorialCost1.Text);
                 oQuickBookEL.VendorFuelSurchargeAmt1 = IsDouble(txtFuelSurcharge1.Text);
-                
+
                 //string strRes4 = QuickBookBL.VendorAmountADD(oQuickBookEL);
-                string strRes4 = PrepareVendorAmtAddXML(oQuickBookEL,"");
+                string strRes4 = PrepareVendorAmtAddXML(oQuickBookEL, "");
             }
             if (IsInteger(hdIntermediateCarrierID.Value) > 0 || txtIntermediateCarrier.Text.Trim() != "" || IsDouble(txtTransportCost2.Text) > 0.00 || IsDouble(txtAccessorialCost2.Text) > 0.00 || IsDouble(txtFuelSurcharge2.Text) > 0.00)
             {
@@ -3033,7 +3033,7 @@ namespace ISCS.Admin
                 oQuickBookEL.VendorTransportAmt1 = IsDouble(txtTransportCost2.Text);
                 oQuickBookEL.VendorAccessorialAmt1 = IsDouble(txtAccessorialCost2.Text);
                 oQuickBookEL.VendorFuelSurchargeAmt1 = IsDouble(txtFuelSurcharge2.Text);
-                
+
                 //string strRes4 = QuickBookBL.VendorAmountADD(oQuickBookEL);
                 string strRes4 = PrepareVendorAmtAddXML(oQuickBookEL, "Intermediate");
             }
@@ -3048,7 +3048,7 @@ namespace ISCS.Admin
                 oQuickBookEL.VendorTransportAmt1 = IsDouble(txtTransportCost3.Text);
                 oQuickBookEL.VendorAccessorialAmt1 = IsDouble(txtAccessorialCost3.Text);
                 oQuickBookEL.VendorFuelSurchargeAmt1 = IsDouble(txtFuelSurcharge3.Text);
-                
+
                 //string strRes4 = QuickBookBL.VendorAmountADD(oQuickBookEL);
                 string strRes4 = PrepareVendorAmtAddXML(oQuickBookEL, "Delivery");
             }
@@ -3063,7 +3063,7 @@ namespace ISCS.Admin
                 oQuickBookEL.VendorTransportAmt1 = IsDouble(txtTransportCost4.Text);
                 oQuickBookEL.VendorAccessorialAmt1 = IsDouble(txtAccessorialCost4.Text);
                 oQuickBookEL.VendorFuelSurchargeAmt1 = IsDouble(txtFuelSurcharge4.Text);
-                
+
                 //string strRes4 = QuickBookBL.VendorAmountADD(oQuickBookEL);
                 string strRes4 = PrepareVendorAmtAddXML(oQuickBookEL, "Other");
             }
@@ -3152,33 +3152,33 @@ namespace ISCS.Admin
         #endregion public void AddCustomer2QuickBook(string strRefNo)
 
         #region public string PrepareVendorAddXML(int CarrierID,string CarrierType)
-        public string PrepareVendorAddXML(int CarrierID,string CarrierType)
+        public string PrepareVendorAddXML(int CarrierID, string CarrierType)
         {
             string vendoeAdd = "";
             DataTable dt = CarriersBL.GetCarrierByCarrierId(CarrierID);
             if (dt == null || dt.Rows == null || dt.Rows.Count == 0)
             { return ""; }
             DataSet dtState = StatesBL.FetchStateById(Convert.ToInt32(dt.Rows[0]["StateId"]));
-            string strState = "";            
+            string strState = "";
             if (dtState.Tables[0] != null && dtState.Tables[0].Rows != null && dtState.Tables[0].Rows.Count > 0)
             { strState = Convert.ToString(dtState.Tables[0].Rows[0]["Abbreviation"]).Trim(); }
-            
-//            vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
-//                  <?qbxml version=""6.0""?>  
-//                <QBXML> 
-//                 <SignonMsgsRq> 
-//                 <SignonDesktopRq> 
-//                 <ClientDateTime>%%CLIENT_DATE_TIME%%</ClientDateTime>
-//                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
-//                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
-//                <Language>English</Language>
-//                <AppID>203083553</AppID>
-//                <AppVer>1</AppVer>
-//                  </SignonDesktopRq> 
-//                  </SignonMsgsRq> 
-//                 <QBXMLMsgsRq onError=""stopOnError""> 
-//                 <VendorAddRq requestID=""1"">
-//                 <VendorAdd>";
+
+            //            vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
+            //                  <?qbxml version=""6.0""?>  
+            //                <QBXML> 
+            //                 <SignonMsgsRq> 
+            //                 <SignonDesktopRq> 
+            //                 <ClientDateTime>%%CLIENT_DATE_TIME%%</ClientDateTime>
+            //                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+            //                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+            //                <Language>English</Language>
+            //                <AppID>203083553</AppID>
+            //                <AppVer>1</AppVer>
+            //                  </SignonDesktopRq> 
+            //                  </SignonMsgsRq> 
+            //                 <QBXMLMsgsRq onError=""stopOnError""> 
+            //                 <VendorAddRq requestID=""1"">
+            //                 <VendorAdd>";
 
             vendoeAdd += @"<VendorAddRq requestID=""1"">
                  <VendorAdd>";
@@ -3213,8 +3213,8 @@ namespace ISCS.Admin
                   </VendorAdd>
                   </VendorAddRq>";
 
-                  //</QBXMLMsgsRq> 
-                  //</QBXML>";
+            //</QBXMLMsgsRq> 
+            //</QBXML>";
 
             vendoeAdd = vendoeAdd.Replace("%%CLIENT_DATE_TIME%%", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"));
             StreamWriter tw = null;
@@ -3250,23 +3250,23 @@ namespace ISCS.Admin
 
             string vendoeAdd = "";
 
-//            vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
-//                  <?qbxml version=""6.0""?>  
-//                <QBXML> 
-//                 <SignonMsgsRq> 
-//                 <SignonDesktopRq> 
-//                 <ClientDateTime>%%CLIENT_DATE_TIME%%</ClientDateTime>
-//                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
-//                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
-//                <Language>English</Language>
-//                <AppID>203083553</AppID>
-//                <AppVer>1</AppVer>
-//                  </SignonDesktopRq> 
-//                  </SignonMsgsRq> 
-//                 <QBXMLMsgsRq onError=""stopOnError""> 
-//                 <BillAddRq requestID =""1"">
-//                <BillAdd>
-//                 <VendorRef>";
+            //            vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
+            //                  <?qbxml version=""6.0""?>  
+            //                <QBXML> 
+            //                 <SignonMsgsRq> 
+            //                 <SignonDesktopRq> 
+            //                 <ClientDateTime>%%CLIENT_DATE_TIME%%</ClientDateTime>
+            //                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+            //                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+            //                <Language>English</Language>
+            //                <AppID>203083553</AppID>
+            //                <AppVer>1</AppVer>
+            //                  </SignonDesktopRq> 
+            //                  </SignonMsgsRq> 
+            //                 <QBXMLMsgsRq onError=""stopOnError""> 
+            //                 <BillAddRq requestID =""1"">
+            //                <BillAdd>
+            //                 <VendorRef>";
 
             vendoeAdd += @"<BillAddRq requestID =""1"">
                 <BillAdd>
@@ -3282,13 +3282,13 @@ namespace ISCS.Admin
                   <FullName>Net 30</FullName> 
                   </TermsRef>
                   <Memo /> ";
-//            vendoeAdd += @"<ExpenseLineAdd>
-//                 <AccountRef>
-//                  <FullName>Travel</FullName> 
-//                  </AccountRef>";
-//            vendoeAdd += "<Amount>" + Convert.ToString(oQuickEL.VendorTransportAmt1.ToString("#0.00")).Trim().Replace("&", "&amp;") + "</Amount> ";
-//            vendoeAdd += @"<Memo>Test Comments</Memo> 
-//                  </ExpenseLineAdd>";
+            //            vendoeAdd += @"<ExpenseLineAdd>
+            //                 <AccountRef>
+            //                  <FullName>Travel</FullName> 
+            //                  </AccountRef>";
+            //            vendoeAdd += "<Amount>" + Convert.ToString(oQuickEL.VendorTransportAmt1.ToString("#0.00")).Trim().Replace("&", "&amp;") + "</Amount> ";
+            //            vendoeAdd += @"<Memo>Test Comments</Memo> 
+            //                  </ExpenseLineAdd>";
             vendoeAdd += @"<ExpenseLineAdd>
                  <AccountRef>
                   <FullName>Miscellaneous</FullName> 
@@ -3341,8 +3341,8 @@ namespace ISCS.Admin
                   </BillAdd>
                 </BillAddRq>";
 
-                  //</QBXMLMsgsRq> 
-                  //</QBXML>";
+            //</QBXMLMsgsRq> 
+            //</QBXML>";
 
             vendoeAdd = vendoeAdd.Replace("%%CLIENT_DATE_TIME%%", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"));
             StreamWriter tw = null;
@@ -3381,22 +3381,22 @@ namespace ISCS.Admin
 
             string vendoeAdd = "";
 
-//            vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
-//                  <?qbxml version=""6.0""?>  
-//                <QBXML> 
-//                 <SignonMsgsRq> 
-//                 <SignonDesktopRq> 
-//                 <ClientDateTime>%%CLIENT_DATE_TIME%%</ClientDateTime>
-//                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
-//                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
-//                <Language>English</Language>
-//                <AppID>203083553</AppID>
-//                <AppVer>1</AppVer>
-//                  </SignonDesktopRq> 
-//                  </SignonMsgsRq> 
-//                 <QBXMLMsgsRq onError=""stopOnError""> 
-//                 <CustomerAddRq requestID=""15"">
-//			     <CustomerAdd>";
+            //            vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
+            //                  <?qbxml version=""6.0""?>  
+            //                <QBXML> 
+            //                 <SignonMsgsRq> 
+            //                 <SignonDesktopRq> 
+            //                 <ClientDateTime>%%CLIENT_DATE_TIME%%</ClientDateTime>
+            //                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+            //                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+            //                <Language>English</Language>
+            //                <AppID>203083553</AppID>
+            //                <AppVer>1</AppVer>
+            //                  </SignonDesktopRq> 
+            //                  </SignonMsgsRq> 
+            //                 <QBXMLMsgsRq onError=""stopOnError""> 
+            //                 <CustomerAddRq requestID=""15"">
+            //			     <CustomerAdd>";
 
             vendoeAdd += @"<CustomerAddRq requestID=""15"">
 			     <CustomerAdd>";
@@ -3423,8 +3423,8 @@ namespace ISCS.Admin
             vendoeAdd += @"</CustomerAdd>
 		                        </CustomerAddRq>";
 
-                                  //</QBXMLMsgsRq> 
-                                  //</QBXML>";
+            //</QBXMLMsgsRq> 
+            //</QBXML>";
 
             vendoeAdd = vendoeAdd.Replace("%%CLIENT_DATE_TIME%%", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"));
             StreamWriter tw = null;
@@ -3445,22 +3445,22 @@ namespace ISCS.Admin
 
             string vendoeAdd = "";
 
-//            vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
-//                  <?qbxml version=""6.0""?>  
-//                <QBXML> 
-//                 <SignonMsgsRq> 
-//                 <SignonDesktopRq> 
-//                 <ClientDateTime>%%CLIENT_DATE_TIME%%</ClientDateTime>
-//                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
-//                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
-//                <Language>English</Language>
-//                <AppID>203083553</AppID>
-//                <AppVer>1</AppVer>
-//                  </SignonDesktopRq> 
-//                  </SignonMsgsRq> 
-//                 <QBXMLMsgsRq onError=""stopOnError""> 
-//                 <InvoiceAddRq requestID=""2"">
-//			     <InvoiceAdd>";
+            //            vendoeAdd += @"<?xml version=""1.0"" encoding=""utf-8"" ?>  
+            //                  <?qbxml version=""6.0""?>  
+            //                <QBXML> 
+            //                 <SignonMsgsRq> 
+            //                 <SignonDesktopRq> 
+            //                 <ClientDateTime>%%CLIENT_DATE_TIME%%</ClientDateTime>
+            //                <ApplicationLogin>iscsqb2.www.impact-scs.com</ApplicationLogin>
+            //                <ConnectionTicket>TGT-105-vtCBiYdfD6MZbXic9EfCtw</ConnectionTicket>
+            //                <Language>English</Language>
+            //                <AppID>203083553</AppID>
+            //                <AppVer>1</AppVer>
+            //                  </SignonDesktopRq> 
+            //                  </SignonMsgsRq> 
+            //                 <QBXMLMsgsRq onError=""stopOnError""> 
+            //                 <InvoiceAddRq requestID=""2"">
+            //			     <InvoiceAdd>";
 
             vendoeAdd += @"<InvoiceAddRq requestID=""2"">
 			     <InvoiceAdd>";
@@ -3533,8 +3533,8 @@ namespace ISCS.Admin
             vendoeAdd += @"</InvoiceAdd>
 		                    </InvoiceAddRq>";
 
-                            //</QBXMLMsgsRq>
-                            //</QBXML>";
+            //</QBXMLMsgsRq>
+            //</QBXML>";
 
             vendoeAdd = vendoeAdd.Replace("%%CLIENT_DATE_TIME%%", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"));
             StreamWriter tw = null;
@@ -3568,28 +3568,28 @@ namespace ISCS.Admin
 
             oQuickBookEL.VendorName = drpBillToCompany.SelectedItem.Text.Trim();
             if (IsDouble(txtTransportCost1.Text) > 0.00 || IsDouble(txtAccessorialCost1.Text) > 0.00 || IsDouble(txtFuelSurcharge1.Text) > 0.00)
-            {               
+            {
                 oQuickBookEL.VendorTransportAmt1 += IsDouble(txtTransportCost1.Text);
                 oQuickBookEL.VendorAccessorialAmt1 += IsDouble(txtAccessorialCost1.Text);
-                oQuickBookEL.VendorFuelSurchargeAmt1 += IsDouble(txtFuelSurcharge1.Text);                
+                oQuickBookEL.VendorFuelSurchargeAmt1 += IsDouble(txtFuelSurcharge1.Text);
             }
             if (IsDouble(txtTransportCost2.Text) > 0.00 || IsDouble(txtAccessorialCost2.Text) > 0.00 || IsDouble(txtFuelSurcharge2.Text) > 0.00)
-            {               
+            {
                 oQuickBookEL.VendorTransportAmt1 += IsDouble(txtTransportCost2.Text);
                 oQuickBookEL.VendorAccessorialAmt1 += IsDouble(txtAccessorialCost2.Text);
-                oQuickBookEL.VendorFuelSurchargeAmt1 += IsDouble(txtFuelSurcharge2.Text);                
+                oQuickBookEL.VendorFuelSurchargeAmt1 += IsDouble(txtFuelSurcharge2.Text);
             }
             if (IsDouble(txtTransportCost3.Text) > 0.00 || IsDouble(txtAccessorialCost3.Text) > 0.00 || IsDouble(txtFuelSurcharge3.Text) > 0.00)
-            {               
+            {
                 oQuickBookEL.VendorTransportAmt1 += IsDouble(txtTransportCost3.Text);
                 oQuickBookEL.VendorAccessorialAmt1 += IsDouble(txtAccessorialCost3.Text);
-                oQuickBookEL.VendorFuelSurchargeAmt1 += IsDouble(txtFuelSurcharge3.Text);                
+                oQuickBookEL.VendorFuelSurchargeAmt1 += IsDouble(txtFuelSurcharge3.Text);
             }
             if (IsDouble(txtTransportCost4.Text) > 0.00 || IsDouble(txtAccessorialCost4.Text) > 0.00 || IsDouble(txtFuelSurcharge4.Text) > 0.00)
-            {               
+            {
                 oQuickBookEL.VendorTransportAmt1 += IsDouble(txtTransportCost4.Text);
                 oQuickBookEL.VendorAccessorialAmt1 += IsDouble(txtAccessorialCost4.Text);
-                oQuickBookEL.VendorFuelSurchargeAmt1 += IsDouble(txtFuelSurcharge4.Text);                
+                oQuickBookEL.VendorFuelSurchargeAmt1 += IsDouble(txtFuelSurcharge4.Text);
             }
             string strRes4 = PrepareVendorAmtAddXML(oQuickBookEL, "");
             // Add Vendor to Quickbook
@@ -3633,13 +3633,13 @@ namespace ISCS.Admin
                  
                   <CreditLimit /> 
                   </VendorAdd>
-                  </VendorAddRq>";            
+                  </VendorAddRq>";
 
             vendoeAdd = vendoeAdd.Replace("%%CLIENT_DATE_TIME%%", DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"));
             StreamWriter tw = null;
-            string strToday = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));            
+            string strToday = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
             tw = new StreamWriter(Server.MapPath("../QBFiles/UnProcessed/" + strToday + "QBxml.txt"), true);
-            
+
             //tw = new StreamWriter(UnProcessedPath + strToday + "QBxml.txt", true);
             tw.WriteLine(vendoeAdd);
             tw.Close();

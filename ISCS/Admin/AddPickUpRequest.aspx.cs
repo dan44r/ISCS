@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using EntityLayer;
+using System;
+using System.Configuration;
+using System.Data;
+using System.IO;
+using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net.Mail;
-using System.Data;
-using System.Data.SqlClient;
-using System.Text;
-using EntityLayer;
-using BusinessLogicLayer;
-using CF.Web.Security;
-using System.Configuration;
-using System.IO;
 
 namespace ISCS.Admin
 {
     public partial class AddPickUpRequest : System.Web.UI.Page
     {
-        protected string strCompanyArrPickup = "";
+
         public string strMainURL = ConfigurationManager.AppSettings["rootpath"].Trim();
 
         #region protected void Page_Load(object sender, EventArgs e)
@@ -35,7 +30,6 @@ namespace ISCS.Admin
                 ViewState["shppedwt"] = "0";
                 ViewState["shipPiece"] = "0";
                 BindControls();
-                BindData();
                 btnContinue.Visible = false;
                 btnAccept.Visible = false;
 
@@ -221,7 +215,6 @@ namespace ISCS.Admin
                 txtBillToZip.Text = "60563";
                 txtBillToCountry.Text = "United States";
             }
-          
         }
         #endregion
 
@@ -331,39 +324,6 @@ namespace ISCS.Admin
             drpBillToCompany.Items.Add("3PL Integration");
             //drpBillToCompany.Items.Add("QWE Logistics, Inc.");
             drpBillToCompany.Items.Add("Quad Express");
-        }
-
-  
-        protected void BindData()
-        {
-            DataSet ds = null;
-            if (Session["cacheUserId"] != null)
-            {
-                ds = UserLocationBL.FetchUserLocation(Convert.ToInt32(Session["cacheUserId"].ToString()), Convert.ToInt32(Session["cacheUserCode"].ToString()), "", txtShipFromCompany.Text.Trim());
-            }
-            if (ds != null && ds.Tables[0].Rows.Count == 0)
-            {
-                lblMsg.Text = "No matches found.";
-            }
-            /* Loop over ds structure to get company names into an array */
-            string Companyname = "";
-            foreach (DataRow row in ds.Tables[0].Rows)
-            {
-                Companyname = row["CompanyName"].ToString().Replace("'", " ");
-                strCompanyArrPickup += "'" + Companyname + "',";
-            }
-            if (strCompanyArrPickup != "")
-            {
-             strCompanyArrPickup = strCompanyArrPickup.Substring(0, strCompanyArrPickup.Length - 1);
-             if (Session["CompanyArrPickup"] != null)
-             {
-                return;
-            }
-        if (Session["CompanyArrPickup"] == null)
-        {
-            Session["CompanyArrPickup"] = strCompanyArrPickup;
-         }
-}
         }
         #endregion
 
@@ -943,7 +903,7 @@ namespace ISCS.Admin
                 objEL.ShipFromRefNumber = txtShipperRefNo.Text.ToString().Trim();
                 objEL.ShipFromAddress = txtFromAddress.Text.ToString().Trim();
                 objEL.ShipFromCity = txtFromCity.Text.ToString().Trim();
-                
+
                 if (drpFromState.SelectedIndex > 0)
                 {
                     objEL.ShipFromState = drpFromState.SelectedItem.Text;
@@ -3114,7 +3074,7 @@ namespace ISCS.Admin
             string strToday = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
             //tw = new StreamWriter(@"F:\VSS_Project\ISCS\ISCS\ISCS\QBFiles\UnProcessed\" + strToday + "QBxml.txt", true);
             //tw = new StreamWriter(Server.MapPath("../QBFiles/UnProcessed/" + strToday + "QBxml.txt"), true);
-            
+
             tw = new StreamWriter(UnProcessedPath + strToday + "QBxml.txt", true);
 
             //if (CarrierType.Trim().ToLower() == "")
@@ -3279,9 +3239,9 @@ namespace ISCS.Admin
             string strToday = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
             //tw = new StreamWriter(@"F:\VSS_Project\ISCS\ISCS\ISCS\QBFiles\UnProcessed\" + strToday + "QBxml.txt", true);
             //tw1 = new StreamWriter(Server.MapPath("../QBFiles/UnProcessed/" + strToday + "QBxml.txt"), true);
-            
+
             tw = new StreamWriter(UnProcessedPath + strToday + "QBxml.txt", true);
-            
+
             //if (CarrierType.Trim().ToLower() == "")
             //{
             //    tw = new StreamWriter(@"F:\VSS_Project\ISCS\ISCS\ISCS\QBFiles\UnProcessed\" + Convert.ToString(ViewState["PickupReuestId"]) + "VendorAmtAdd.txt");
@@ -3370,7 +3330,7 @@ namespace ISCS.Admin
             StreamWriter tw1 = null;
             string strToday1 = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
             string Filename = strToday1 + System.Guid.NewGuid().ToString().Substring(0, 8) + "QBV3xmlvendorAmtAdd.txt";
-            
+
             //tw = new StreamWriter(@"F:\VSS_Project\ISCS\ISCS\ISCS\QBFiles\UnProcessed\" + strToday + "QBxml.txt", true);
             //tw1 = new StreamWriter(Server.MapPath("../QBFiles/UnProcessed/" + Filename), true);
             //tw1 = new StreamWriter(Server.MapPath("../QBFiles/UnProcessedWithoutPronumber/" + Filename), true);
@@ -3461,7 +3421,7 @@ namespace ISCS.Admin
             string strToday1 = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
             string Filename = strToday1 + System.Guid.NewGuid().ToString().Substring(0, 8) + "QBV3xmlcustomerAdd.txt";
             //tw1 = new StreamWriter(Server.MapPath("../QBFiles/UnProcessed/" + Filename), true);
-            
+
             tw1 = new StreamWriter(UnProcessedPath + Filename, true);
             tw1.WriteLine(CustomerAddV3);
             tw1.Close();
@@ -3575,7 +3535,7 @@ namespace ISCS.Admin
             string strToday = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
             //tw = new StreamWriter(@"F:\VSS_Project\ISCS\ISCS\ISCS\QBFiles\UnProcessed\" + strToday + "QBxml.txt", true);
             //tw = new StreamWriter(Server.MapPath("../QBFiles/UnProcessed/" + strToday + "QBxml.txt"), true);
-            
+
             tw = new StreamWriter(UnProcessedPath + strToday + "QBxml.txt", true);
 
             //StreamWriter tw = new StreamWriter(@"F:\VSS_Project\ISCS\ISCS\ISCS\QBFiles\UnProcessed\" + Convert.ToString(ViewState["PickupReuestId"]) + "CustomerAmtAdd.txt");
@@ -3741,7 +3701,7 @@ namespace ISCS.Admin
             string strToday1 = Convert.ToString(DateTime.Now.ToString("dd-MM-yyyy"));
             string FileName = strToday1 + System.Guid.NewGuid().ToString().Substring(0, 8) + "QBV3xmlvendorAdd.txt";
 
-            
+
             tw1 = new StreamWriter(UnProcessedPath + FileName, true);
             //tw1 = new StreamWriter(Server.MapPath("../QBFiles/UnProcessed/" + FileName), true);
             tw1.WriteLine(vendorAddV3);

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Data;
-using DataAccessLayer;
 
 
 namespace BusinessLogicLayer
@@ -37,7 +37,7 @@ namespace BusinessLogicLayer
             proc.AddVarcharPara("@Mode", 30, "forcarrpop");
             proc.AddIntegerPara("@UserCode", strUserCode);
             proc.AddIntegerPara("@UserID", strUserId);
-            
+
             ds = proc.GetDataSet();
             return ds;
         }
@@ -81,7 +81,7 @@ namespace BusinessLogicLayer
             proc.AddNVarcharPara("@ContactName", 100, objEl.ContactName);
             proc.AddNVarcharPara("@ContactPhone", 100, objEl.ContactPhone);
             proc.AddNVarcharPara("@ContactFax", 100, objEl.ContactFax);
-            proc.AddNVarcharPara("@ContactEmail", 100, objEl.ContactEmail);            
+            proc.AddNVarcharPara("@ContactEmail", 100, objEl.ContactEmail);
             try
             {
                 i = proc.RunActionQuery();
@@ -111,7 +111,7 @@ namespace BusinessLogicLayer
             proc.AddNVarcharPara("@ContactName", 100, objEl.ContactName);
             proc.AddNVarcharPara("@ContactPhone", 100, objEl.ContactPhone);
             proc.AddNVarcharPara("@ContactFax", 100, objEl.ContactFax);
-            proc.AddNVarcharPara("@ContactEmail", 100, objEl.ContactEmail); 
+            proc.AddNVarcharPara("@ContactEmail", 100, objEl.ContactEmail);
             try
             {
                 i = proc.RunActionQuery();

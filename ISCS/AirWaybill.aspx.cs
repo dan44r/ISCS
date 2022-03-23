@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
 
 namespace ISCS
 {
@@ -318,13 +318,13 @@ namespace ISCS
                         dtUser2.Clear();
                         for (int i = 0; i < 4; i++)
                         {
-                            
+
                             dtUser1.ImportRow(dtUser.Rows[i]);
                         }
-                        
+
                         for (int j = 4; j < dtUser.Rows.Count; j++)
                         {
-                            
+
                             dtUser2.ImportRow(dtUser.Rows[j]);
                         }
                         gridShipmentItems.DataSource = dtUser1;
@@ -377,13 +377,13 @@ namespace ISCS
                         dtUser2.Clear();
                         for (int i = 0; i < 4; i++)
                         {
-                            
+
                             dtUser1.ImportRow(dtUser.Rows[i]);
                         }
-                        
+
                         for (int j = 4; j < dtUser.Rows.Count; j++)
                         {
-                            
+
                             dtUser2.ImportRow(dtUser.Rows[j]);
                         }
                         gridSkidItems.DataSource = dtUser1;
@@ -419,7 +419,7 @@ namespace ISCS
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
-                
+
                 ((Label)e.Row.FindControl("lblPackageQuantity_SITot")).Text = ViewState["ShipmentTotalQty"].ToString();
             }
         }
@@ -499,9 +499,9 @@ namespace ISCS
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
-                
+
                 ((Label)e.Row.FindControl("lblQTY2Tot")).Text = ViewState["SkidTotalQty"].ToString();
-                
+
                 ((Label)e.Row.FindControl("lblSkidWeightTot")).Text = ViewState["SkidTotalWt"].ToString();
             }
         }

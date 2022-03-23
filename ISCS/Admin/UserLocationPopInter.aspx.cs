@@ -1,7 +1,7 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
@@ -58,7 +58,7 @@ namespace ISCS.Admin
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 ((Label)e.Row.FindControl("lblCompanyName")).Attributes.Add("onclick", "SelectLocation(this.id);");
-                strCompanyArr += "'" + ((Label)e.Row.FindControl("lblCompanyName")).Text.Replace("'", " ") + "',";                
+                strCompanyArr += "'" + ((Label)e.Row.FindControl("lblCompanyName")).Text.Replace("'", " ") + "',";
                 e.Row.Attributes.Add("onmouseover", "document.getElementById('" + e.Row.ClientID + "').style.backgroundColor = '#ffffda';");
                 e.Row.Attributes.Add("onmouseout", "document.getElementById('" + e.Row.ClientID + "').style.backgroundColor = '#ffffff';");
             }
@@ -67,7 +67,7 @@ namespace ISCS.Admin
         {
             ImageButton btnSender = (ImageButton)sender;
             bool stat = UserLocationBL.DeleteLocation(Convert.ToInt32(btnSender.CommandArgument));
-            if (stat ==true)
+            if (stat == true)
             {
                 lblMsg.Text = "The location has been deleted Successfully";
                 BindData();

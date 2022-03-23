@@ -1,6 +1,6 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Data;
-using DataAccessLayer;
 
 namespace BusinessLogicLayer
 {
@@ -27,14 +27,14 @@ namespace BusinessLogicLayer
             }
             ds = proc.GetDataSet();
             return ds;
-        }        
-        
+        }
+
         public static int DeleteAccountCodes(int Id)
-        {            
+        {
             ProcedureExecute proc = new ProcedureExecute("sp_tblAccountCodes");
             proc.AddVarcharPara("@Mode", 30, "delete");
             proc.AddIntegerPara("@AccountId", Id);
-            int i = proc.RunActionQuery();            
+            int i = proc.RunActionQuery();
             return i;
         }
         public static DataTable GetAccountCodeByAccountId(int Id)
@@ -55,7 +55,7 @@ namespace BusinessLogicLayer
             proc.AddVarcharPara("@Mode", 30, "add");
             proc.AddNVarcharPara("@AccountCode", 3, objEl.AccountCode);
             proc.AddNVarcharPara("@AccountName", 100, objEl.AccountName);
-            proc.AddDecimalPara("@Margin",2,6,objEl.Margin);            
+            proc.AddDecimalPara("@Margin", 2, 6, objEl.Margin);
             try
             {
                 i = proc.RunActionQuery();
@@ -80,7 +80,7 @@ namespace BusinessLogicLayer
             proc.AddIntegerPara("@AccountId", objEl.AccountId);
             proc.AddNVarcharPara("@AccountCode", 3, objEl.AccountCode);
             proc.AddNVarcharPara("@AccountName", 100, objEl.AccountName);
-            proc.AddDecimalPara("@Margin", 2, 6, objEl.Margin);     
+            proc.AddDecimalPara("@Margin", 2, 6, objEl.Margin);
             try
             {
                 i = proc.RunActionQuery();

@@ -3,9 +3,8 @@
     MaintainScrollPositionOnPostback="false" Theme="Admin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   
 
-        <script type="text/javascript">
+    <script type="text/javascript" language="javascript">
         function SelectPickup() {
             var WinAttr = "resizable=yes,scrollbars,menubar=no,toolbars=no,width=420,height=500 top=2";
             var win1 = window.open("UserLocationPop.aspx?dt=1", "GetLocation", WinAttr);
@@ -261,10 +260,7 @@
                 document.getElementById('<%=drpDomesticAir.ClientID %>').disabled = false;
             }
         }
-
-});
-
-</script>
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -308,9 +304,8 @@
                                     Ship From Company :</label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtShipFromCompany"  MaxLength="128" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtShipFromCompany" MaxLength="128" runat="server"></asp:TextBox>
                             </td>
-
                             <td class="body_text_12" align="right" valign="middle" style="padding: 0 10px 0 0;">
                                 <label>
                                     Shipper's Reference No:</label>
@@ -605,7 +600,7 @@
                                     Ship To Company :</label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtShipToCompany" MaxLength ="128" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtShipToCompany" MaxLength="128" runat="server"></asp:TextBox>
                             </td>
                             <td class="body_text_12" align="right" valign="middle" style="padding: 0 10px 0 0;">
                                 <label>
@@ -811,7 +806,7 @@
                                     SetFocusOnError="true" ValidationGroup="location" runat="server" Display="Dynamic"
                                     ErrorMessage="Please select date"></asp:RequiredFieldValidator>
                             </td>
-                            <td>
+                            <td> </td>
                                 <td>
                                 </td>
                         </tr>

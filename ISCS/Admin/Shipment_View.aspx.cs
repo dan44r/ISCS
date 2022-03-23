@@ -1,10 +1,10 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using CF.Web.Security;
+using System;
 using System.Data;
 using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using CF.Web.Security;
 
 namespace ISCS.Admin
 {
@@ -14,14 +14,14 @@ namespace ISCS.Admin
         public string PickupRequestID = "0";
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblMsg.Visible = false;            
+            lblMsg.Visible = false;
             if (PreviousPage != null && PreviousPage.IsCrossPagePostBack && PreviousPage.IsPostBack)
             {
                 BindValues();
             }
         }
         protected void BindValues()
-        {            
+        {
             DataTable dtSI = null;
             int strtrackingbillid = 0;
             string strtrackingbillno = null;
@@ -66,24 +66,24 @@ namespace ISCS.Admin
 
                 lbltrackingno.Text = dtSI.Rows[0]["tracking_no"].ToString();
                 lblshipdate.Text = dtSI.Rows[0]["Ship_Date"].ToString();
-                
+
                 lblstatus.Text = dtSI.Rows[0]["StatusName"].ToString();
                 DateTime dtime = Convert.ToDateTime(dtSI.Rows[0]["Status_Date"]);
                 string month = string.Format("{0:d}", dtime).Split('/')[0];
                 string day = string.Format("{0:d}", dtime).Split('/')[1];
                 string year = string.Format("{0:d}", dtime).Split('/')[2];
                 string hour = string.Format("{0:h hh H HH}", dtime).Split(' ')[0];
-                string min = string.Format("{0:m mm}", dtime).Split(' ')[0];                
+                string min = string.Format("{0:m mm}", dtime).Split(' ')[0];
 
                 lblStatusDate.Text = dtSI.Rows[0]["status_date_new"].ToString();
-                lblStatusHr.Text = hour.ToString() + ":" + min.ToString();               
-                
+                lblStatusHr.Text = hour.ToString() + ":" + min.ToString();
+
                 lblpieces.Text = dtSI.Rows[0]["Pieces"].ToString();
-                
-                lblactualweight.Text = dtSI.Rows[0]["Actual_Weight"].ToString();                
-                
-                lblnotes.Text = dtSI.Rows[0]["Notes"].ToString();                
-                
+
+                lblactualweight.Text = dtSI.Rows[0]["Actual_Weight"].ToString();
+
+                lblnotes.Text = dtSI.Rows[0]["Notes"].ToString();
+
                 StringBuilder sbshipper = new StringBuilder();
                 sbshipper.Append(dtSI.Rows[0]["ShipFromCompany"] + ",<br />");
                 sbshipper.Append(dtSI.Rows[0]["ShipFromAddress"] + ",<br />");
@@ -91,7 +91,7 @@ namespace ISCS.Admin
                 sbshipper.Append((dtSI.Rows[0]["ShipFromState"].ToString() != "") ? "," + dtSI.Rows[0]["ShipFromState"] : "");
                 sbshipper.Append("<br />");
                 sbshipper.Append((dtSI.Rows[0]["ShipFromPostalCode"].ToString() != "") ? " " + dtSI.Rows[0]["ShipFromPostalCode"] : "");
-                
+
                 lblshipper.Text = sbshipper.ToString();
 
                 StringBuilder sbconsignee = new StringBuilder();
@@ -101,7 +101,7 @@ namespace ISCS.Admin
                 sbconsignee.Append((dtSI.Rows[0]["ShipToState"].ToString() != "") ? "," + dtSI.Rows[0]["ShipToState"] : "");
                 sbconsignee.Append("<br />");
                 sbconsignee.Append((dtSI.Rows[0]["ShipToPostalCode"].ToString() != "") ? " " + dtSI.Rows[0]["ShipToPostalCode"] : "");
-                
+
                 lblconsignee.Text = sbconsignee.ToString();
 
                 if (dtSI.Rows[0].IsNull("TransMode") == false)
@@ -120,12 +120,12 @@ namespace ISCS.Admin
                 pnltrack.Visible = false;
                 pnlnorecord.Visible = true;
             }
-        }    
+        }
 
         protected void btnRetuen_Click(object sender, EventArgs e)
         {
             Response.Redirect("ManageWarehouse.aspx");
-        }       
+        }
 
         protected void return_Click(object sender, EventArgs e)
         {

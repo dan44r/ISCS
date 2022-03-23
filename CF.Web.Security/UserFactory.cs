@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-
 namespace CF.Web.Security
 {
     public class UserFactory
@@ -17,10 +12,10 @@ namespace CF.Web.Security
             return new User(user.Id, user.Email, user.FirstName, user.Surname, user.Email, user.Roles, user.UserTypeId);
         }
 
-       
+
         public class User : IUser
         {
-            public User(int id, string username, string firstName, string surname, string email, string roles,int UserTypeId)
+            public User(int id, string username, string firstName, string surname, string email, string roles, int UserTypeId)
             {
                 this.id = id;
                 this.username = username;
@@ -29,7 +24,7 @@ namespace CF.Web.Security
                 this.email = email;
                 this.roles = roles;
                 this.UserTypeId = UserTypeId;
-                
+
             }
 
             int id;
@@ -69,8 +64,8 @@ namespace CF.Web.Security
 
             public string Roles
             {
-                get{ return roles; }
-                set{ roles = value; }
+                get { return roles; }
+                set { roles = value; }
             }
             public int UserTypeId { get; set; }
             #endregion

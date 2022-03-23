@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using BusinessLogicLayer;
+using System;
 using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
 using System.Timers;
-using BusinessLogicLayer;
-using EntityLayer;
 
 namespace WinService1
 {

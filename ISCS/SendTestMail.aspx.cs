@@ -1,10 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Xml;
+﻿using BusinessLogicLayer;
+using System;
 using System.Configuration;
-using System.Text;
-using System.Web;
-using BusinessLogicLayer;
 
 namespace ISCS
 {
@@ -13,18 +9,18 @@ namespace ISCS
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           
+
         }
 
-      
+
         protected void btnSendMail_Click(object sender, EventArgs e)
         {
-            string from,to,subject,body;
-            from = ConfigurationSettings.AppSettings["AdminEmail"].Trim();
+            string from, to, subject, body;
+            from = ConfigurationManager.AppSettings["AdminEmail"].Trim();
             to = txtMailTo.Text.Trim();
             subject = txtMailSub.Text.Trim();
             body = txtMailBody.Text.Trim();
-            int i=CommonBL.sendMailInHtmlFormat(from, to, subject, body);
+            int i = CommonBL.sendMailInHtmlFormat(from, to, subject, body);
             if (i == 1)
             {
                 lblMsg.ForeColor = System.Drawing.Color.Green;

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Data;
-using DataAccessLayer;
+﻿using DataAccessLayer;
 using EntityLayer;
+using System;
+using System.Data;
 
 namespace BusinessLogicLayer
 {
@@ -66,7 +66,7 @@ namespace BusinessLogicLayer
             return ds;
         }
 
-        public static DataSet FetchAllWarehouseShipmentItemsByLocation(string strSearchKey, string strSearchCol, int _UserCode, int _AccountCodeId,int _WarehouseShipFromLocationId)
+        public static DataSet FetchAllWarehouseShipmentItemsByLocation(string strSearchKey, string strSearchCol, int _UserCode, int _AccountCodeId, int _WarehouseShipFromLocationId)
         {
             DataSet ds;
             ProcedureExecute proc = new ProcedureExecute("sp_tblWarehouseShipmentItems");
@@ -112,12 +112,12 @@ namespace BusinessLogicLayer
             ProcedureExecute proc = new ProcedureExecute("sp_tblWarehouseShipmentItems");
             proc.AddVarcharPara("@Mode", 30, "update");
             proc.AddIntegerPara("@InventoryId", objEl.InventoryId);
-            proc.AddNVarcharPara("@PartNumber_WI",50, objEl.PartNumber_WI);
+            proc.AddNVarcharPara("@PartNumber_WI", 50, objEl.PartNumber_WI);
             proc.AddNVarcharPara("@LotNumber_WI", 100, objEl.LotNumber_WI);
             proc.AddNVarcharPara("@Description_WI", 300, objEl.Description_WI);
             proc.AddNVarcharPara("@PackageType_WI", 100, objEl.PackageType_WI);
             proc.AddIntegerPara("@OnHandQuantity", objEl.OnHandQuantity);
-            proc.AddIntegerPara("@PendingPickQuantity",objEl.PendingPickQuantity);           
+            proc.AddIntegerPara("@PendingPickQuantity", objEl.PendingPickQuantity);
             try
             {
                 i = proc.RunActionQuery();
@@ -158,7 +158,7 @@ namespace BusinessLogicLayer
                 objEl.SkidId_SI = Convert.ToInt32(proc.GetParaValue("@NewSkidId"));
             }
             catch (Exception ex)
-            { 
+            {
             }
             if (i > 0)
             {
@@ -174,9 +174,9 @@ namespace BusinessLogicLayer
             ProcedureExecute proc = new ProcedureExecute("spAdminAddPickedItemsFromWarehouseUpdate");
             proc.AddIntegerPara("@PickupRequestId", objEl.PickupRequestId);
             proc.AddIntegerPara("@SkidID", objEl.SkidId_WI);
-            proc.AddIntegerPara("@UserId", objEl.AdminUserId);            
+            proc.AddIntegerPara("@UserId", objEl.AdminUserId);
             proc.AddIntegerPara("@InventoryID", objEl.InventoryId);
-            proc.AddIntegerPara("@Quantity", objEl.QtyAdded);            
+            proc.AddIntegerPara("@Quantity", objEl.QtyAdded);
             try
             {
                 i = proc.RunActionQuery();
@@ -200,7 +200,7 @@ namespace BusinessLogicLayer
             ProcedureExecute proc = new ProcedureExecute("spAdminAddEntireSkidFromWarehouse");
             proc.AddIntegerPara("@SkidID", objEl.SkidId_WI);
             proc.AddIntegerPara("@UserId", objEl.AdminUserId);
-            proc.AddIntegerPara("@PickupRequestType", objEl.PickupRequestType);           
+            proc.AddIntegerPara("@PickupRequestType", objEl.PickupRequestType);
             proc.AddIntegerPara("@NewRequestid", 0, QueryParameterDirection.Output);
             proc.AddIntegerPara("@NewSkidId", 0, QueryParameterDirection.Output);
             try
@@ -227,7 +227,7 @@ namespace BusinessLogicLayer
             proc.AddIntegerPara("@PickupRequestId", objEl.PickupRequestId);
             proc.AddIntegerPara("@SkidID", objEl.SkidId_SI);
             proc.AddIntegerPara("@UserId", objEl.AdminUserId);
-            proc.AddIntegerPara("@ExistingSkidId", objEl.SkidId_WI);            
+            proc.AddIntegerPara("@ExistingSkidId", objEl.SkidId_WI);
             try
             {
                 i = proc.RunActionQuery();

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using EntityLayer;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
-using EntityLayer;
 
 namespace ISCS.Admin
 {
@@ -24,7 +24,7 @@ namespace ISCS.Admin
             {
                 btnAdd.Text = "Update";
             }
-            
+
         }
         protected void BindValues()
         {
@@ -43,7 +43,7 @@ namespace ISCS.Admin
             txtContactName.Text = dtCarrier.Rows[0]["ContactName"].ToString().Trim();
             txtContactPhone.Text = dtCarrier.Rows[0]["ContactPhone"].ToString().Trim();
             txtContactFax.Text = dtCarrier.Rows[0]["ContactFax"].ToString().Trim();
-            txtEmail.Text = dtCarrier.Rows[0]["ContactEmail"].ToString().Trim();            
+            txtEmail.Text = dtCarrier.Rows[0]["ContactEmail"].ToString().Trim();
         }
 
         protected void BindDrpState()
@@ -116,7 +116,7 @@ namespace ISCS.Admin
             {
                 Response.Redirect(ResolveUrl("~/SecureLogin.aspx"));
             }
-            
+
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS
 {
@@ -140,7 +140,7 @@ namespace ISCS
                     ViewState["SortOrder"] = "ContactEmail desc";
                 }
                 BindGrid();
-            }           
+            }
         }
 
         protected void gridWHLocation_RowDataBound(object sender, GridViewRowEventArgs e)

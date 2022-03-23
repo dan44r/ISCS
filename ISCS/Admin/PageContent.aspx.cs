@@ -9,24 +9,24 @@ namespace ISCS.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {                
+            {
                 if (Request.QueryString["id"] != null)
                 {
                     BindContent(Convert.ToInt32(Request.QueryString["id"]));
                 }
-            }          
-        } 
+            }
+        }
 
         protected void BindContent(int pageId)
-        {            
-            EntityLayer.PageCms objEl =  BusinessLogicLayer.IscsCms.FetchSingleContent(pageId);
-            FCKeditor1.Value= objEl.PageContent;
+        {
+            EntityLayer.PageCms objEl = BusinessLogicLayer.IscsCms.FetchSingleContent(pageId);
+            FCKeditor1.Value = objEl.PageContent;
             txtPageTitle.Text = objEl.PageTitle;
             txtareaMetaKeywords.Value = objEl.MetaKey;
             txtareaMetaDescription.Value = objEl.MetaDescription;
             lblPages.Text = objEl.PageName;
         }
-        
+
         private void GetImages()
         {
             StringBuilder objNewBS = new StringBuilder();
@@ -43,16 +43,16 @@ namespace ISCS.Admin
             DirectoryInfo objinfo = new DirectoryInfo(Server.MapPath("ContentImage"));
             string strCpath = "";
             strCpath = System.Configuration.ConfigurationSettings.AppSettings["cpath"];
-            FileInfo[] allFiles = objinfo.GetFiles("*.*");            
+            FileInfo[] allFiles = objinfo.GetFiles("*.*");
             objBS.Append("var tinyMCEImageList = new Array(");
             Int64 i = allFiles.LongLength;
             foreach (FileInfo fi in allFiles)
-            {                
-                objBS.Append("['" + fi.Name + "','" + strCpath + "ContentImage/" + fi.Name + "']");                
+            {
+                objBS.Append("['" + fi.Name + "','" + strCpath + "ContentImage/" + fi.Name + "']");
                 if ((i > 1))
                 {
                     objBS.Append(",");
-                }                
+                }
                 i = i - 1;
             }
             objBS.Append(");");

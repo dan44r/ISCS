@@ -8,7 +8,7 @@ namespace ISCS
         {
             System.Drawing.Bitmap objBmp = new System.Drawing.Bitmap(90, 25);
             System.Drawing.Graphics objGraphics = System.Drawing.Graphics.FromImage(objBmp);
-           
+
             objGraphics.Clear(System.Drawing.Color.DimGray);
             objGraphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 

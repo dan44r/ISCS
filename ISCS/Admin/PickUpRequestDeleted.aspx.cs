@@ -1,15 +1,15 @@
-﻿using System;
+﻿using BusinessLogicLayer;
+using System;
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 
 namespace ISCS.Admin
 {
     public partial class PickUpRequestDeleted : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
             if (!IsPostBack)
             {
                 ViewState["SearchKey"] = "";
@@ -35,12 +35,12 @@ namespace ISCS.Admin
             {
                 ds = PickupRequestBL.FetchAllPickupRequest("alldeleted");
             }
-            
+
             DataView dv = new DataView();
             dv.Table = ds.Tables[0];
             dv.Sort = ViewState["SortOrder"].ToString();
             gridDeleted.DataSource = dv;
-            gridDeleted.DataBind();          
+            gridDeleted.DataBind();
         }
 
         protected void gridDeleted_PageIndexChanging(object sender, GridViewPageEventArgs e)

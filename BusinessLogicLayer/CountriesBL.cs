@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using DataAccessLayer;
 using System.Data;
-using System.Data.SqlClient;
-using DataAccessLayer;
-using EntityLayer;
 
 namespace BusinessLogicLayer
 {
